@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Friendly</title>
+<meta name="description" content="Meet people. Make friends. Learn together.">
+<meta name="theme-color" content="#F3F7F5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Friendly">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one phone-width app column, scrolling content between a slim header and a bottom tab bar */
+:root{
+  --bg:#F3F7F5; --surface:#FFFFFF; --surface-2:#E7EFEC; --ink:#14302A; --muted:#5A6E69; --line:#D5E1DD;
+  --accent:#2C7866; --accent-ink:#FFFFFF; --accent-soft:#D8EDE6;
+  --sun:#F4C04E; --sun-soft:#FCEFCF; --sun-ink:#5A4410; --on-sun:#2E2304;
+  --rose:#B9483A; --scrim:rgba(8,20,17,.45);
+  --av1:#CFE6F5; --av2:#F7DCCB; --av3:#DCEFD3; --av4:#E7DDF4; --av5:#FBE7B3; --av-ink:#1D2E2A;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#0E1916; --surface:#15231F; --surface-2:#1D2F2A; --ink:#E4EFEB; --muted:#9BB0AA; --line:#2A3E38;
+  --accent:#62C3AA; --accent-ink:#06211B; --accent-soft:#1C3D35;
+  --sun:#F4C04E; --sun-soft:#3A3014; --sun-ink:#F8E2A6; --on-sun:#2E2304;
+  --rose:#F08B79; --scrim:rgba(0,0,0,.6);
+  --av1:#2D4A5E; --av2:#5A3E30; --av3:#34503A; --av4:#45395A; --av5:#5A4A20; --av-ink:#EEF4F2;
+  color-scheme:dark}}
+
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--body);-webkit-font-smoothing:antialiased;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px);box-sizing:border-box}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:8px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+.app{height:100%;max-width:440px;margin:0 auto;display:flex;flex-direction:column;background:var(--bg);position:relative;overflow:hidden}
+@media (min-width:520px){.app{border-inline:1px solid var(--line)}}
+.top{display:flex;align-items:center;gap:10px;padding:14px 16px 8px;min-height:58px}
+.top h1{font:700 24px/1.15 var(--display);margin:0;flex:1;min-width:0;letter-spacing:-.01em}
+.icon-btn{width:40px;height:40px;border-radius:12px;border:0;background:var(--surface-2);display:grid;place-items:center;flex:none}
+.icon-btn svg{width:20px;height:20px}
+.pill{border:0;font:700 10.5px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:var(--sun-soft);color:var(--sun-ink);flex:none}
+.scroll{flex:1;overflow-y:auto;overflow-x:hidden;padding:4px 16px 28px;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;gap:18px}
+
+.nav{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);background:var(--surface);padding:6px 4px}
+.nav button{background:none;border:0;display:grid;justify-items:center;gap:2px;padding:6px 0;color:var(--muted);font:600 11.5px var(--body)}
+.nav svg{width:24px;height:24px}
+.nav button[aria-current="page"]{color:var(--accent)}
+
+h2{font:700 18px/1.2 var(--display);margin:0;letter-spacing:-.005em;text-wrap:balance}
+.lbl{font:700 11.5px/1 var(--body);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.muted{color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.wrap{display:flex;flex-wrap:wrap;gap:8px}
+.hscroll{display:flex;gap:8px;overflow-x:auto;margin-inline:-16px;padding:2px 16px 4px;scrollbar-width:none}
+.hscroll::-webkit-scrollbar{display:none}
+.hscroll .chip{flex:none}
+
+.chip{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 14px/1.2 var(--body)}
+.chip svg{width:14px;height:14px}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent)}
+.chip.sm{padding:4px 10px;font-size:13px;border-color:transparent;background:var(--surface-2)}
+.chip.sm.shared{background:var(--accent-soft);font-weight:600}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:14px;border:0;font:600 16px var(--body);text-decoration:none}
+.btn svg{width:18px;height:18px}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:var(--surface-2);color:var(--ink)}
+.btn.sun{background:var(--sun);color:var(--on-sun)}
+.btn.line{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.danger{background:transparent;color:var(--rose);border:1px solid var(--line)}
+.btn.link{background:none;min-height:40px;padding:0 4px;color:var(--accent);font-size:15px}
+.btn.sm{min-height:38px;padding:0 14px;font-size:14px;border-radius:12px}
+.btn.block{width:100%}
+.btn:disabled{opacity:.45;cursor:default}
+
+.av{--s:48px;width:var(--s);height:var(--s);border-radius:50%;display:grid;place-items:center;font:700 calc(var(--s)*.42)/1 var(--display);color:var(--av-ink);flex:none}
+.av1{background:var(--av1)}.av2{background:var(--av2)}.av3{background:var(--av3)}.av4{background:var(--av4)}.av5{background:var(--av5)}
+
+.meter{display:inline-flex;gap:3px;align-items:flex-end;height:14px}
+.meter i{width:5px;border-radius:2px;background:var(--line)}
+.meter i:nth-child(1){height:5px}.meter i:nth-child(2){height:7px}.meter i:nth-child(3){height:9px}.meter i:nth-child(4){height:11px}.meter i:nth-child(5){height:14px}
+.meter i.on{background:var(--accent)}
+.lvl{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600}
+
+.welcome{flex:1;overflow-y:auto;padding:28px 16px 24px;display:flex;flex-direction:column;gap:26px}
+.mark{display:flex;align-items:center;gap:12px}
+.mark svg{width:52px;height:52px}
+.word{font:800 46px/1 var(--display);letter-spacing:-.03em;margin:0}
+.tagline{font:600 22px/1.3 var(--display);margin:0;max-width:16ch;text-wrap:balance}
+.hellos{display:flex;flex-wrap:wrap;gap:8px}
+.hello{padding:9px 14px;border-radius:18px 18px 18px 4px;background:var(--surface);border:1px solid var(--line);font-weight:600}
+.hello:nth-child(3n+2){background:var(--accent-soft);border-color:transparent}
+.hello:nth-child(4n+3){background:var(--sun-soft);border-color:transparent;color:var(--sun-ink)}
+.note{font-size:13px;color:var(--muted);margin:0}
+
+.field{display:flex;flex-direction:column;gap:8px}
+.inp{width:100%;min-height:48px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);padding:0 14px;font:16px var(--body)}
+textarea.inp{padding:12px 14px;min-height:96px;resize:vertical;line-height:1.45}
+.inp:focus{outline:2px solid var(--accent);outline-offset:0;border-color:transparent}
+.two{display:grid;grid-template-columns:1fr 1.6fr;gap:12px}
+.err{color:var(--rose);font-size:13px;font-weight:600}
+.msg{padding:12px 14px;border-radius:14px;font-size:14px}
+.msg.bad{background:var(--surface);border:1px solid var(--rose);color:var(--ink)}
+.msg.ok{background:var(--accent-soft);color:var(--ink)}
+.progress{display:flex;gap:6px}
+.progress i{height:5px;flex:1;border-radius:3px;background:var(--line)}
+.progress i.on{background:var(--accent)}
+.lvl-list{display:flex;flex-direction:column;gap:8px}
+.lvl-opt{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.lvl-opt[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.lvl-opt b{display:block;font-size:15px}
+.lvl-opt span.d{display:block;font-size:13px;color:var(--muted)}
+.footer-bar{padding:12px 16px 14px;border-top:1px solid var(--line);background:var(--bg);display:flex;gap:10px}
+.footer-bar .btn{flex:1}
+
+.hi{font:700 26px/1.15 var(--display);margin:0;letter-spacing:-.01em}
+.prompt{background:var(--sun-soft);border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:10px;color:var(--sun-ink)}
+.prompt .q{font:700 19px/1.3 var(--display);color:var(--ink);margin:0;text-wrap:balance}
+.tgl{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:500;font-size:14px}
+.tgl .tr{width:30px;height:18px;border-radius:9px;background:var(--line);position:relative;transition:background .15s}
+.tgl .tr::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--surface);transition:transform .15s}
+.tgl[aria-pressed="true"] .tr{background:var(--accent)}
+.tgl[aria-pressed="true"] .tr::after{transform:translateX(12px)}
+select.inp{min-height:36px;width:auto;border-radius:999px;font-size:14px;padding:0 12px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.pcard .head{display:flex;gap:12px;align-items:center;background:none;border:0;padding:0;text-align:left;width:100%}
+.pcard .who{flex:1;min-width:0}
+.pcard .name{font:700 18px/1.2 var(--display)}
+.pcard .meta{font-size:13px;color:var(--muted)}
+.count{font-size:13px;color:var(--muted)}
+.empty{padding:28px 16px;text-align:center;border:1px dashed var(--line);border-radius:20px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.copybox{display:flex;gap:8px;width:100%}
+.copybox input{flex:1;min-width:0;font-size:13px;min-height:38px}
+
+.hero{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding-top:4px}
+.hero .name{font:800 30px/1.1 var(--display);letter-spacing:-.02em;margin:0}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.facts div{background:var(--surface);padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.facts b{font-size:15px;font-weight:600}
+.intro{font-size:16px;line-height:1.55;margin:0;white-space:pre-line;overflow-wrap:anywhere}
+.status{font-size:14px;color:var(--muted);text-align:center;margin:0}
+
+.seg{display:flex;background:var(--surface-2);border-radius:12px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:transparent;padding:8px 6px;border-radius:9px;font:600 14px var(--body);color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.tlist{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.trow{display:flex;align-items:center;gap:12px;padding:14px 2px;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;width:100%}
+.trow .t{flex:1;min-width:0}
+.trow b{display:block;font:700 16px/1.25 var(--display)}
+.trow span{font-size:13px;color:var(--muted)}
+.tag{font:700 10.5px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;padding:5px 8px;border-radius:6px;background:var(--surface-2);color:var(--muted);flex:none}
+.qs{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;font-size:16px}
+.phr{display:flex;flex-direction:column;gap:2px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.phr b{font-weight:700}
+.phr span{font-size:14px;color:var(--muted)}
+
+.scrim{position:absolute;inset:0;background:var(--scrim);display:flex;align-items:flex-end;z-index:20;animation:fade .15s ease}
+.sheet{background:var(--surface);width:100%;border-radius:22px 22px 0 0;padding:20px 16px 22px;display:flex;flex-direction:column;gap:12px;max-height:85%;overflow-y:auto;animation:up .2s ease}
+.sheet h2{font-size:20px}
+.sheet ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+@keyframes fade{from{opacity:0}}
+@keyframes up{from{transform:translateY(24px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:32px;height:32px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--accent);animation:spin .8s linear infinite}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px 16px;text-align:center}
+.toast{position:absolute;left:16px;right:16px;bottom:84px;background:var(--ink);color:var(--bg);padding:12px 14px;border-radius:14px;font-size:14px;font-weight:500;z-index:30;animation:up .2s ease}
+.screen-fade{animation:fade .18s ease}
+</style>
+</head>
+<body>
+<div class="app" id="app"><div class="center"><div class="spinner" role="status" aria-label="Loading"></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+/* ---------- Connection settings ----------
+   These two values are meant to be public. User data is protected by the
+   row level security rules set up in Supabase, not by hiding these. */
+const SUPABASE_URL="https://fsoreologpqearnwczmk.supabase.co";
+const SUPABASE_KEY="sb_publishable_zi_b5Vw8Cop8zUwjKma0ow_8Dj4lPxP";
+
+const LEVELS=["Beginner","Elementary","Intermediate","Upper-Intermediate","Advanced"];
+const LEVEL_DESC=["I know some words and simple phrases.","I can talk about familiar, everyday things.","I can hold a conversation on most daily topics.","I can discuss ideas and opinions fairly easily.","I speak confidently in most situations."];
+const INTERESTS=["Travel","Fitness","Food and cooking","Music","Movies and TV","Gaming","Art","Culture","Study and education","Everyday conversation"];
+const LANGS=["English","Mandarin","Cantonese","Vietnamese","Hindi","Punjabi","Spanish","Portuguese","Arabic","French","Japanese","Korean","Indonesian"];
+const CONNECT=["Text chat","Voice practice","Meet for coffee","Study together","Group activities"];
+
+const TOPICS=[
+ {id:"intro",title:"Introduce yourself",cat:"Everyday",lv:[0,1],qs:["Where are you from, and what is your hometown like?","How long have you lived in Australia?","What do you do: study, work, or both?","What do you like doing on weekends?"],ph:[["Nice to meet you.","A friendly way to start."],["I've been here for six months.","Use “for” with a length of time."],["How about you?","Turns the question back to the other person."]]},
+ {id:"food",title:"Food from home",cat:"Everyday",lv:[0,2],qs:["What dish reminds you most of home?","Can you describe how it tastes?","Where do you buy ingredients here?","What Australian food have you tried?"],ph:[["It's a bit like…","Comparing to something they know."],["You should try it!","A friendly recommendation."],["I'm not a big fan of…","A polite way to say you dislike something."]]},
+ {id:"weekend",title:"Your weekend",cat:"Everyday",lv:[0,2],qs:["What did you do last weekend?","What's the best thing you did this month?","Do you prefer quiet weekends or busy ones?","What are you doing this weekend?"],ph:[["I didn't do much.","Natural answer for a quiet weekend."],["It was heaps of fun.","Australian way to say “very fun”."],["Have you got any plans?","Asking about the future."]]},
+ {id:"transport",title:"Getting around the city",cat:"Everyday",lv:[1,3],qs:["How do you usually get to uni or work?","What surprised you about public transport here?","Have you ever got lost? What happened?","What's your favourite part of the city?"],ph:[["Does this bus go to…?","Checking a route."],["Which stop do I get off at?","Asking where to leave the bus or train."],["It's about a ten-minute walk.","Giving distance as time."]]},
+ {id:"smalltalk",title:"Small talk at work",cat:"Work",lv:[2,4],qs:["How was your weekend? (and how to answer it)","What's a safe topic to chat about at morning tea?","How do you join a conversation that has already started?","How do you end a chat politely?"],ph:[["How's your week going?","Easy opener with anyone at work."],["Anyway, I'd better get back to it.","Polite way to end a chat."],["Sorry, what was that?","Asking someone to repeat."]]},
+ {id:"interview",title:"Job interview practice",cat:"Work",lv:[2,4],qs:["Tell me about yourself.","Why do you want this job?","Tell me about a time you solved a problem.","Do you have any questions for us?"],ph:[["In my last role, I…","Starting an example from experience."],["One thing I'm working on is…","Answering the “weakness” question."],["What does a typical day look like?","A strong question to ask them."]]},
+ {id:"manager",title:"Talking to your manager",cat:"Work",lv:[1,3],qs:["How do you ask to swap a shift?","How do you say you don't understand a task?","How do you ask for feedback?","How do you call in sick?"],ph:[["Would it be possible to…?","A polite request."],["Could you show me how to…?","Asking for help without stress."],["I won't be able to make it today.","Saying you can't come in."]]},
+ {id:"tutorial",title:"Speaking up in tutorials",cat:"Study",lv:[2,4],qs:["How do you share an opinion in a tutorial?","How do you disagree politely with a classmate?","How do you ask the tutor to explain again?","What makes speaking in class hard for you?"],ph:[["I see your point, but…","Disagreeing politely."],["Just to build on that…","Adding to someone's idea."],["Could you go over that again?","Asking for a repeat."]]},
+ {id:"group",title:"Group assignments",cat:"Study",lv:[1,3],qs:["How do you split up tasks fairly?","What do you say when someone isn't doing their part?","How do you suggest a meeting time?","How do you give feedback on a classmate's work?"],ph:[["Shall we split it up?","Suggesting how to divide work."],["Does Thursday arvo suit everyone?","“Arvo” means afternoon."],["Maybe we could…","A soft suggestion."]]},
+ {id:"aussie",title:"Everyday Aussie expressions",cat:"Everyday",lv:[2,4],qs:["Which Australian expression confused you most at first?","Can you use “arvo” and “heaps” in a sentence?","What expressions from your language don't translate well?","When is it OK to use slang, and when isn't it?"],ph:[["No worries.","You're welcome, or it's fine."],["Reckon?","Do you think so?"],["See ya this arvo.","See you this afternoon."]]}
+];
+const DAILY=["Describe a smell that reminds you of home.","What's something small that made you happy this week?","If a friend visited your hometown, where would you take them first?","What's a skill you'd love to learn this year?","What's the best advice someone gave you when you arrived here?","Which song do you play when you need energy?","What's a tradition from your culture you'd like to share?"];
+
+const ICON={
+ back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>',
+ check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>',
+ chev:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>',
+ discover:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>',
+ topics:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11a2 2 0 012 2v6a2 2 0 01-2 2H9l-4 3v-3H4a1 1 0 01-1-1V6a1 1 0 011-1z"/><path d="M19 9h1a1 1 0 011 1v8l-3-2h-5"/></svg>',
+ friends:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.5 3.3-5.5 6.5-5.5s5.9 2 6.5 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M17 14.5c2.4 0 4.2 1.6 4.6 4.5"/></svg>',
+ me:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="4"/><path d="M4 20.5c.8-4 4-6 8-6s7.2 2 8 6"/></svg>'
+};
+const MARK='<svg viewBox="0 0 512 512" aria-hidden="true"><defs><clipPath id="fmark"><rect width="512" height="512" rx="115"/></clipPath></defs><g clip-path="url(#fmark)"><rect width="512" height="512" fill="#F4C04E"/><circle cx="326" cy="262" r="58" fill="#14302A"/><path d="M236 512 V430 a90 90 0 0 1 180 0 V512 Z" fill="#14302A"/><circle cx="186" cy="262" r="58" fill="#2C7866"/><path d="M96 512 V430 a90 90 0 0 1 180 0 V512 Z" fill="#2C7866"/><rect x="190" y="90" width="132" height="88" rx="40" fill="#FFFFFF"/><path d="M236 172 L226 206 L266 174 Z" fill="#FFFFFF"/><circle cx="224" cy="134" r="10" fill="#14302A"/><circle cx="256" cy="134" r="10" fill="#14302A"/><circle cx="288" cy="134" r="10" fill="#14302A"/></g></svg>';
+
+const app=document.getElementById("app");
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pressed=b=>b?'aria-pressed="true"':'aria-pressed="false"';
+const appUrl=()=>location.origin+location.pathname;
+
+if(!window.supabase||!window.supabase.createClient){
+  app.innerHTML=`<div class="center"><h2>Friendly couldn't load</h2><p class="muted" style="margin:0">Check your internet connection, then reload the page.</p><button class="btn primary" onclick="location.reload()">Reload</button></div>`;
+  return;
+}
+const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+/* ---------- State ---------- */
+function blankDraft(){return{name:"",age:"",city:"",langs:["English"],level:null,intro:"",connect:[],interests:[]}}
+const S={user:null,me:null,people:[],peopleLoaded:false,route:"loading",stack:[],draft:blankDraft(),editing:false,
+  auth:{mode:"signup",email:"",password:"",msg:null,busy:false},busy:false,errText:"",
+  f:{interests:[],lang:"",city:false,level:false},tf:{mine:true,cat:"All"}};
+let errs={};
+
+function fromRow(r){return{id:r.id,name:r.first_name,age:r.age,city:r.city||"",langs:r.languages||[],level:r.english_level,intro:r.intro||"",connect:r.connect_prefs||[],interests:r.interests||[]}}
+function toRow(d,uid){return{id:uid,first_name:d.name.trim(),age:parseInt(d.age,10),city:d.city.trim()||null,languages:d.langs,english_level:d.level,intro:d.intro.trim()||null,connect_prefs:d.connect,interests:d.interests}}
+function avClass(id){let h=0;for(const c of String(id))h=(h*31+c.charCodeAt(0))>>>0;return"av"+(h%5+1)}
+function avatar(p,size){const s=size||48;const i=(p.name||"?").trim().charAt(0).toUpperCase()||"?";return`<span class="av ${avClass(p.id||p.name)}" style="--s:${s}px" aria-hidden="true">${esc(i)}</span>`}
+function meter(lv){if(lv==null)return"";return`<span class="lvl"><span class="meter" aria-hidden="true">${[0,1,2,3,4].map(i=>`<i class="${i<=lv?"on":""}"></i>`).join("")}</span>${LEVELS[lv]}</span>`}
+function shared(p){return S.me?p.interests.filter(i=>S.me.interests.includes(i)):[]}
+const person=id=>S.people.find(p=>p.id===id);
+
+/* ---------- Navigation ---------- */
+function go(r){S.stack.push(S.route);S.route=r;render(true)}
+function back(){S.route=S.stack.pop()||"tab:discover";render(true)}
+function tab(t){S.stack=[];S.route="tab:"+t;render(true)}
+
+let toastT;
+function toast(msg){document.querySelectorAll(".toast").forEach(t=>t.remove());const t=document.createElement("div");t.className="toast";t.setAttribute("role","status");t.textContent=msg;app.appendChild(t);clearTimeout(toastT);toastT=setTimeout(()=>t.remove(),3600)}
+function sheet(html){closeSheet();const s=document.createElement("div");s.className="scrim";s.dataset.a="scrim";s.innerHTML=`<div class="sheet" role="dialog" aria-modal="true">${html}</div>`;app.appendChild(s);const f=s.querySelector("button");f&&f.focus()}
+function closeSheet(){document.querySelectorAll(".scrim").forEach(s=>s.remove())}
+
+function header(title,opts){opts=opts||{};return`<header class="top">${opts.back?`<button class="icon-btn" data-a="back" aria-label="Back">${ICON.back}</button>`:""}<h1>${title}</h1>${opts.right||""}<button class="pill" data-a="about">Test version</button></header>`}
+function nav(active){const items=[["discover","Discover"],["topics","Topics"],["friends","Friends"],["me","Me"]];return`<nav class="nav" aria-label="Main">${items.map(([k,l])=>`<button data-a="tab" data-v="${k}" ${active===k?'aria-current="page"':""}>${ICON[k]}<span>${l}</span></button>`).join("")}</nav>`}
+
+/* ---------- Auth & data ---------- */
+async function onSession(session){
+  const uid=session&&session.user?session.user.id:null;
+  if(!uid){S.user=null;S.me=null;S.people=[];S.peopleLoaded=false;S.stack=[];if(S.route!=="checkemail")S.route="welcome";render(true);return}
+  if(S.user&&S.user.id===uid&&S.me)return;
+  S.user=session.user;S.route="loading";render(true);
+  const {data,error}=await sb.from("profiles").select("*").eq("id",uid).maybeSingle();
+  if(error){showError("We couldn't load your profile. "+error.message);return}
+  S.stack=[];
+  if(!data){S.me=null;S.draft=blankDraft();S.editing=false;errs={};S.route="setup1";render(true);return}
+  S.me=fromRow(data);S.route="tab:discover";render(true);loadPeople();
+}
+async function loadPeople(){
+  if(!S.user)return;
+  const {data,error}=await sb.from("profiles").select("*").neq("id",S.user.id).order("created_at",{ascending:false}).limit(200);
+  if(error){toast("Couldn't load people. Pull down or reopen the app to try again.");return}
+  S.people=(data||[]).map(fromRow);S.peopleLoaded=true;
+  if(S.route.startsWith("tab:discover")||S.route.startsWith("person:"))render();
+}
+function showError(t){S.errText=t;S.route="error";render(true)}
+function friendlyAuthError(e){
+  const m=(e&&e.message||"").toLowerCase();
+  if(m.includes("invalid login"))return"That email and password don't match. Check them and try again.";
+  if(m.includes("email not confirmed"))return"Please confirm your email first. Open the email from Friendly and tap the link.";
+  if(m.includes("rate limit")||m.includes("too many"))return"Too many attempts. Wait a few minutes and try again.";
+  if(m.includes("password")&&m.includes("least"))return"Use a password with at least 8 characters.";
+  if(m.includes("valid email")||m.includes("invalid email"))return"Enter a valid email address.";
+  return(e&&e.message)||"Something went wrong. Try again.";
+}
+
+/* ---------- Render ---------- */
+function render(top){
+  const prev=app.querySelector(".scroll,.welcome");const y=prev&&!top?prev.scrollTop:0;
+  const keepToast=app.querySelector(".toast");
+  let [kind,arg]=S.route.split(":");
+  const open=["loading","error","welcome","auth","checkemail","newpass"];
+  if(!S.user&&!open.includes(kind)){S.route="welcome";kind="welcome"}
+  if(S.user&&!S.me&&!["setup1","setup2","loading","error","newpass"].includes(kind)){S.route="setup1";kind="setup1"}
+  let html="";
+  if(kind==="loading")html=`<div class="center"><div class="spinner" role="status" aria-label="Loading"></div></div>`;
+  else if(kind==="error")html=`<div class="center"><h2>Something went wrong</h2><p class="muted" style="margin:0">${esc(S.errText)}</p><button class="btn primary" data-a="reload">Try again</button></div>`;
+  else if(kind==="welcome")html=vWelcome();
+  else if(kind==="auth")html=vAuth();
+  else if(kind==="checkemail")html=vCheckEmail();
+  else if(kind==="newpass")html=vNewPass();
+  else if(kind==="setup1")html=vSetup1();
+  else if(kind==="setup2")html=vSetup2();
+  else if(kind==="person")html=vPerson(arg);
+  else if(kind==="topic")html=vTopic(arg);
+  else if(kind==="tab"){html=({discover:vDiscover,topics:vTopics,friends:vFriends,me:vMe}[arg]||vDiscover)();html+=nav(arg)}
+  app.innerHTML=html;
+  if(keepToast)app.appendChild(keepToast);
+  const sc=app.querySelector(".scroll,.welcome");if(sc){sc.scrollTop=y;if(top)sc.classList.add("screen-fade")}
+}
+
+/* ---------- Views ---------- */
+function vWelcome(){
+ const hellos=["Hello","Xin chào","Hola","你好","नमस्ते","مرحبا","Olá","こんにちは","G'day"];
+ return`<div class="welcome">
+  <div class="row" style="justify-content:space-between"><div class="mark">${MARK}<p class="word">Friendly</p></div><button class="pill" data-a="about">Test version</button></div>
+  <p class="tagline">Meet people. Make friends. Learn together.</p>
+  <div class="hellos" aria-label="Hello in different languages">${hellos.map(h=>`<span class="hello">${h}</span>`).join("")}</div>
+  <p class="muted" style="margin:0;font-size:16px;max-width:34ch">Find friends who share your interests, and practise English with people who understand what it's like to be new.</p>
+  <div class="stack" style="margin-top:auto">
+   <button class="btn primary block" data-a="toauth" data-v="signup">Create an account</button>
+   <button class="btn ghost block" data-a="toauth" data-v="login">Log in</button>
+   <p class="note" style="text-align:center">Friendly is for adults 18 and over. It's for friendship, not dating.</p>
+  </div>
+ </div>`}
+
+function vAuth(){
+ const a=S.auth,su=a.mode==="signup";
+ return`${header(su?"Create account":"Log in",{back:true})}
+ <form class="scroll" id="authform" novalidate>
+  ${a.msg?`<div class="msg ${a.msg.ok?"ok":"bad"}" role="alert">${esc(a.msg.text)}</div>`:""}
+  <div class="field"><label class="lbl" for="a-email">Email</label><input class="inp" id="a-email" data-af="email" type="email" autocomplete="email" inputmode="email" value="${esc(a.email)}" required></div>
+  <div class="field"><label class="lbl" for="a-pass">Password</label><input class="inp" id="a-pass" data-af="password" type="password" autocomplete="${su?"new-password":"current-password"}" value="${esc(a.password)}" minlength="8" required>${su?`<span class="count">At least 8 characters.</span>`:""}</div>
+  <button class="btn primary block" type="submit" ${a.busy?"disabled":""}>${a.busy?"Please wait…":su?"Create account":"Log in"}</button>
+  ${su?`<p class="note">By creating an account you confirm you're 18 or older. We'll email you a link to confirm your address.</p>`:`<button class="btn link" type="button" data-a="forgot" style="align-self:flex-start">Forgot password?</button>`}
+  <div class="row" style="justify-content:center;gap:4px"><span class="muted">${su?"Already have an account?":"New to Friendly?"}</span><button class="btn link" type="button" data-a="toauth" data-v="${su?"login":"signup"}">${su?"Log in":"Create an account"}</button></div>
+ </form>`}
+
+function vCheckEmail(){
+ return`<div class="center">
+  <div class="mark">${MARK}</div>
+  <h2>Check your email</h2>
+  <p class="muted" style="margin:0;max-width:32ch">We sent a confirmation link to <b>${esc(S.auth.email)}</b>. Open it on this device to finish signing up. It can take a minute, and may land in junk mail.</p>
+  <p class="note" style="max-width:32ch">If you already have an account with this email, log in instead.</p>
+  <button class="btn ghost" data-a="toauth" data-v="login">Go to log in</button>
+ </div>`}
+
+function vNewPass(){
+ const a=S.auth;
+ return`<header class="top"><h1>New password</h1></header>
+ <form class="scroll" id="passform" novalidate>
+  ${a.msg?`<div class="msg ${a.msg.ok?"ok":"bad"}" role="alert">${esc(a.msg.text)}</div>`:""}
+  <div class="field"><label class="lbl" for="n-pass">Choose a new password</label><input class="inp" id="n-pass" data-af="password" type="password" autocomplete="new-password" minlength="8" value="${esc(a.password)}"><span class="count">At least 8 characters.</span></div>
+  <button class="btn primary block" type="submit" ${a.busy?"disabled":""}>${a.busy?"Saving…":"Save password"}</button>
+ </form>`}
+
+function vSetup1(){
+ const d=S.draft,ed=S.editing;
+ return`${header(ed?"Edit profile":"About you",{back:ed,right:ed?"":`<button class="btn link" data-a="signout">Log out</button>`})}
+ <div class="scroll">
+  <div class="stack"><div class="progress"><i class="on"></i><i></i></div><span class="count">Step 1 of 2</span></div>
+  <div class="two">
+   <div class="field"><label class="lbl" for="f-name">First name</label><input class="inp" id="f-name" data-f="name" value="${esc(d.name)}" autocomplete="given-name" maxlength="30"></div>
+   <div class="field"><label class="lbl" for="f-city">City</label><input class="inp" id="f-city" data-f="city" value="${esc(d.city)}" placeholder="e.g. Perth" maxlength="40"></div>
+  </div>
+  ${errs.name?`<span class="err">${errs.name}</span>`:""}
+  <div class="field" style="max-width:140px"><label class="lbl" for="f-age">Age (18+)</label><input class="inp" id="f-age" data-f="age" value="${esc(d.age)}" inputmode="numeric" maxlength="3"></div>
+  ${errs.age?`<span class="err">${errs.age}</span>`:""}
+  <div class="field"><span class="lbl">Your English level</span>
+   <div class="lvl-list">${LEVELS.map((l,i)=>`<button class="lvl-opt" data-a="level" data-v="${i}" ${pressed(d.level===i)}>${meter(i).replace(LEVELS[i],"")}<span><b>${l}</b><span class="d">${LEVEL_DESC[i]}</span></span></button>`).join("")}</div>
+   ${errs.level?`<span class="err">${errs.level}</span>`:""}</div>
+  <div class="field"><span class="lbl">Languages you speak</span>
+   <div class="wrap">${LANGS.map(l=>`<button class="chip" data-a="lang" data-v="${l}" ${pressed(d.langs.includes(l))}>${d.langs.includes(l)?ICON.check:""}${l}</button>`).join("")}</div>
+   ${errs.langs?`<span class="err">${errs.langs}</span>`:""}</div>
+  <div class="field"><label class="lbl" for="f-intro">A short intro</label><textarea class="inp" id="f-intro" data-f="intro" maxlength="200" placeholder="What do you study or do? What kind of friends are you hoping to meet?">${esc(d.intro)}</textarea></div>
+  <div class="field"><span class="lbl">How you like to connect</span>
+   <div class="wrap">${CONNECT.map(c=>`<button class="chip" data-a="conn" data-v="${c}" ${pressed(d.connect.includes(c))}>${d.connect.includes(c)?ICON.check:""}${c}</button>`).join("")}</div></div>
+  <p class="note">Other members can see everything on your profile except your email.</p>
+ </div>
+ <div class="footer-bar"><button class="btn primary" data-a="next1">Next: interests</button></div>`}
+
+function vSetup2(){
+ const d=S.draft,n=d.interests.length;
+ return`${header("Your interests",{back:true})}
+ <div class="scroll">
+  <div class="stack"><div class="progress"><i class="on"></i><i class="on"></i></div><span class="count">Step 2 of 2</span></div>
+  <p style="margin:0;font-size:16px">Pick at least three. We'll use them to show you people with things in common.</p>
+  <div class="wrap">${INTERESTS.map(i=>`<button class="chip" data-a="int" data-v="${i}" ${pressed(d.interests.includes(i))}>${d.interests.includes(i)?ICON.check:""}${i}</button>`).join("")}</div>
+  <span class="count" aria-live="polite">${n} selected${n<3?` · ${3-n} more to go`:""}</span>
+ </div>
+ <div class="footer-bar"><button class="btn primary" data-a="finish" ${n<3||S.busy?"disabled":""}>${S.busy?"Saving…":S.editing?"Save changes":"Start meeting people"}</button></div>`}
+
+function filtered(){
+ const f=S.f,me=S.me;
+ return S.people
+  .filter(p=>!f.interests.length||p.interests.some(i=>f.interests.includes(i)))
+  .filter(p=>!f.lang||p.langs.includes(f.lang))
+  .filter(p=>!f.city||(me.city&&p.city.toLowerCase()===me.city.trim().toLowerCase()))
+  .filter(p=>!f.level||me.level==null||p.level==null||Math.abs(p.level-me.level)<=1)
+  .sort((a,b)=>shared(b).length-shared(a).length);
+}
+function inviteBox(){return`<div class="copybox"><input class="inp" id="invite-url" readonly value="${esc(appUrl())}" aria-label="Friendly link"><button class="btn primary sm" data-a="copylink">Copy</button></div>`}
+
+function vDiscover(){
+ const me=S.me,f=S.f,list=filtered();
+ const langs=[...new Set(S.people.flatMap(p=>p.langs))].sort();
+ const daily=DAILY[Math.floor(Date.now()/864e5)%DAILY.length];
+ let body;
+ if(!S.peopleLoaded)body=`<div class="center" style="padding:32px 0"><div class="spinner" role="status" aria-label="Loading people"></div></div>`;
+ else if(!S.people.length)body=`<div class="empty"><h2>You're one of the first here</h2><p class="muted" style="margin:0">No one else has joined yet. Send this link to a friend you trust so you can test Friendly together.</p>${inviteBox()}</div>`;
+ else if(!list.length)body=`<div class="empty"><h2>No one matches all of these</h2><p class="muted" style="margin:0">Try removing a filter.</p><button class="btn ghost sm" data-a="fclear">Clear filters</button></div>`;
+ else body=list.map(p=>{const sh=shared(p),rest=p.interests.filter(i=>!sh.includes(i));return`
+  <article class="pcard">
+   <button class="head" data-a="open" data-v="${esc(p.id)}">${avatar(p,52)}
+    <span class="who"><span class="name">${esc(p.name)}, ${esc(p.age)}</span><br><span class="meta">${p.city?esc(p.city)+" · ":""}Speaks ${esc(p.langs.join(", "))}</span></span>${ICON.chev}</button>
+   <div class="row" style="justify-content:space-between">${meter(p.level)}${sh.length?`<span class="count">${sh.length} shared interest${sh.length>1?"s":""}</span>`:""}</div>
+   <div class="wrap">${sh.map(i=>`<span class="chip sm shared">${esc(i)}</span>`).join("")}${rest.map(i=>`<span class="chip sm">${esc(i)}</span>`).join("")}</div>
+   <button class="btn line sm" data-a="open" data-v="${esc(p.id)}">View profile</button>
+  </article>`}).join("");
+ return`${header("Discover")}
+ <div class="scroll">
+  <p class="hi">Hi ${esc(me.name)}, here's who you might click with.</p>
+  <div class="prompt"><span class="lbl" style="color:var(--sun-ink)">Today's conversation starter</span><p class="q">${esc(daily)}</p></div>
+  ${S.people.length?`<div class="stack">
+   <span class="lbl">Interests</span>
+   <div class="hscroll">${INTERESTS.map(i=>`<button class="chip" data-a="fint" data-v="${i}" ${pressed(f.interests.includes(i))}>${f.interests.includes(i)?ICON.check:""}${i}</button>`).join("")}</div>
+   <div class="row">
+    <select class="inp" id="f-lang" aria-label="Language"><option value="">Any language</option>${langs.map(l=>`<option ${f.lang===l?"selected":""}>${esc(l)}</option>`).join("")}</select>
+    <button class="tgl" data-a="fcity" ${pressed(f.city)}><span class="tr"></span>In ${esc(me.city||"my city")}</button>
+    <button class="tgl" data-a="flevel" ${pressed(f.level)}><span class="tr"></span>Similar level</button>
+   </div>
+  </div>
+  <span class="count">${list.length} ${list.length===1?"person":"people"}</span>`:""}
+  ${body}
+ </div>`}
+
+function vPerson(id){
+ const p=person(id);if(!p){S.route="tab:discover";return vDiscover()+nav("discover")}
+ const sh=shared(p),rest=p.interests.filter(i=>!sh.includes(i));
+ return`${header("",{back:true})}
+ <div class="scroll">
+  <div class="hero">${avatar(p,96)}<p class="name">${esc(p.name)}</p><span class="muted">${esc(p.age)}${p.city?" · "+esc(p.city):""}</span></div>
+  <button class="btn primary block" disabled>Add friend (coming next update)</button>
+  <div class="facts"><div><span class="lbl">English</span>${p.level!=null?meter(p.level):"<b>Not set</b>"}</div><div><span class="lbl">Speaks</span><b>${esc(p.langs.join(", ")||"Not set")}</b></div></div>
+  ${p.intro?`<div class="stack"><span class="lbl">About</span><p class="intro">${esc(p.intro)}</p></div>`:""}
+  <div class="stack"><span class="lbl">${sh.length?`Interests · ${sh.length} in common`:"Interests"}</span><div class="wrap">${sh.map(i=>`<span class="chip sm shared">${ICON.check}${esc(i)}</span>`).join("")}${rest.map(i=>`<span class="chip sm">${esc(i)}</span>`).join("")}</div></div>
+  ${p.connect.length?`<div class="stack"><span class="lbl">Likes to connect by</span><div class="wrap">${p.connect.map(c=>`<span class="chip sm">${esc(c)}</span>`).join("")}</div></div>`:""}
+ </div>`}
+
+function vTopics(){
+ const me=S.me,t=S.tf;
+ const list=TOPICS.filter(x=>(t.cat==="All"||x.cat===t.cat)&&(!t.mine||me.level==null||(me.level>=x.lv[0]&&me.level<=x.lv[1])));
+ return`${header("Topics")}
+ <div class="scroll">
+  <p style="margin:0;font-size:16px">Conversation starters and useful phrases. Pick one, then find someone to practise with.</p>
+  <div class="seg" role="group" aria-label="Category">${["All","Everyday","Work","Study"].map(c=>`<button data-a="tcat" data-v="${c}" ${pressed(t.cat===c)}>${c}</button>`).join("")}</div>
+  <button class="tgl" data-a="tmine" ${pressed(t.mine)} style="align-self:flex-start"><span class="tr"></span>Suited to my level${me.level!=null?` (${LEVELS[me.level]})`:""}</button>
+  <div class="tlist">${list.length?list.map(x=>`<button class="trow" data-a="topic" data-v="${x.id}"><span class="t"><b>${x.title}</b><span>${LEVELS[x.lv[0]]} to ${LEVELS[x.lv[1]]}</span></span><span class="tag">${x.cat}</span>${ICON.chev}</button>`).join(""):`<div class="empty"><p class="muted" style="margin:0">No topics in this category for your level yet.</p><button class="btn ghost sm" data-a="tall">Show all levels</button></div>`}</div>
+ </div>`}
+
+function vTopic(id){
+ const x=TOPICS.find(t=>t.id===id);if(!x){S.route="tab:topics";return vTopics()+nav("topics")}
+ return`${header("",{back:true})}
+ <div class="scroll">
+  <div class="stack" style="gap:6px"><span class="tag" style="align-self:flex-start">${x.cat}</span><h1 style="font:800 28px/1.15 var(--display);margin:0;letter-spacing:-.015em">${x.title}</h1><span class="muted">${LEVELS[x.lv[0]]} to ${LEVELS[x.lv[1]]}</span></div>
+  <div class="stack"><span class="lbl">Questions to ask each other</span><ul class="qs">${x.qs.map(q=>`<li>${esc(q)}</li>`).join("")}</ul></div>
+  <div class="stack"><span class="lbl">Useful phrases</span>${x.ph.map(([a,b])=>`<div class="phr"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join("")}</div>
+  <button class="btn sun block" data-a="partner">Find a practice partner</button>
+ </div>`}
+
+function vFriends(){
+ return`${header("Friends")}
+ <div class="scroll">
+  <div class="empty"><h2>Friend requests are coming next</h2><p class="muted" style="margin:0">In the next update you'll be able to send, accept and decline friend requests here. For now, browse people on Discover.</p><button class="btn ghost sm" data-a="tab" data-v="discover">Go to Discover</button></div>
+ </div>`}
+
+function vMe(){
+ const me=S.me;
+ return`${header("Me")}
+ <div class="scroll">
+  <div class="hero">${avatar(me,96)}<p class="name">${esc(me.name)}</p><span class="muted">${[me.age,me.city].filter(Boolean).map(esc).join(" · ")}</span></div>
+  <button class="btn line block" data-a="edit">Edit profile</button>
+  <div class="facts"><div><span class="lbl">English</span>${me.level!=null?meter(me.level):"<b>Not set</b>"}</div><div><span class="lbl">Speaks</span><b>${esc(me.langs.join(", ")||"Not set")}</b></div></div>
+  ${me.intro?`<div class="stack"><span class="lbl">About</span><p class="intro">${esc(me.intro)}</p></div>`:""}
+  <div class="stack"><span class="lbl">Interests</span><div class="wrap">${me.interests.map(i=>`<span class="chip sm">${esc(i)}</span>`).join("")}</div></div>
+  ${me.connect.length?`<div class="stack"><span class="lbl">Likes to connect by</span><div class="wrap">${me.connect.map(c=>`<span class="chip sm">${esc(c)}</span>`).join("")}</div></div>`:""}
+  <div class="stack" style="gap:8px"><span class="lbl">Invite a friend</span>${inviteBox()}</div>
+  <div class="stack" style="gap:8px"><span class="lbl">Account</span>
+   <span class="count">Logged in as ${esc(S.user&&S.user.email)}</span>
+   <button class="btn ghost block" data-a="signout">Log out</button>
+   <button class="btn danger block" data-a="askdelete">Delete my profile</button></div>
+ </div>`}
+
+/* ---------- Actions ---------- */
+const toggle=(arr,v)=>{const i=arr.indexOf(v);i<0?arr.push(v):arr.splice(i,1)};
+function readDraft(){app.querySelectorAll("[data-f]").forEach(el=>{S.draft[el.dataset.f]=el.value})}
+function readAuth(){app.querySelectorAll("[data-af]").forEach(el=>{S.auth[el.dataset.af]=el.value})}
+
+async function submitAuth(){
+ readAuth();const a=S.auth;a.msg=null;
+ const email=a.email.trim(),pw=a.password;
+ if(!/^\S+@\S+\.\S+$/.test(email)){a.msg={text:"Enter a valid email address."};render();return}
+ if(pw.length<8){a.msg={text:"Use a password with at least 8 characters."};render();return}
+ a.busy=true;render();
+ try{
+  if(a.mode==="signup"){
+   const {data,error}=await sb.auth.signUp({email,password:pw,options:{emailRedirectTo:appUrl()}});
+   if(error)throw error;
+   a.password="";
+   if(!data.session){S.stack=[];S.route="checkemail";render(true)}
+  }else{
+   const {error}=await sb.auth.signInWithPassword({email,password:pw});
+   if(error)throw error;
+   a.password="";
+  }
+ }catch(e){a.msg={text:friendlyAuthError(e)}}
+ a.busy=false;if(S.route==="auth")render();
+}
+async function submitNewPass(){
+ readAuth();const a=S.auth;a.msg=null;
+ if(a.password.length<8){a.msg={text:"Use a password with at least 8 characters."};render();return}
+ a.busy=true;render();
+ const {error}=await sb.auth.updateUser({password:a.password});
+ a.busy=false;a.password="";
+ if(error){a.msg={text:friendlyAuthError(error)};render();return}
+ toast("Password updated.");S.route="loading";render(true);
+ const {data}=await sb.auth.getSession();S.me=null;S.user=null;onSession(data.session);
+}
+
+const A={
+ back,
+ tab:v=>tab(v),
+ reload:()=>location.reload(),
+ scrim:(v,t,e)=>{if(e.target===t)closeSheet()},
+ close:()=>closeSheet(),
+ about:()=>sheet(`<h2>Friendly test version</h2>
+  <p style="margin:0">This is an early version for a small group of testers.</p>
+  <div class="stack" style="gap:6px"><span class="lbl">Works now</span><ul><li>Creating an account and logging in</li><li>Your profile, saved securely online</li><li>Browsing other members' profiles</li><li>English topics</li></ul></div>
+  <div class="stack" style="gap:6px"><span class="lbl">Coming next</span><ul><li>Friend requests</li><li>Messaging</li><li>Profile photos</li><li>Blocking and reporting</li></ul></div>
+  <p class="note">Only invite people you know while Friendly is in testing.</p>
+  <button class="btn primary block" data-a="close">Got it</button>`),
+ toauth:v=>{S.auth.mode=v;S.auth.msg=null;if(S.route==="auth"){render()}else{S.stack=[];go("auth")}},
+ forgot:async()=>{
+  readAuth();const email=S.auth.email.trim();
+  if(!/^\S+@\S+\.\S+$/.test(email)){S.auth.msg={text:"Type your email above first, then tap Forgot password."};render();return}
+  const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:appUrl()});
+  S.auth.msg=error?{text:friendlyAuthError(error)}:{ok:true,text:"If that email has an account, we've sent a link to reset your password."};render();
+ },
+ signout:async()=>{closeSheet();await sb.auth.signOut();},
+ level:v=>{readDraft();S.draft.level=+v;delete errs.level;render()},
+ lang:v=>{readDraft();toggle(S.draft.langs,v);delete errs.langs;render()},
+ conn:v=>{readDraft();toggle(S.draft.connect,v);render()},
+ int:v=>{toggle(S.draft.interests,v);render()},
+ next1:()=>{readDraft();const d=S.draft;errs={};
+  if(!d.name.trim())errs.name="Add your first name.";
+  const ag=parseInt(d.age,10);
+  if(!String(d.age).trim()||isNaN(ag))errs.age="Add your age.";
+  else if(ag<18)errs.age="Friendly is for adults 18 and over.";
+  else if(ag>110)errs.age="Check your age.";
+  if(d.level==null)errs.level="Choose the level that sounds most like you.";
+  if(!d.langs.length)errs.langs="Pick at least one language.";
+  if(Object.keys(errs).length){render();const e=app.querySelector(".err");e&&e.scrollIntoView({block:"center",behavior:"smooth"});return}
+  go("setup2")},
+ finish:async()=>{
+  const d=S.draft;if(d.interests.length<3||S.busy)return;
+  S.busy=true;render();
+  const {data,error}=await sb.from("profiles").upsert(toRow(d,S.user.id)).select().single();
+  S.busy=false;
+  if(error){render();toast("Couldn't save your profile: "+error.message);return}
+  const was=S.editing;S.me=fromRow(data);S.editing=false;S.stack=[];S.route=was?"tab:me":"tab:discover";render(true);
+  toast(was?"Profile updated.":"Profile saved. Welcome to Friendly!");
+  if(!was)loadPeople();
+ },
+ edit:()=>{const m=S.me;S.draft={name:m.name,age:String(m.age),city:m.city,langs:[...m.langs],level:m.level,intro:m.intro,connect:[...m.connect],interests:[...m.interests]};S.editing=true;errs={};go("setup1")},
+ fint:v=>{toggle(S.f.interests,v);render()},
+ fcity:()=>{S.f.city=!S.f.city;render()},
+ flevel:()=>{S.f.level=!S.f.level;render()},
+ fclear:()=>{S.f={interests:[],lang:"",city:false,level:false};render()},
+ open:v=>go("person:"+v),
+ topic:v=>go("topic:"+v),
+ tcat:v=>{S.tf.cat=v;render()},
+ tmine:()=>{S.tf.mine=!S.tf.mine;render()},
+ tall:()=>{S.tf.mine=false;render()},
+ partner:()=>{S.f={interests:[],lang:"",city:false,level:true};tab("discover");toast("Showing people at a similar English level.")},
+ copylink:async(v,t)=>{const inp=document.getElementById("invite-url");try{await navigator.clipboard.writeText(appUrl());toast("Link copied.")}catch(e){if(inp){inp.focus();inp.select()}toast("Press and hold the link to copy it.")}},
+ askdelete:()=>sheet(`<h2>Delete your profile?</h2><p style="margin:0">Your profile will be removed and no one will see it. You'll be logged out. You can make a new profile later by logging in again.</p><button class="btn danger block" data-a="dodelete">Delete profile</button><button class="btn ghost block" data-a="close">Cancel</button>`),
+ dodelete:async()=>{
+  closeSheet();
+  const {error}=await sb.from("profiles").delete().eq("id",S.user.id);
+  if(error){toast("Couldn't delete: "+error.message);return}
+  S.me=null;await sb.auth.signOut();toast("Your profile was deleted.");
+ }
+};
+
+app.addEventListener("click",e=>{const t=e.target.closest("[data-a]");if(!t||t.disabled)return;const fn=A[t.dataset.a];if(fn){e.preventDefault();fn(t.dataset.v,t,e)}});
+app.addEventListener("submit",e=>{e.preventDefault();if(e.target.id==="authform")submitAuth();if(e.target.id==="passform")submitNewPass()});
+app.addEventListener("change",e=>{if(e.target.id==="f-lang"){S.f.lang=e.target.value;render()}});
+app.addEventListener("input",e=>{
+ const f=e.target.dataset&&e.target.dataset.f;if(f){S.draft[f]=e.target.value}
+ const af=e.target.dataset&&e.target.dataset.af;if(af){S.auth[af]=e.target.value}
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeSheet()});
+
+/* ---------- Start ---------- */
+sb.auth.onAuthStateChange((event,session)=>{
+ // Run outside the callback so Supabase calls inside onSession don't block it.
+ setTimeout(()=>{
+  if(event==="PASSWORD_RECOVERY"){S.user=session&&session.user;S.auth.msg=null;S.auth.password="";S.route="newpass";render(true);return}
+  if(S.route==="newpass")return;
+  if(event==="SIGNED_IN"||event==="SIGNED_OUT"||event==="INITIAL_SESSION")onSession(session);
+ },0);
+});
+})();
+</script>
+</body>
+</html>
