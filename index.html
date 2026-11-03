@@ -319,6 +319,30 @@ select.inp.sm{min-height:44px;width:auto;border-radius:999px;font-size:14px}
 .crow .pv{display:block;font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
 .crow.unread .pv{color:var(--ink);font-weight:600}
 .crow .tm{font-size:12px;color:var(--muted);flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.occ{width:38px;height:38px;border-radius:50%;border:0;background:var(--surface);box-shadow:var(--card-shadow);font-size:20px;line-height:1;display:grid;place-items:center;flex:none;padding:0}
+.occ-banner{display:flex;align-items:center;gap:14px;padding:14px 12px 14px 16px;border-radius:var(--r-card);background:var(--brand);color:#FFFFFF;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.occ-banner b,.occ-banner small{text-shadow:0 1px 2px rgba(0,0,0,.22)}
+.occ-banner.quiet{background:var(--surface);color:var(--ink);box-shadow:var(--card-shadow)}
+.occ-banner.quiet b,.occ-banner.quiet small{text-shadow:none}
+.occ-banner.quiet small{color:var(--ink-2)}
+.occ-banner.quiet .occ-x{background:var(--surface-2);color:var(--ink)}
+.occ-banner .occ-emoji{font-size:34px;line-height:1;flex:none}
+.occ-banner .t{flex:1;min-width:0}
+.occ-banner b{display:block;font:800 18px/1.2 var(--display);letter-spacing:-.01em}
+.occ-banner small{display:block;font-size:13.5px;line-height:1.4;opacity:.95;margin-top:2px}
+.occ-x{width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.22);color:#FFFFFF;display:grid;place-items:center;flex:none;align-self:flex-start}
+.occ-x svg{width:15px;height:15px}
+.occ-big{font-size:64px;line-height:1;animation:pop .45s cubic-bezier(.2,.8,.2,1) both}
+.fx{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:35}
+.fx span{position:absolute;top:-50px;animation:fall linear forwards}
+@keyframes fall{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:1}100%{transform:translateY(110vh) rotate(260deg);opacity:.9}}
+.av-wrap{position:relative;display:inline-grid;flex:none}
+.online{position:absolute;right:1px;bottom:1px;width:14px;height:14px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 2.5px #FFFFFF}
+.dot-on{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22C55E;margin-right:6px;vertical-align:1px}
+.sw{width:44px;height:26px;border-radius:13px;background:#D9D9DF;position:relative;flex:none;transition:background .15s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:transform .15s}
+[aria-pressed="true"]>.sw{background:var(--ink)}
+[aria-pressed="true"]>.sw::after{transform:translateX(18px)}
 .udot{width:10px;height:10px;border-radius:50%;background:var(--brand)}
 
 /* Chat */
@@ -336,6 +360,10 @@ select.inp.sm{min-height:44px;width:auto;border-radius:999px;font-size:14px}
 .m.them+.m.them{border-top-left-radius:10px}
 .m.me+.m.me{border-top-right-radius:10px}
 .m.pending{opacity:.55}
+.m.me[data-a]{cursor:pointer;-webkit-touch-callout:none}
+.m.unsent{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1.5px var(--line);font-style:italic;font-size:14.5px}
+.m-edited{font-size:11.5px;color:var(--faint);margin:1px 8px 3px;font-weight:600}
+.m-edited.me{align-self:flex-end}.m-edited.them{align-self:flex-start}
 .m-time{font-size:11.5px;color:var(--faint);align-self:center;margin:12px 0 4px;font-weight:600}
 .m-seen{font-size:11.5px;color:var(--faint);align-self:flex-end;margin-top:2px}
 .composer{display:flex;gap:8px;align-items:flex-end;padding:10px 12px 12px;box-shadow:0 -1px 0 var(--line);background:var(--surface)}
@@ -428,6 +456,78 @@ const PROMPT_GROUPS=[
  ["Sport and active",["I'll get you into…","My workout of choice…","Let's go and watch…","My training goal this year…"]]
 ];
 const PROMPTS=PROMPT_GROUPS.flatMap(g=>g[1]);
+const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
+/* Special occasions.
+   md = same dates every year (month-day). dates = exact dates for festivals that move (checked; add new years each year).
+   rule = worked out automatically each year. quiet = a day of remembrance: a respectful message only, no confetti or colour change.
+   Order matters: if two overlap, the first one in this list shows. */
+const OCCASIONS=[
+ {id:"australiaday",quiet:true,emoji:"🌏",greet:"Australia Day",sub:"Today is a national public holiday. For many people it's a day to celebrate, and for many Aboriginal and Torres Strait Islander people it's a day of mourning. Take a moment to learn about the First Peoples of the land you live on.",starter:"What's something you've learned about Aboriginal and Torres Strait Islander cultures since you arrived?",md:[["01-26","01-26"]]},
+ {id:"anzac",quiet:true,emoji:"🕊️",greet:"Anzac Day. Lest we forget.",sub:"Today Australians and New Zealanders remember everyone who served and died in war and on peacekeeping missions.",starter:"Is there a day in your home country when people remember those who served in wars? What happens on that day?",md:[["04-25","04-25"]]},
+ {id:"sorryday",quiet:true,emoji:"🕊️",greet:"National Sorry Day",sub:"Today we remember the Stolen Generations: Aboriginal and Torres Strait Islander children who were taken from their families and communities.",starter:"What have you learned about Australia's history since you arrived?",md:[["05-26","05-26"]]},
+ {id:"reconciliation",quiet:true,emoji:"🤝",greet:"National Reconciliation Week",sub:"A time to learn about our shared histories, cultures and achievements, and how we can all help build a fairer Australia.",starter:"Do you know the Aboriginal name for the area where you live?",md:[["05-27","06-03"]]},
+ {id:"lunar",emoji:"🧧",fx:["🧧","🏮","🎊","✨"],grad:["#E9A800","#E63946","#9D0208"],greet:"Happy Lunar New Year!",sub:"Wishing you luck, health and happiness in the new year.",starter:"How does your family celebrate Lunar New Year, or a new year festival from your culture?",dates:[["2027-02-05","2027-02-07"],["2028-01-25","2028-01-29"]]},
+ {id:"ramadan",emoji:"🌙",fx:["🌙","⭐","🏮"],grad:["#1B4332","#2A9D8F","#C9A227"],greet:"Ramadan Mubarak!",sub:"Wishing a peaceful and blessed Ramadan to everyone observing it.",starter:"What's a tradition from your culture that brings people together over food?",dates:[["2027-02-08","2027-02-09"]]},
+ {id:"eid",emoji:"🌙",fx:["🌙","⭐","✨","🏮"],grad:["#C9A227","#2A9D8F","#1B4332"],greet:"Eid Mubarak!",sub:"Wishing everyone celebrating a joyful Eid al-Fitr.",starter:"Do you celebrate Eid, or a festival with a big family meal? What's your favourite dish?",dates:[["2027-03-09","2027-03-11"]]},
+ {id:"eidadha",emoji:"🌙",fx:["🌙","⭐","✨"],grad:["#C9A227","#2A9D8F","#1B4332"],greet:"Eid al-Adha Mubarak!",sub:"Wishing everyone celebrating a blessed Eid al-Adha with family and friends.",starter:"What's a festival from your culture that's all about family and sharing?",dates:[["2027-05-16","2027-05-18"]]},
+ {id:"holi",emoji:"🎨",fx:["🎨","🌈","💛","💜","💚"],grad:["#FF006E","#8338EC","#3A86FF"],greet:"Happy Holi!",sub:"The festival of colours is here. Wishing everyone a bright and joyful Holi.",starter:"Have you ever celebrated Holi? What's the most colourful festival you know?",dates:[["2027-03-23","2027-03-23"],["2028-03-11","2028-03-11"]]},
+ {id:"harmony",emoji:"🧡",fx:["🧡","🤝","🌏","✨"],grad:["#FF9F1C","#FF7F11","#D9480F"],greet:"Happy Harmony Day!",sub:"Celebrating all the cultures that make Australia home, including yours.",starter:"What's something from your culture you'd love more Australians to know about?",md:[["03-21","03-21"]]},
+ {id:"nowruz",emoji:"🌱",fx:["🌱","🌸","🐟","✨"],grad:["#40916C","#2D6A4F","#C9A227"],greet:"Happy Nowruz!",sub:"Wishing a happy new year to everyone celebrating Nowruz.",starter:"How do people welcome spring or the new year where you're from?",dates:[["2027-03-20","2027-03-20"]]},
+ {id:"iwd",emoji:"💜",fx:["💜","✨","🌸"],grad:["#9D4EDD","#7B2CBF","#5A189A"],greet:"Happy International Women's Day!",sub:"Celebrating the women who inspire us, here and around the world.",starter:"Who's a woman who has inspired you, and why?",md:[["03-08","03-08"]]},
+ {id:"easter",emoji:"🐣",fx:["🐣","🥚","🐰","🌸"],grad:["#F48C06","#E85D75","#7B2CBF"],greet:"Happy Easter!",sub:"Enjoy the long weekend. Chocolate eggs are very much an Aussie tradition.",starter:"Do you celebrate Easter, or have a long weekend tradition? What do you usually do?",rule:y=>{const e=easterSunday(y);return[[addDays(e,-2),addDays(e,1)]]}},
+ {id:"songkran",emoji:"💦",fx:["💦","🌸","🐘","✨"],grad:["#00B4D8","#0077B6","#F72585"],greet:"Happy Songkran!",sub:"Wishing a happy Thai New Year to everyone celebrating.",starter:"How is the new year celebrated where you grew up?",md:[["04-13","04-15"]]},
+ {id:"vesak",emoji:"🪷",fx:["🪷","🏮","✨"],grad:["#F4A261","#E76F51","#9C6644"],greet:"Happy Vesak!",sub:"Wishing peace and happiness to everyone celebrating Vesak today.",starter:"Is there a festival from your culture that's about peace or kindness?",dates:[["2027-05-20","2027-05-20"]]},
+ {id:"mothers",emoji:"💐",fx:["💐","🌷","💖"],grad:["#FF8FAB","#E85D75","#B5179E"],greet:"Happy Mother's Day!",sub:"Sending love to all the mums and mother figures out there.",starter:"What's something your mum, or someone like a mum to you, taught you?",rule:y=>{const d=nthSunday(y,5,2);return[[d,d]]}},
+ {id:"naidoc",emoji:"💛",fx:["💛","❤️","🖤","✨"],grad:["#1A1A1A","#C8102E","#E0A800"],greet:"Happy NAIDOC Week!",sub:"Celebrating the history, culture and achievements of Aboriginal and Torres Strait Islander peoples.",starter:"What's something you've learned about Aboriginal and Torres Strait Islander cultures since you came to Australia?",rule:y=>{const d=nthSunday(y,7,1);return[[d,addDays(d,7)]]}},
+ {id:"friendship",emoji:"🤝",fx:["🤝","💛","🎉","✨"],grad:["#FF5E62","#C23BFF","#5B5CFF"],greet:"Happy International Day of Friendship!",sub:"This one's our day. Send a message to a friend and tell them why they matter.",starter:"What makes someone a really good friend?",md:[["07-30","07-30"]]},
+ {id:"fathers",emoji:"👔",fx:["👔","💙","🏆","🎉"],grad:["#3A86FF","#1D4ED8","#1E3A8A"],greet:"Happy Father's Day!",sub:"Sending love to all the dads and father figures out there.",starter:"What's something your dad, or someone like a dad to you, taught you?",rule:y=>{const d=nthSunday(y,9,1);return[[d,d]]}},
+ {id:"onam",emoji:"🌼",fx:["🌼","🌸","🛶","✨"],grad:["#E9A800","#F77F00","#2A9D8F"],greet:"Happy Onam!",sub:"Wishing a joyful harvest festival to everyone celebrating Onam.",starter:"What's your favourite festival food from home?",dates:[["2027-09-12","2027-09-12"]]},
+ {id:"midautumn",emoji:"🥮",fx:["🥮","🏮","🌕","✨"],grad:["#F4A261","#E76F51","#6A4C93"],greet:"Happy Mid-Autumn Festival!",sub:"Wishing everyone a bright moon, mooncakes and time with loved ones.",starter:"Do you have a favourite mooncake flavour, or a festival that's all about family?",dates:[["2027-09-15","2027-09-15"],["2028-10-03","2028-10-03"]]},
+ {id:"diwali",emoji:"🪔",fx:["🪔","✨","🌟","🎆"],grad:["#F4A100","#FB5607","#D90368"],greet:"Happy Diwali!",sub:"Wishing everyone celebrating a bright and happy Festival of Lights.",starter:"Do you celebrate Diwali, or another festival of lights? What's your favourite part?",dates:[["2026-11-07","2026-11-09"],["2027-10-28","2027-10-30"]]},
+ {id:"halloween",emoji:"🎃",fx:["🎃","👻","🦇","🍬"],grad:["#FF8A00","#E85D04","#7B2CBF"],greet:"Happy Halloween!",sub:"Spooky season is here. Ask a friend how Halloween works back home.",starter:"Is Halloween celebrated where you grew up? What do people do?",md:[["10-29","10-31"]]},
+ {id:"christmas",emoji:"🎄",fx:["🎄","🎁","⭐","❄️"],grad:["#E63946","#C1121F","#2D6A4F"],greet:"Merry Christmas!",sub:"Christmas in summer is very Aussie. How are you spending it?",starter:"How is Christmas different in Australia compared with back home?",md:[["12-20","12-26"]]},
+ {id:"newyear",emoji:"🎆",fx:["🎆","🎉","✨","🥂"],grad:["#F4A100","#F18701","#7678ED"],greet:"Happy New Year!",sub:"New year, new friends. What's one thing you want to do this year?",starter:"What's one thing you want to do this year that you've never done before?",md:[["12-31","12-31"],["01-01","01-02"]]},
+ {id:"hanukkah",emoji:"🕎",fx:["🕎","✨","💙","⭐"],grad:["#4361EE","#3A0CA3","#C9A227"],greet:"Happy Hanukkah!",sub:"Wishing a bright Festival of Lights to everyone celebrating.",starter:"What's a festival from your culture that's celebrated with lights or candles?",dates:[["2026-12-05","2026-12-12"],["2027-12-25","2028-01-01"]]},
+ {id:"valentine",emoji:"💖",fx:["💖","💛","💌","✨"],grad:["#FF8FAB","#FF4D6D","#C9184A"],greet:"Happy Valentine's Day!",sub:"On Friendly it's all about friendship. Send some love to your friends today.",starter:"Who's a friend who has made a big difference in your life, and why?",md:[["02-14","02-14"]]}
+];
+const pad2=n=>String(n).padStart(2,"0");
+const ymdOf=d=>`${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+const addDays=(ymd,n)=>{const [y,m,d]=ymd.split("-").map(Number);return ymdOf(new Date(y,m-1,d+n))};
+function easterSunday(y){const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),mo=Math.floor((h+l-7*m+114)/31),da=((h+l-7*m+114)%31)+1;return`${y}-${pad2(mo)}-${pad2(da)}`}
+function nthSunday(y,month,n){const first=new Date(y,month-1,1);const off=(7-first.getDay())%7;return ymdOf(new Date(y,month-1,1+off+7*(n-1)))}
+let previewTheme=null,previewDate=null;try{const q=new URLSearchParams(location.search);previewTheme=q.get("theme");const pd=q.get("date");if(pd&&/^\d{4}-\d\d-\d\d$/.test(pd))previewDate=pd}catch(e){}
+function todayParts(){const ymd=previewDate||ymdOf(new Date());return{ymd,md:ymd.slice(5),y:+ymd.slice(0,4)}}
+const isBday=p=>!!(p&&p.d&&p.d.bday&&p.d.bday===todayParts().md);
+function birthdayTheme(){return{id:"birthday",emoji:"🎂",fx:["🎂","🎉","🎈","🥳"],grad:["#FF5E62","#F4A100","#3A86FF"],greet:`Happy birthday${S.me?", "+S.me.name:""}!`,sub:"Have an amazing day. From all of us at Friendly 🎉",starter:"What's the best birthday you've ever had?"}}
+function currentTheme(){
+ if(previewTheme){if(previewTheme==="birthday")return birthdayTheme();const o=OCCASIONS.find(x=>x.id===previewTheme);if(o)return o}
+ const {ymd,md,y}=todayParts();
+ const quiet=OCCASIONS.find(o=>o.quiet&&(o.md||[]).some(([a,b])=>md>=a&&md<=b));
+ if(quiet)return quiet;
+ if(isBday(S.me))return birthdayTheme();
+ return OCCASIONS.find(o=>(o.md||[]).some(([a,b])=>md>=a&&md<=b)||(o.dates||[]).some(([a,b])=>ymd>=a&&ymd<=b)||(o.rule?o.rule(y):[]).some(([a,b])=>ymd>=a&&ymd<=b))||null;
+}
+function applyTheme(){const th=currentTheme(),r=document.documentElement.style;
+ if(th&&!th.quiet){r.setProperty("--brand",`linear-gradient(135deg,${th.grad[0]} 0%,${th.grad[1]} 52%,${th.grad[2]} 100%)`)}else r.removeProperty("--brand");return th}
+const lsGet=k=>{try{return localStorage.getItem(k)}catch(e){return null}};const lsSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+function occBanner(){const th=currentTheme();if(!th||lsGet("friendly-occ-hide-"+todayParts().ymd+"-"+th.id))return"";
+ return`<section class="occ-banner ${th.quiet?"quiet":""}"><span class="occ-emoji" aria-hidden="true">${th.emoji}</span><span class="t"><b>${esc(th.greet)}</b><small>${esc(th.sub)}</small></span><button class="occ-x" data-a="occhide" aria-label="Hide this message">${ICON.x}</button></section>`}
+function celebrate(force){const th=currentTheme();if(!th||th.quiet)return;const key="friendly-occ-fx-"+todayParts().ymd+"-"+th.id;if(!force&&lsGet(key))return;lsSet(key,"1");
+ try{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return}catch(e){}
+ document.querySelectorAll(".fx").forEach(x=>x.remove());const box=document.createElement("div");box.className="fx";box.setAttribute("aria-hidden","true");
+ for(let i=0;i<22;i++){const s=document.createElement("span");s.textContent=th.fx[i%th.fx.length];s.style.left=(Math.random()*96)+"%";s.style.fontSize=(18+Math.random()*18)+"px";s.style.animationDelay=(Math.random()*1.4)+"s";s.style.animationDuration=(2.6+Math.random()*1.6)+"s";box.appendChild(s)}
+ app.appendChild(box);setTimeout(()=>box.remove(),5200)}
+const EDIT_MINUTES=15;
+const canChange=m=>!!m&&m.sender_id===myId()&&!m.pending&&!m.unsent_at&&Date.now()-new Date(m.created_at).getTime()<EDIT_MINUTES*60000;
+const rowOf=d=>Array.isArray(d)?d[0]:d;
+function lastActive(uid){const r=S.presence[uid];if(!S.showStatus||!r||!r.last_active_at)return null;return Date.now()-new Date(r.last_active_at).getTime()}
+const activeNow=uid=>{const d=lastActive(uid);return d!=null&&d<3*60000};
+function activeText(uid){const d=lastActive(uid);if(d==null)return"";const m=Math.floor(d/60000);
+ if(m<3)return"Active now";if(m<60)return`Active ${m}m ago`;const h=Math.floor(m/60);if(h<24)return`Active ${h}h ago`;const days=Math.floor(h/24);
+ if(days<2)return"Active yesterday";if(days<7)return`Active ${days} days ago`;return"Active over a week ago"}
+const avOn=(p,size)=>`<span class="av-wrap">${avatar(p,size)}${activeNow(p.id)?`<span class="online" aria-label="Active now"></span>`:""}</span>`;
+function heartbeat(){try{if(S.me&&document.visibilityState==="visible")sb.rpc("touch_active").then(()=>{},()=>{})}catch(e){}}
+setInterval(heartbeat,60000);
 const MAX_PHOTOS=6,MAX_PROMPTS=3,ANSWER_MAX=150,BIO_MAX=500,CAPTION_MAX=80;
 const SINCE=["Born here","Less than 6 months","6–12 months","1–2 years","2–5 years","5+ years"];
 const NEW_SINCE=["Less than 6 months","6–12 months"];
@@ -451,6 +551,9 @@ const TOPICS=[
 const DAILY=["Describe a smell that reminds you of home.","What's something small that made you happy this week?","If a friend visited your hometown, where would you take them first?","What's a skill you'd love to learn this year?","What's the best advice someone gave you when you arrived here?","Which song do you play when you need energy?","What's a tradition from your culture you'd like to share?"];
 
 const ICON={
+ edit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>',
+ undo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 010 12h-3"/></svg>',
+ copy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 00-1-1H5a1 1 0 00-1 1v10a1 1 0 001 1h3"/></svg>',
  shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>',
  heart2:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19c.6-3.2 3-5 6-5s5.4 1.8 6 5"/><circle cx="17" cy="9" r="2.6"/><path d="M16.5 14.1c2.4.2 4 1.8 4.5 4.4"/></svg>',
  mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg>',
@@ -498,10 +601,10 @@ if(!window.supabase||!window.supabase.createClient){
 const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
 /* ---------- State ---------- */
-function blankDraft(){return{name:"",age:"",city:"",langs:["English"],level:null,intro:"",connect:[],interests:[],photos:[],prompts:[],removed:[],from:"",since:"",work:"",study:"",learning:[],looking:[],traits:[],sign:""}}
+function blankDraft(){return{name:"",age:"",city:"",langs:["English"],level:null,intro:"",connect:[],interests:[],photos:[],prompts:[],removed:[],from:"",since:"",work:"",study:"",learning:[],looking:[],traits:[],sign:"",bdayD:"",bdayM:""}}
 const S={user:null,me:null,people:[],conns:[],loaded:false,swiped:[],swallowUntil:0,viewer:null,photoUrls:{},route:"loading",stack:[],draft:blankDraft(),editing:false,
   auth:{mode:"signup",email:"",password:"",msg:null,busy:false},busy:false,errText:"",skipped:[],ftab:"chats",msgs:[],blocks:[],drafts:{},
-  f:{interests:[],lang:"",city:false,level:false},tf:{mine:true,cat:"All"},promptEdit:null};
+  f:{interests:[],lang:"",city:false,level:false},tf:{mine:true,cat:"All"},promptEdit:null,presence:{},showStatus:true};
 let errs={};
 
 function fromRow(r){
@@ -513,9 +616,9 @@ function fromRow(r){
   const str=v=>typeof v==="string"?v:"";
   return{id:r.id,name:r.first_name,age:r.age,city:r.city||"",langs:r.languages||[],level:r.english_level,intro:r.intro||"",connect:r.connect_prefs||[],interests:r.interests||[],photos,prompts,
     captions:Array.isArray(r.photo_captions)?r.photo_captions:[],
-    d:{from:str(dt.from),since:str(dt.since),work:str(dt.work),study:str(dt.study),learning:arr(dt.learning),looking:arr(dt.looking),traits:arr(dt.traits),sign:str(dt.sign)}};
+    d:{from:str(dt.from),since:str(dt.since),work:str(dt.work),study:str(dt.study),learning:arr(dt.learning),looking:arr(dt.looking),traits:arr(dt.traits),sign:str(dt.sign),bday:/^\d\d-\d\d$/.test(str(dt.bday))?dt.bday:""}};
 }
-function toRow(d,uid,photos,captions){return{id:uid,photo_captions:captions||[],details:{from:d.from.trim(),since:d.since,work:d.work.trim(),study:d.study.trim(),learning:d.learning,looking:d.looking,traits:d.traits,sign:d.sign},first_name:d.name.trim(),age:parseInt(d.age,10),city:d.city.trim()||null,languages:d.langs,english_level:d.level,intro:d.intro.trim()||null,connect_prefs:d.connect,interests:d.interests,photos,photo_url:photos[0]||null,prompts:d.prompts.map(p=>({q:p.q,a:p.a.trim()}))}}
+function toRow(d,uid,photos,captions){return{id:uid,photo_captions:captions||[],details:{from:d.from.trim(),since:d.since,work:d.work.trim(),study:d.study.trim(),learning:d.learning,looking:d.looking,traits:d.traits,sign:d.sign,bday:d.bdayD&&d.bdayM?String(d.bdayM).padStart(2,"0")+"-"+String(d.bdayD).padStart(2,"0"):""},first_name:d.name.trim(),age:parseInt(d.age,10),city:d.city.trim()||null,languages:d.langs,english_level:d.level,intro:d.intro.trim()||null,connect_prefs:d.connect,interests:d.interests,photos,photo_url:photos[0]||null,prompts:d.prompts.map(p=>({q:p.q,a:p.a.trim()}))}}
 const photoSrc=path=>path?S.photoUrls[path]||null:null;
 function avatar(p,size){const s=size||48;const src=photoSrc(p.photos&&p.photos[0]);if(src)return`<span class="av" style="--s:${s}px"><img src="${esc(src)}" alt="" loading="lazy"></span>`;const i=(p.name||"?").trim().charAt(0).toUpperCase()||"?";return`<span class="av" style="--s:${s}px" aria-hidden="true">${esc(i)}</span>`}
 function meter(lv){if(lv==null)return"";return`<span class="lvl"><span class="meter" aria-hidden="true">${[0,1,2,3,4].map(i=>`<i class="${i<=lv?"on":""}"></i>`).join("")}</span>${LEVELS[lv]}</span>`}
@@ -547,7 +650,7 @@ function toast(msg){document.querySelectorAll(".toast").forEach(t=>t.remove());c
 function sheet(html){closeSheet();const s=document.createElement("div");s.className="scrim";s.dataset.a="scrim";s.innerHTML=`<div class="sheet" role="dialog" aria-modal="true"><span class="grab" aria-hidden="true"></span>${html}</div>`;app.appendChild(s);const f=s.querySelector("textarea,button");f&&f.focus()}
 function closeSheet(){document.querySelectorAll(".scrim").forEach(s=>s.remove())}
 
-function header(title,opts){opts=opts||{};return`<header class="top">${opts.back?`<button class="icon-btn" data-a="back" aria-label="Back">${ICON.back}</button>`:""}<h1>${title}</h1>${opts.right||""}${opts.back?"":`<button class="pill" data-a="about" aria-label="About this test version">Beta</button>`}</header>`}
+function header(title,opts){opts=opts||{};return`<header class="top">${opts.back?`<button class="icon-btn" data-a="back" aria-label="Back">${ICON.back}</button>`:""}<h1>${title}</h1>${opts.right||""}${!opts.back&&currentTheme()?`<button class="occ" data-a="occasion" aria-label="${esc(currentTheme().greet)}">${currentTheme().emoji}</button>`:""}${opts.back?"":`<button class="pill" data-a="about" aria-label="About this test version">Beta</button>`}</header>`}
 const eicon=k=>`<span class="eicon" aria-hidden="true">${ICON[k]}</span>`;
 function nav(active){const n=incoming().length+unreadChats();const items=[["discover","Discover"],["topics","Topics"],["friends","Chats"],["me","Me"]];return`<nav class="nav" aria-label="Main">${items.map(([k,l])=>`<button data-a="tab" data-v="${k}" ${active===k?'aria-current="page"':""}>${ICON[k]}<span>${l}</span>${k==="friends"&&n?`<span class="badge">${n}</span>`:""}</button>`).join("")}</nav>`}
 
@@ -575,12 +678,14 @@ function resizeImage(file){return new Promise((res,rej)=>{
 async function loadAll(){
   if(!S.user)return;
   const uid=S.user.id;
-  const [pr,cr,mr,br]=await Promise.all([
+  const [pr,cr,mr,br,ps]=await Promise.all([
     sb.from("profiles").select("*").neq("id",uid).order("created_at",{ascending:false}).limit(300),
     sb.from("connections").select("*"),
     sb.from("messages").select("*").order("created_at",{ascending:false}).limit(500),
-    sb.from("blocks").select("*")
+    sb.from("blocks").select("*"),
+    sb.from("presence").select("*")
   ]);
+  if(!ps.error&&ps.data){S.presence={};ps.data.forEach(r=>{S.presence[r.user_id]=r});const mine=S.presence[uid];S.showStatus=mine?mine.show_status!==false:true}
   if(pr.error){toast("Couldn't load people. Check your connection and try again.");return}
   S.blocks=br.error?[]:(br.data||[]);
   const blocked=S.blocks.map(b=>b.blocked_id);
@@ -606,7 +711,7 @@ async function onSession(session){
   S.stack=[];loadSkipped();
   if(!data){S.me=null;S.draft=blankDraft();S.editing=false;errs={};S.route="setup1";render(true);return}
   S.me=fromRow(data);await signPhotos(S.me.photos);
-  S.route="tab:discover";render(true);loadAll();
+  S.route="tab:discover";render(true);heartbeat();loadAll();
 }
 function showError(t){S.errText=t;S.route="error";render(true)}
 function friendlyAuthError(e){
@@ -627,6 +732,7 @@ function render(top){
   const open=["loading","error","welcome","auth","checkemail","newpass"];
   if(!S.user&&!open.includes(kind)){S.route="welcome";kind="welcome"}
   if(S.user&&!S.me&&!["setup1","setupB","setup2","setup3","loading","error","newpass"].includes(kind)){S.route="setup1";kind="setup1"}
+  applyTheme();
   let html="";
   if(kind==="loading")html=`<div class="center"><div class="spinner" role="status" aria-label="Loading"></div></div>`;
   else if(kind==="error")html=`<div class="center"><h2>Something went wrong</h2><p class="muted" style="margin:0">${esc(S.errText)}</p><button class="btn primary" data-a="reload">Try again</button></div>`;
@@ -649,6 +755,7 @@ function render(top){
   const tp=app.querySelector(".top");if(sc&&tp){const f=()=>tp.classList.toggle("scrolled",sc.scrollTop>4);sc.addEventListener("scroll",f,{passive:true});f()}
   if(kind==="setup3")applyChipSearch("i-search",".igroup","i-none");
   if(S.route==="tab:discover")bindSwipe();
+  if(kind==="tab"||kind==="welcome")setTimeout(()=>celebrate(false),400);
   if(S.route.startsWith("chat:")){const box=document.getElementById("msgs");if(box)box.scrollTop=box.scrollHeight;autoGrow(document.getElementById("m-text"));markRead(arg)}
   setPolling();
 }
@@ -665,7 +772,9 @@ async function pollChat(cid){
   const pend=S.msgs.filter(m=>m.pending&&m.connection_id===cid);
   S.msgs=S.msgs.filter(m=>m.connection_id!==cid).concat(data,pend);
   updateChat();markRead(cid);
+  const c=connById(cid);if(c&&S.showStatus){const {data:pr}=await sb.from("presence").select("*").eq("user_id",otherId(c)).maybeSingle();if(pr){S.presence[pr.user_id]=pr;const el=document.getElementById("chat-status");if(el)el.innerHTML=statusLine(otherId(c))}}
 }
+function statusLine(uid){const s=activeText(uid);return s?`${activeNow(uid)?`<i class="dot-on" aria-hidden="true"></i>`:""}${s}`:"View profile"}
 async function markRead(cid){
   const now=new Date().toISOString();
   const ids=S.msgs.filter(m=>m.connection_id===cid&&m.sender_id!==myId()&&!m.read_at&&!m.pending).map(m=>m.id);
@@ -743,7 +852,7 @@ function profileBody(p,opts){
 function vWelcome(){
  const hellos=["Hello","Xin chào","Hola","你好","नमस्ते","مرحبا","Olá","こんにちは","G'day"];
  return`<div class="welcome">
-  <div class="wtop"><div class="mark">${MARK}<p class="word">Friendly</p></div><button class="pill" data-a="about" aria-label="About this test version">Beta</button></div>
+  <div class="wtop"><div class="mark">${MARK}<p class="word">Friendly</p></div><div class="row" style="gap:8px">${currentTheme()&&currentTheme().id!=="birthday"?`<button class="occ" data-a="occasion" aria-label="${esc(currentTheme().greet)}">${currentTheme().emoji}</button>`:""}<button class="pill" data-a="about" aria-label="About this test version">Beta</button></div></div>
   <div class="hero">
    <p class="tagline">Meet people. Make friends. <em>Learn together.</em></p>
    <p class="muted" style="margin:0;font-size:16.5px;line-height:1.5;max-width:34ch">Find friends who share your interests, and practise English with people who understand what it's like to be new.</p>
@@ -832,6 +941,10 @@ function vSetupB(){
    </div>
    <div class="field"><label class="lbl" for="f-work">Work</label><input class="inp" id="f-work" data-f="work" value="${esc(d.work)}" placeholder="e.g. Barista at a café" maxlength="60"></div>
    <div class="field"><label class="lbl" for="f-study">Study</label><input class="inp" id="f-study" data-f="study" value="${esc(d.study)}" placeholder="e.g. Nursing at Curtin" maxlength="60"></div>
+   <div class="field"><span class="lbl" id="bday-l">Birthday (optional)</span>
+    <div class="two"><select class="inp" id="f-bday-d" data-f="bdayD" aria-labelledby="bday-l" aria-label="Day"><option value="">Day</option>${Array.from({length:31},(_,i)=>`<option value="${i+1}" ${String(d.bdayD)===String(i+1)?"selected":""}>${i+1}</option>`).join("")}</select>
+    <select class="inp" id="f-bday-m" data-f="bdayM" aria-label="Month"><option value="">Month</option>${MONTHS.map((mo,i)=>`<option value="${i+1}" ${String(d.bdayM)===String(i+1)?"selected":""}>${mo}</option>`).join("")}</select></div>
+    <span class="count">Just the day and month, never the year. On your birthday Friendly celebrates with you, and your friends see a 🎂.</span></div>
   </section>
   <section class="card"><p class="sec">Looking for <b>up to ${MAX_LOOKING}</b></p>${chipPick("look",LOOKING,d.looking)}</section>
   <section class="card"><p class="sec">Languages you're learning</p>${chipPick("learn",LANGS,d.learning)}</section>
@@ -942,7 +1055,7 @@ function vPerson(id){
  const self=p.id===myId();
  return`${header(self?"Your profile":"",{back:true,right:self?"":`<button class="icon-btn" data-a="pmenu" data-v="${esc(p.id)}" aria-label="More options">${ICON.more}</button>`})}
  <div class="scroll profile">
-  ${self?`<p class="selfnote">${ICON.eye}This is how other members see you</p>`:statusActions(p)}
+  ${self?`<p class="selfnote">${ICON.eye}This is how other members see you</p>`:(activeText(p.id)?`<p class="selfnote">${activeNow(p.id)?`<i class="dot-on" aria-hidden="true"></i>`:""}${activeText(p.id)}</p>`:"")+statusActions(p)}
   ${profileBody(p,{hi:false})}
  </div>`}
 
@@ -952,7 +1065,8 @@ function vTopics(){
  const daily=DAILY[Math.floor(Date.now()/864e5)%DAILY.length];
  return`${header("Topics")}
  <div class="scroll">
-  <div class="prompt"><span class="lbl">Today's conversation starter</span><p class="q">${esc(daily)}</p></div>
+  ${occBanner()}
+  <div class="prompt"><span class="lbl">${currentTheme()?`${currentTheme().emoji} Today's starter`:"Today's conversation starter"}</span><p class="q">${esc(currentTheme()?currentTheme().starter:daily)}</p></div>
   <div class="seg" role="group" aria-label="Category">${["All","Everyday","Work","Study"].map(c=>`<button data-a="tcat" data-v="${c}" ${pressed(t.cat===c)}>${c}</button>`).join("")}</div>
   <button class="tgl" data-a="tmine" ${pressed(t.mine)} style="align-self:flex-start"><span class="tr"></span>Suited to my level${me.level!=null?` (${LEVELS[me.level]})`:""}</button>
   <div class="tlist">${list.length?list.map(x=>`<button class="trow" data-a="topic" data-v="${x.id}"><span class="t"><b>${x.title}</b><span>${LEVELS[x.lv[0]]} to ${LEVELS[x.lv[1]]}</span></span><span class="tag">${x.cat}</span>${ICON.chev}</button>`).join(""):`<div class="empty"><p class="muted" style="margin:0">No topics in this category for your level yet.</p><button class="btn ghost sm" data-a="tall">Show all levels</button></div>`}</div>
@@ -982,8 +1096,8 @@ function vFriends(){
  let body="";
  if(t==="chats"){
   body=rows.length?`<div class="group">`+rows.map(({c,last})=>{const p=person(otherId(c)),u=unreadIn(c.id);
-   const pv=last?(last.sender_id===myId()?"You: ":"")+last.body:"You're friends. Say hi!";
-   return`<button class="crow ${u?"unread":""}" data-a="openchat" data-v="${c.id}">${avatar(p,52)}<span class="t"><b>${esc(p.name)}</b><span class="pv">${esc(pv)}</span></span><span class="tm">${last?esc(fmtShort(last.created_at)):""}${u?`<span class="udot" aria-label="Unread"></span>`:""}</span></button>`}).join("")+`</div>`
+   const pv=last?(last.unsent_at?(last.sender_id===myId()?"You unsent a message":p.name+" unsent a message"):(last.sender_id===myId()?"You: ":"")+last.body):"You're friends. Say hi!";
+   return`<button class="crow ${u?"unread":""}" data-a="openchat" data-v="${c.id}">${avOn(p,52)}<span class="t"><b>${esc(p.name)}${isBday(p)?` <span aria-label="Birthday today">🎂</span>`:""}</b><span class="pv">${esc(pv)}</span></span><span class="tm">${last?esc(fmtShort(last.created_at)):""}${u?`<span class="udot" aria-label="Unread"></span>`:""}</span></button>`}).join("")+`</div>`
    :`<div class="empty">${eicon("friends")}<h2>No chats yet</h2><p class="muted" style="margin:0">Say hi to people on Discover. When someone accepts, or you accept their hello, you can chat here.</p><button class="btn ghost sm" data-a="tab" data-v="discover">Go to Discover</button></div>`;
  }else if(t==="requests"){
   body=inc.length?inc.map(c=>{const p=person(c.from_id);return`<div class="req">
@@ -998,12 +1112,14 @@ function vFriends(){
  }
  return`${header("Chats")}
  <div class="scroll">
+  ${occBanner()}
   <div class="seg" role="group" aria-label="Show">${[["chats","Chats",ur],["requests","Hellos",inc.length],["sent","Sent",sent.length]].map(([k,l,n])=>`<button data-a="ftab" data-v="${k}" ${pressed(t===k)}>${l}${n?` (${n})`:""}</button>`).join("")}</div>
   ${body}
  </div>`}
 
 function starters(p){
  const out=[],sh=shared(p);
+ if(isBday(p))out.push(`Happy birthday, ${p.name}! 🎂 Hope you have a great day.`);
  if(sh.length)out.push(`Hi ${p.name}! I saw you're into ${sh[0].toLowerCase()} too. How did you get into it?`);
  if(p.prompts[0]){const t=p.prompts[0].a;out.push(`I liked what you wrote: "${t.length>60?t.slice(0,57).trim()+"…":t}" Tell me more!`)}
  out.push("Where are you from originally, and how long have you been here?");
@@ -1013,11 +1129,14 @@ function starters(p){
 function msgsHtml(cid){
  const c=connById(cid);const p=c&&person(otherId(c));if(!p)return"";
  const ms=chatMsgs(cid);
- if(!ms.length)return`<div class="chat-hello"><span class="ring">${avatar(p,80)}</span><h2>You and ${esc(p.name)} are friends</h2><p class="muted" style="margin:0">Send the first message. Need an idea? Tap one to use it.</p></div>
+ if(!ms.length)return`<div class="chat-hello"><span class="ring">${avatar(p,80)}</span><h2>You and ${esc(p.name)} are friends</h2><p class="muted" style="margin:0">${isBday(p)?`It's ${esc(p.name)}'s birthday today 🎂 `:""}Send the first message. Need an idea? Tap one to use it.</p></div>
   <div class="starters">${starters(p).map(t=>`<button data-a="starter" data-v="${esc(t)}">${esc(t)}</button>`).join("")}</div>`;
  let out="",lastT=0;
  ms.forEach(m=>{const t=new Date(m.created_at).getTime();if(t-lastT>30*60*1000)out+=`<span class="m-time">${esc(fmtStamp(m.created_at))}</span>`;lastT=t;
-  out+=`<div class="m ${m.sender_id===myId()?"me":"them"}${m.pending?" pending":""}">${esc(m.body)}</div>`});
+  const mine=m.sender_id===myId();
+  if(m.unsent_at){out+=`<div class="m ${mine?"me":"them"} unsent">${mine?"You unsent a message":esc(p.name)+" unsent a message"}</div>`;return}
+  out+=`<div class="m ${mine?"me":"them"}${m.pending?" pending":""}"${mine&&!m.pending?` role="button" tabindex="0" aria-haspopup="dialog" data-a="msgmenu" data-v="${esc(m.id)}"`:""}>${esc(m.body)}</div>`;
+  if(m.edited_at)out+=`<span class="m-edited ${mine?"me":"them"}">Edited</span>`});
  const last=ms[ms.length-1];
  if(last.sender_id===myId()&&last.read_at)out+=`<span class="m-seen">Seen</span>`;
  return out;
@@ -1027,7 +1146,7 @@ function vChat(cid){
  if(!c||!p||c.status!=="accepted"){S.route="tab:friends";return vFriends()+nav("friends")}
  return`<div class="chat">
   <div class="chat-top"><button class="icon-btn" data-a="back" aria-label="Back">${ICON.back}</button>
-   <button class="who" data-a="open" data-v="${esc(p.id)}">${avatar(p,40)}<span style="min-width:0"><b>${esc(p.name)}</b><span>View profile</span></span></button>
+   <button class="who" data-a="open" data-v="${esc(p.id)}">${avOn(p,40)}<span style="min-width:0"><b>${esc(p.name)}${isBday(p)?" 🎂":""}</b><span id="chat-status">${statusLine(p.id)}</span></span></button>
    <button class="icon-btn" data-a="pmenu" data-v="${esc(p.id)}" aria-label="More options">${ICON.more}</button></div>
   <div class="msgs" id="msgs">${msgsHtml(cid)}</div>
   <form class="composer" id="composer" novalidate><textarea class="inp" id="m-text" rows="1" maxlength="1000" placeholder="Message ${esc(p.name)}" aria-label="Message">${esc(S.drafts[cid]||"")}</textarea><button class="send" type="submit" aria-label="Send">${ICON.send}</button></form>
@@ -1037,12 +1156,15 @@ function vMe(){
  const me=S.me;
  return`${header("Me")}
  <div class="scroll">
+  ${occBanner()}
   <section class="card me-hero"><span class="ring">${avatar(me,112)}</span><p class="name">${esc(me.name)}</p><span class="muted">${[me.age,me.city].filter(Boolean).map(esc).join(" · ")}</span>
    <div class="acts"><button class="btn primary" data-a="edit">Edit profile</button><button class="btn ghost" data-a="open" data-v="${esc(me.id)}">Preview</button></div></section>
   ${!me.photos.length?`<div class="msg ok">Profiles with photos get more hellos. Add one in Edit profile.</div>`:""}
   <p class="group-title">Invite a friend</p>
   <section class="card"><p class="note">While Friendly is in testing, only share this link with people you know.</p>${inviteBox()}</section>
   ${S.blocks.length?`<p class="group-title">Blocked</p><div class="group">${S.blocks.map(b=>`<div class="frow"><span class="who"><b>${esc(b.blocked_name||"Member")}</b><span>Blocked</span></span><button class="btn line sm" data-a="unblock" data-v="${esc(b.blocked_id)}">Unblock</button></div>`).join("")}</div>`:""}
+  <p class="group-title">Privacy</p>
+  <div class="group"><button class="lrow" data-a="togglestatus" aria-pressed="${S.showStatus}">${ICON.clock}<span class="t">Show when I'm active<small>Friends can see when you were last active. If you turn this off, you won't see theirs either.</small></span><span class="sw" aria-hidden="true"></span></button></div>
   <p class="group-title">Account</p>
   <div class="group">
    <div class="lrow">${ICON.mail}<span class="t">Logged in as<small>${esc(S.user&&S.user.email)}</small></span></div>
@@ -1191,6 +1313,7 @@ async function sendMsg(){
  S.msgs=S.msgs.filter(m=>m!==temp);
  if(error){updateChat(true);toast("Couldn't send: "+error.message);if(!ta.value){ta.value=body;autoGrow(ta)}return}
  S.msgs.push(data);updateChat(true);
+ try{if(!localStorage.getItem("friendly-edit-tip")){localStorage.setItem("friendly-edit-tip","1");toast(`Tip: tap a message you sent to edit or unsend it (for ${EDIT_MINUTES} minutes).`)}}catch(e){}
 }
 async function doBlock(pid,quiet){
  const p=person(pid);
@@ -1215,7 +1338,7 @@ const A={
  close:()=>closeSheet(),
  about:()=>sheet(`<h2>Friendly test version</h2>
   <p style="margin:0">This is an early version for a small group of testers.</p>
-  <div class="stack" style="gap:6px"><span class="lbl">Works now</span><ul><li>Accounts and logging in</li><li>Profiles with up to 6 photos, captions, prompts and details</li><li>Discover with swiping</li><li>Saying hi, and accepting or declining hellos</li><li>Messaging your friends</li><li>Blocking and reporting</li><li>English topics</li></ul></div>
+  <div class="stack" style="gap:6px"><span class="lbl">Works now</span><ul><li>Accounts and logging in</li><li>Profiles with up to 6 photos, captions, prompts and details</li><li>Discover with swiping</li><li>Saying hi, and accepting or declining hellos</li><li>Messaging your friends, including editing or unsending a message for 15 minutes</li><li>Seeing when friends were last active (you can turn this off in Me)</li><li>Special themes for Australian holidays, cultural festivals and your birthday</li><li>Blocking and reporting</li><li>English topics</li></ul></div>
   <div class="stack" style="gap:6px"><span class="lbl">Coming later</span><ul><li>Notifications when you get a message</li><li>Video calls</li></ul></div>
   <p class="note">Only invite people you know while Friendly is in testing. Read our <a href="guidelines.html" target="_blank" rel="noopener">Community guidelines</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a>.</p>
   <button class="btn primary block" data-a="close">Got it</button>`),
@@ -1247,7 +1370,10 @@ const A={
  learn:v=>{readDraft();toggle(S.draft.learning,v);render()},
  look:v=>{readDraft();const d=S.draft;if(!d.looking.includes(v)&&d.looking.length>=MAX_LOOKING){toast(`Pick up to ${MAX_LOOKING}.`);return}toggle(d.looking,v);render()},
  trait:v=>{readDraft();const d=S.draft;if(!d.traits.includes(v)&&d.traits.length>=MAX_TRAITS){toast(`Pick up to ${MAX_TRAITS}.`);return}toggle(d.traits,v);render()},
- nextB:()=>{readDraft();go("setup2")},
+ nextB:()=>{readDraft();const d=S.draft;
+  if((d.bdayD&&!d.bdayM)||(!d.bdayD&&d.bdayM)){toast("Choose both the day and the month for your birthday, or leave both empty.");return}
+  if(d.bdayD&&+d.bdayD>[31,29,31,30,31,30,31,31,30,31,30,31][+d.bdayM-1]){toast("That date doesn't exist. Check your birthday.");return}
+  go("setup2")},
 
  // setup step 3 (photos and prompts)
  photomenu:v=>{const i=+v,d=S.draft,n=d.photos.length,ph=d.photos[i];if(!ph)return;
@@ -1304,11 +1430,11 @@ const A={
   S.busy=false;
   if(error){if(uploaded.length)sb.storage.from("avatars").remove(uploaded);render();toast("Couldn't save your profile: "+error.message);return}
   const stale=d.removed.filter(p=>!paths.includes(p));if(stale.length)sb.storage.from("avatars").remove(stale);
-  const was=S.editing;S.me=fromRow(data);S.editing=false;S.draft=blankDraft();S.stack=[];S.route=was?"tab:me":"tab:discover";render(true);
+  const was=S.editing;S.me=fromRow(data);heartbeat();S.editing=false;S.draft=blankDraft();S.stack=[];S.route=was?"tab:me":"tab:discover";render(true);
   toast(was?"Profile updated.":"Profile saved. Welcome to Friendly!");
   if(!was)loadAll();
  },
- edit:()=>{const m=S.me;S.draft={name:m.name,age:String(m.age),city:m.city,langs:[...m.langs],level:m.level,intro:m.intro,connect:[...m.connect],interests:[...m.interests],photos:m.photos.map((p,i)=>({path:p,caption:(m.captions||[])[i]||""})),prompts:m.prompts.map(p=>({...p})),removed:[],from:m.d.from,since:m.d.since,work:m.d.work,study:m.d.study,learning:[...m.d.learning],looking:[...m.d.looking],traits:[...m.d.traits],sign:m.d.sign};S.editing=true;errs={};go("setup1")},
+ edit:()=>{const m=S.me;S.draft={name:m.name,age:String(m.age),city:m.city,langs:[...m.langs],level:m.level,intro:m.intro,connect:[...m.connect],interests:[...m.interests],photos:m.photos.map((p,i)=>({path:p,caption:(m.captions||[])[i]||""})),prompts:m.prompts.map(p=>({...p})),removed:[],from:m.d.from,since:m.d.since,work:m.d.work,study:m.d.study,learning:[...m.d.learning],looking:[...m.d.looking],traits:[...m.d.traits],sign:m.d.sign,bdayD:m.d.bday?String(+m.d.bday.slice(3)):"",bdayM:m.d.bday?String(+m.d.bday.slice(0,2)):""};S.editing=true;errs={};go("setup1")},
 
  // discover
  filters:()=>{
@@ -1358,6 +1484,43 @@ const A={
  // friends and chat
  ftab:v=>{S.ftab=v;render()},
  openchat:v=>go("chat:"+v),
+ occasion:()=>{const th=currentTheme();if(!th)return;celebrate(true);
+  sheet(`<div class="match"><span class="occ-big" aria-hidden="true">${th.emoji}</span><h2>${esc(th.greet)}</h2><p class="muted" style="margin:0">${esc(th.sub)}</p>
+   <div class="prompt" style="width:100%;text-align:left;margin-top:6px"><span class="lbl">${th.quiet?"Something to talk about":"Ask a friend"}</span><p class="q">${esc(th.starter)}</p></div>
+   <button class="btn ${th.quiet?"primary":"brand"} block" data-a="close">${th.quiet?"Close":"Yay!"}</button></div>`)},
+ occhide:()=>{const th=currentTheme();if(th)lsSet("friendly-occ-hide-"+todayParts().ymd+"-"+th.id,"1");render()},
+ togglestatus:async(v,btn)=>{const on=!S.showStatus;btn.disabled=true;
+  const {error}=await sb.rpc("set_show_status",{show:on});btn.disabled=false;
+  if(error){toast("Couldn't change that: "+error.message);return}
+  S.showStatus=on;if(!on)S.presence={};render();toast(on?"Friends can now see when you're active.":"Your active status is hidden.");if(on)refresh()},
+ msgmenu:v=>{const m=S.msgs.find(x=>x.id===v);if(!m||m.sender_id!==myId()||m.unsent_at||m.pending)return;S.msgEdit=v;const ok=canChange(m);
+  sheet(`<h2>Your message</h2><div class="quote"><span style="min-width:0;white-space:pre-wrap;overflow-wrap:anywhere">${esc(m.body)}</span></div>
+   ${ok?`<button class="btn line block" data-a="msgedit">${ICON.edit}Edit message</button><button class="btn danger block" data-a="msgunsend">${ICON.undo}Unsend message</button>`:`<p class="note">You can only edit or unsend a message for ${EDIT_MINUTES} minutes after sending it.</p>`}
+   <button class="btn line block" data-a="msgcopy">${ICON.copy}Copy text</button>
+   <button class="btn ghost block" data-a="close">Cancel</button>`)},
+ msgcopy:async()=>{const m=S.msgs.find(x=>x.id===S.msgEdit);closeSheet();if(!m)return;
+  try{await navigator.clipboard.writeText(m.body);toast("Copied.")}catch(e){toast("Couldn't copy here. Press and hold the text to copy it instead.")}},
+ msgedit:()=>{const m=S.msgs.find(x=>x.id===S.msgEdit);if(!canChange(m)){closeSheet();toast(`You can only edit a message for ${EDIT_MINUTES} minutes after sending it.`);return}
+  sheet(`<h2>Edit message</h2><textarea class="inp" id="me-text" maxlength="1000" aria-label="Edit your message">${esc(m.body)}</textarea>
+   <p class="note">Your friend will see that this message was edited.</p>
+   <button class="btn primary block" data-a="msgsave">Save</button><button class="btn ghost block" data-a="close">Cancel</button>`);
+  const ta=document.getElementById("me-text");if(ta){ta.focus();ta.setSelectionRange(ta.value.length,ta.value.length)}},
+ msgsave:async(v,btn)=>{const m=S.msgs.find(x=>x.id===S.msgEdit);if(!m)return;
+  const nb=((document.getElementById("me-text")||{}).value||"").trim();
+  if(!nb){toast("Write something, or unsend the message instead.");return}
+  if(nb===m.body){closeSheet();return}
+  btn.disabled=true;btn.textContent="Saving…";
+  const {data,error}=await sb.rpc("edit_message",{msg_id:m.id,new_body:nb});
+  if(error){btn.disabled=false;btn.textContent="Save";toast(error.message);return}
+  Object.assign(m,rowOf(data)||{body:nb,edited_at:new Date().toISOString()});closeSheet();updateChat();toast("Message edited.")},
+ msgunsend:()=>{const m=S.msgs.find(x=>x.id===S.msgEdit);const c=m&&connById(m.connection_id);const p=c&&person(otherId(c));
+  sheet(`<h2>Unsend this message?</h2><p style="margin:0">It will be removed for both of you. ${p?esc(p.name):"Your friend"} will see that a message was unsent.</p>
+   <button class="btn danger block" data-a="msgunsenddo">Unsend</button><button class="btn ghost block" data-a="close">Cancel</button>`)},
+ msgunsenddo:async(v,btn)=>{const m=S.msgs.find(x=>x.id===S.msgEdit);if(!m)return;
+  btn.disabled=true;btn.textContent="Unsending…";
+  const {data,error}=await sb.rpc("unsend_message",{msg_id:m.id});
+  if(error){btn.disabled=false;btn.textContent="Unsend";toast(error.message);return}
+  Object.assign(m,rowOf(data)||{body:"",unsent_at:new Date().toISOString()});closeSheet();updateChat();toast("Message unsent.")},
  starter:v=>{const ta=document.getElementById("m-text");if(ta){ta.value=v;autoGrow(ta);ta.focus()}},
  pmenu:v=>{const p=person(v);if(!p)return;const c=connWith(v);
   sheet(`<h2>${esc(p.name)}</h2>
@@ -1464,7 +1627,7 @@ document.addEventListener("keydown",e=>{
  if(S.viewer){if(e.key==="Escape"){A.vclose()}else if(e.key==="ArrowLeft"){A.vprev()}else if(e.key==="ArrowRight"){A.vnext()}return}
  if(e.key==="Escape")closeSheet();
 });
-document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")refresh()});
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"){heartbeat();refresh()}});
 
 /* ---------- Start ---------- */
 sb.auth.onAuthStateChange((event,session)=>{
