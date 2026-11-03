@@ -636,6 +636,7 @@ const unreadIn=cid=>S.msgs.filter(m=>m.connection_id===cid&&m.sender_id!==myId()
 const unreadChats=()=>S.conns.filter(c=>c.status==="accepted"&&unreadIn(c.id)).length;
 function fmtShort(ts){const d=new Date(ts),n=new Date();if(d.toDateString()===n.toDateString())return d.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});const y=new Date(n);y.setDate(n.getDate()-1);if(d.toDateString()===y.toDateString())return"Yesterday";return d.toLocaleDateString([],{day:"numeric",month:"short"})}
 function fmtStamp(ts){const d=new Date(ts);return fmtShort(ts)===d.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"})?"Today "+fmtShort(ts):d.toLocaleDateString([],{weekday:"short",day:"numeric",month:"short"})+" "+d.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"})}
+function fmtSeen(ts){const d=new Date(ts),time=d.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"}),s=fmtShort(ts);return s===time?time:s==="Yesterday"?"yesterday at "+time:d.toLocaleDateString([],{weekday:"short",day:"numeric",month:"short"})+", "+time}
 function skipKey(){return"friendly-skipped-"+myId()}
 function loadSkipped(){try{S.skipped=JSON.parse(localStorage.getItem(skipKey())||"[]")}catch(e){S.skipped=[]}}
 function saveSkipped(){try{localStorage.setItem(skipKey(),JSON.stringify(S.skipped))}catch(e){}}
@@ -1138,7 +1139,7 @@ function msgsHtml(cid){
   out+=`<div class="m ${mine?"me":"them"}${m.pending?" pending":""}"${mine&&!m.pending?` role="button" tabindex="0" aria-haspopup="dialog" data-a="msgmenu" data-v="${esc(m.id)}"`:""}>${esc(m.body)}</div>`;
   if(m.edited_at)out+=`<span class="m-edited ${mine?"me":"them"}">Edited</span>`});
  const last=ms[ms.length-1];
- if(last.sender_id===myId()&&last.read_at)out+=`<span class="m-seen">Seen</span>`;
+ if(last.sender_id===myId()&&!last.unsent_at&&!last.pending)out+=`<span class="m-seen">${last.read_at?"Seen "+esc(fmtSeen(last.read_at)):"Delivered"}</span>`;
  return out;
 }
 function vChat(cid){
