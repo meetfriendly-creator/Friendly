@@ -362,6 +362,53 @@ select.inp.sm{min-height:44px;width:auto;border-radius:999px;font-size:14px}
 .m.pending{opacity:.55}
 .m.me[data-a]{cursor:pointer;-webkit-touch-callout:none}
 .m.unsent{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1.5px var(--line);font-style:italic;font-size:14.5px}
+.composer .cbtn{width:46px;height:46px;border-radius:50%;border:0;background:var(--surface-2);color:var(--ink);display:grid;place-items:center;flex:none;cursor:pointer}
+.composer .cbtn svg{width:21px;height:21px}
+.composer .hide{display:none!important}
+.composer.recording{align-items:center}
+.rec-live{flex:1;display:flex;align-items:center;gap:10px;font-weight:600;font-variant-numeric:tabular-nums;min-height:46px;padding:0 16px;border-radius:23px;background:var(--surface-2)}
+.rec-dot{width:10px;height:10px;border-radius:50%;background:#E5484D;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.25}}
+.m.media{padding:4px;position:relative}
+.m.img .mimg{display:block;border:0;padding:0;background:#E4E4E8;border-radius:18px;overflow:hidden;width:min(240px,62vw);max-height:340px;cursor:zoom-in}
+.m.img .mimg img{display:block;width:100%;height:100%;object-fit:cover}
+.m.img .mcap{display:block;padding:8px 11px 6px}
+.m-more{position:absolute;top:8px;right:8px;width:30px;height:26px;border-radius:13px;border:0;background:rgba(0,0,0,.55);color:#FFFFFF;display:grid;place-items:center;padding:0}
+.m-more svg{width:16px;height:16px}
+.m.voice{display:flex;align-items:center;gap:10px;min-width:210px;padding:8px 14px 8px 8px;white-space:normal}
+.m.voice .m-more{position:static;flex:none;background:rgba(255,255,255,.18)}
+.vplay{width:36px;height:36px;border-radius:50%;border:0;display:grid;place-items:center;flex:none;background:rgba(255,255,255,.2);color:inherit}
+.m.them .vplay{background:var(--surface)}
+.vplay svg{width:16px;height:16px}
+.vplay .ic-pause{display:none}.voice.on .ic-play{display:none}.voice.on .ic-pause{display:block}
+.vbar{flex:1;height:4px;border-radius:2px;background:rgba(140,140,150,.4);position:relative;overflow:hidden;min-width:60px}
+.vbar i{position:absolute;left:0;top:0;bottom:0;width:0;background:currentColor;border-radius:2px}
+.vdur{font-size:12.5px;font-variant-numeric:tabular-nums;min-width:32px;text-align:right}
+.m-tr-btn{align-self:flex-start;background:none;border:0;color:var(--muted);font:600 12px var(--body);padding:2px 8px 4px;text-decoration:underline;text-underline-offset:2px}
+.m-tr{align-self:flex-start;max-width:78%;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--line);border-radius:16px;padding:9px 13px;font-size:15px;white-space:pre-wrap;overflow-wrap:anywhere;margin:2px 0 4px}
+.m-tr small{display:block;font-size:11.5px;color:var(--muted);margin-top:4px;white-space:normal}
+.m-call{align-self:center;display:flex;align-items:center;gap:8px;background:var(--surface-2);border-radius:999px;padding:7px 8px 7px 14px;font-size:14px;font-weight:600;margin:8px 0;max-width:100%}
+.m-call>svg{width:18px;height:18px;flex:none}
+.m-call button{border:0;background:var(--ink);color:#FFFFFF;border-radius:999px;padding:6px 12px;font:700 13px var(--body)}
+.m-call span{padding-right:6px}
+.send-preview{width:100%;max-height:48vh;object-fit:contain;border-radius:16px;background:var(--surface-2)}
+.chat-top .icon-btn+.icon-btn{margin-left:-2px}
+.call{position:absolute;inset:0;z-index:50;background:#0B0B0F;color:#FFFFFF;animation:fade .2s;overflow:hidden}
+.call .rv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0B0B0F;opacity:0;transition:opacity .3s}
+.call.live .rv{opacity:1}
+.call .lv{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:14px;width:104px;height:150px;object-fit:cover;border-radius:16px;background:#222;box-shadow:0 6px 20px rgba(0,0,0,.4);z-index:2;transform:scaleX(-1);display:none}
+.call.has-local .lv{display:block}
+.call-top{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:96px 20px 0;text-align:center}
+.call.live .call-top{padding:18px 130px 0 18px;align-items:flex-start;text-align:left;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.call.live .call-av{display:none}
+.call-top b{font:800 26px/1.1 var(--display)}
+.call-top #call-st{font-size:15px;opacity:.85;font-variant-numeric:tabular-nums}
+.call-bar{position:absolute;left:0;right:0;bottom:calc(30px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:18px;z-index:2}
+.cb{width:62px;height:62px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#FFFFFF;display:grid;place-items:center;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.cb svg{width:26px;height:26px}
+.cb.off{background:#FFFFFF;color:#0A0A0B}
+.cb.end{background:#E5484D}
+.cb.ok{background:#22C55E}
 .m-edited{font-size:11.5px;color:var(--faint);margin:1px 8px 3px;font-weight:600}
 .m-edited.me{align-self:flex-end}.m-edited.them{align-self:flex-start}
 .m-time{font-size:11.5px;color:var(--faint);align-self:center;margin:12px 0 4px;font-weight:600}
@@ -551,6 +598,12 @@ const TOPICS=[
 const DAILY=["Describe a smell that reminds you of home.","What's something small that made you happy this week?","If a friend visited your hometown, where would you take them first?","What's a skill you'd love to learn this year?","What's the best advice someone gave you when you arrived here?","Which song do you play when you need energy?","What's a tradition from your culture you'd like to share?"];
 
 const ICON={
+ mic:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg>',
+ video:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="M16 10.5l5-3v9l-5-3z"/></svg>',
+ phonex:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 9c-2.6 0-5.1.5-7.4 1.5-.9.4-1.5 1.3-1.5 2.3v2.1c0 .9.8 1.5 1.6 1.3l3.2-.8c.7-.2 1.2-.8 1.2-1.5v-1.6c1.9-.5 4-.5 5.9 0v1.6c0 .7.5 1.3 1.2 1.5l3.2.8c.8.2 1.6-.4 1.6-1.3v-2.1c0-1-.6-1.9-1.5-2.3C17.1 9.5 14.6 9 12 9z"/></svg>',
+ flip:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9a8 8 0 0114-3l2 2M20 15a8 8 0 01-14 3l-2-2"/><path d="M20 4v4h-4M4 20v-4h4"/></svg>',
+ play:'<svg class="ic-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 001.5.9l10-6.5a1 1 0 000-1.7l-10-6.5A1 1 0 008 5.5z"/></svg><svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
+ globe2:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>',
  edit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>',
  undo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 010 12h-3"/></svg>',
  copy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 00-1-1H5a1 1 0 00-1 1v10a1 1 0 001 1h3"/></svg>',
@@ -692,7 +745,7 @@ async function loadAll(){
   const blocked=S.blocks.map(b=>b.blocked_id);
   S.people=(pr.data||[]).map(fromRow).filter(p=>!blocked.includes(p.id));
   S.conns=cr.error?[]:(cr.data||[]);
-  if(!mr.error&&mr.data){const pend=S.msgs.filter(m=>m.pending);S.msgs=mr.data.concat(pend)}
+  if(!mr.error&&mr.data){const pend=S.msgs.filter(m=>m.pending);S.msgs=mr.data.concat(pend);mr.data.forEach(incomingCall)}
   await signPhotos(S.people.flatMap(p=>p.photos));
   S.loaded=true;
   const k=S.route.split(":")[0];
@@ -704,7 +757,7 @@ async function refresh(){if(refreshing||!S.me)return;refreshing=true;try{await l
 
 async function onSession(session){
   const uid=session&&session.user?session.user.id:null;
-  if(!uid){S.user=null;S.me=null;S.people=[];S.conns=[];S.loaded=false;S.stack=[];if(S.route!=="checkemail")S.route="welcome";render(true);return}
+  if(!uid){try{if(liveCh){sb.removeChannel(liveCh);liveCh=null}if(CALL)endCall(true,null)}catch(e){}S.user=null;S.me=null;S.people=[];S.conns=[];S.loaded=false;S.stack=[];if(S.route!=="checkemail")S.route="welcome";render(true);return}
   if(S.user&&S.user.id===uid&&S.me)return;
   S.user=session.user;S.route="loading";render(true);
   const {data,error}=await sb.from("profiles").select("*").eq("id",uid).maybeSingle();
@@ -712,7 +765,7 @@ async function onSession(session){
   S.stack=[];loadSkipped();
   if(!data){S.me=null;S.draft=blankDraft();S.editing=false;errs={};S.route="setup1";render(true);return}
   S.me=fromRow(data);await signPhotos(S.me.photos);
-  S.route="tab:discover";render(true);heartbeat();loadAll();
+  S.route="tab:discover";render(true);heartbeat();loadAll();startLive();
 }
 function showError(t){S.errText=t;S.route="error";render(true)}
 function friendlyAuthError(e){
@@ -757,7 +810,7 @@ function render(top){
   if(kind==="setup3")applyChipSearch("i-search",".igroup","i-none");
   if(S.route==="tab:discover")bindSwipe();
   if(kind==="tab"||kind==="welcome")setTimeout(()=>celebrate(false),400);
-  if(S.route.startsWith("chat:")){const box=document.getElementById("msgs");if(box)box.scrollTop=box.scrollHeight;autoGrow(document.getElementById("m-text"));markRead(arg)}
+  if(S.route.startsWith("chat:")){const box=document.getElementById("msgs");if(box)box.scrollTop=box.scrollHeight;autoGrow(document.getElementById("m-text"));markRead(arg);ensureMedia(arg)}
   setPolling();
 }
 let pollT=null,pollRoute="";
@@ -791,6 +844,7 @@ function updateChat(force){
   const near=box.scrollHeight-box.scrollTop-box.clientHeight<120;
   box.innerHTML=msgsHtml(cid);
   if(force||near)box.scrollTop=box.scrollHeight;
+  ensureMedia(cid);
 }
 function autoGrow(ta){if(!ta)return;ta.style.height="auto";ta.style.height=Math.min(120,ta.scrollHeight)+"px"}
 
@@ -1097,7 +1151,7 @@ function vFriends(){
  let body="";
  if(t==="chats"){
   body=rows.length?`<div class="group">`+rows.map(({c,last})=>{const p=person(otherId(c)),u=unreadIn(c.id);
-   const pv=last?(last.unsent_at?(last.sender_id===myId()?"You unsent a message":p.name+" unsent a message"):(last.sender_id===myId()?"You: ":"")+last.body):"You're friends. Say hi!";
+   const pv=last?(last.unsent_at?(last.sender_id===myId()?"You unsent a message":p.name+" unsent a message"):(last.kind==="call"?"📹 "+last.body:(last.sender_id===myId()?"You: ":"")+(last.kind==="image"?"📷 Photo"+(last.body?": "+last.body:""):last.kind==="voice"?"🎤 Voice message":last.body))):"You're friends. Say hi!";
    return`<button class="crow ${u?"unread":""}" data-a="openchat" data-v="${c.id}">${avOn(p,52)}<span class="t"><b>${esc(p.name)}${isBday(p)?` <span aria-label="Birthday today">🎂</span>`:""}</b><span class="pv">${esc(pv)}</span></span><span class="tm">${last?esc(fmtShort(last.created_at)):""}${u?`<span class="udot" aria-label="Unread"></span>`:""}</span></button>`}).join("")+`</div>`
    :`<div class="empty">${eicon("friends")}<h2>No chats yet</h2><p class="muted" style="margin:0">Say hi to people on Discover. When someone accepts, or you accept their hello, you can chat here.</p><button class="btn ghost sm" data-a="tab" data-v="discover">Go to Discover</button></div>`;
  }else if(t==="requests"){
@@ -1135,9 +1189,18 @@ function msgsHtml(cid){
  let out="",lastT=0;
  ms.forEach(m=>{const t=new Date(m.created_at).getTime();if(t-lastT>30*60*1000)out+=`<span class="m-time">${esc(fmtStamp(m.created_at))}</span>`;lastT=t;
   const mine=m.sender_id===myId();
-  if(m.unsent_at){out+=`<div class="m ${mine?"me":"them"} unsent">${mine?"You unsent a message":esc(p.name)+" unsent a message"}</div>`;return}
-  out+=`<div class="m ${mine?"me":"them"}${m.pending?" pending":""}"${mine&&!m.pending?` role="button" tabindex="0" aria-haspopup="dialog" data-a="msgmenu" data-v="${esc(m.id)}"`:""}>${esc(m.body)}</div>`;
-  if(m.edited_at)out+=`<span class="m-edited ${mine?"me":"them"}">Edited</span>`});
+  if(m.unsent_at){const w=m.kind==="image"?"a photo":m.kind==="voice"?"a voice message":"a message";out+=`<div class="m ${mine?"me":"them"} unsent">${mine?"You unsent "+w:esc(p.name)+" unsent "+w}</div>`;return}
+  const side=mine?"me":"them",pend=m.pending?" pending":"",more=mine&&!m.pending?`<button class="m-more" data-a="msgmenu" data-v="${esc(m.id)}" aria-label="Message options">${ICON.more}</button>`:"";
+  if(m.kind==="call"){const st=(m.media_meta||{}).status;out+=`<div class="m-call">${ICON.video}<span>${esc(m.body)}${st==="ringing"&&Date.now()-new Date(m.created_at).getTime()<40000?" · ringing":""}</span>${st==="missed"||st==="declined"?`<button data-a="startcall" data-v="${esc(cid)}">Call back</button>`:""}</div>`;return}
+  if(m.kind==="image"){const u=mediaUrl(m.media_path),mm=m.media_meta||{},ar=mm.w&&mm.h?`${mm.w}/${mm.h}`:"4/5";
+   out+=`<div class="m ${side} media img${pend}"><button class="mimg" data-a="openimg" data-v="${esc(m.id)}" aria-label="Open photo" style="aspect-ratio:${ar}">${u?`<img src="${esc(u)}" alt="${esc(m.body||"Photo")}">`:""}</button>${m.body?`<span class="mcap">${esc(m.body)}</span>`:""}${more}</div>`;return}
+  if(m.kind==="voice"){const d=(m.media_meta||{}).dur||0;
+   out+=`<div class="m ${side} voice${pend}${playing===m.id?" on":""}" data-vid="${esc(m.id)}" data-dur="${d}"><button class="vplay" data-a="vplay" data-v="${esc(m.id)}" aria-label="Play voice message, ${fmtDur(d)}">${ICON.play}</button><span class="vbar"><i></i></span><span class="vdur">${fmtDur(d)}</span>${more}</div>`;return}
+  out+=`<div class="m ${side}${pend}"${mine&&!m.pending?` role="button" tabindex="0" aria-haspopup="dialog" data-a="msgmenu" data-v="${esc(m.id)}"`:""}>${esc(m.body)}</div>`;
+  if(m.edited_at)out+=`<span class="m-edited ${side}">Edited</span>`;
+  if(!mine&&m.body&&m.body.trim().length>1){const tr=S.tr[m.id];
+   out+=S.trOpen[m.id]&&tr?`<div class="m-tr" lang="${esc(tr.to)}">${esc(tr.text)}<small>Translated${tr.from?" from "+esc(trName(tr.from)):""} · <button class="linkish" style="padding:0;font-size:11.5px" data-a="translate" data-v="${esc(m.id)}">Show original only</button></small></div>`:`<button class="m-tr-btn" data-a="translate" data-v="${esc(m.id)}">Translate</button>`}
+  });
  const last=ms[ms.length-1];
  if(last.sender_id===myId()&&!last.unsent_at&&!last.pending)out+=`<span class="m-seen">${last.read_at?"Seen "+esc(fmtSeen(last.read_at)):"Delivered"}</span>`;
  return out;
@@ -1148,9 +1211,10 @@ function vChat(cid){
  return`<div class="chat">
   <div class="chat-top"><button class="icon-btn" data-a="back" aria-label="Back">${ICON.back}</button>
    <button class="who" data-a="open" data-v="${esc(p.id)}">${avOn(p,40)}<span style="min-width:0"><b>${esc(p.name)}${isBday(p)?" 🎂":""}</b><span id="chat-status">${statusLine(p.id)}</span></span></button>
+   <button class="icon-btn" data-a="startcall" data-v="${esc(cid)}" aria-label="Video call ${esc(p.name)}">${ICON.video}</button>
    <button class="icon-btn" data-a="pmenu" data-v="${esc(p.id)}" aria-label="More options">${ICON.more}</button></div>
   <div class="msgs" id="msgs">${msgsHtml(cid)}</div>
-  <form class="composer" id="composer" novalidate><textarea class="inp" id="m-text" rows="1" maxlength="1000" placeholder="Message ${esc(p.name)}" aria-label="Message">${esc(S.drafts[cid]||"")}</textarea><button class="send" type="submit" aria-label="Send">${ICON.send}</button></form>
+  <form class="composer${REC?" recording":""}" id="composer" novalidate>${composerInner(cid)}</form>
  </div>`}
 
 function vMe(){
@@ -1164,6 +1228,8 @@ function vMe(){
   <p class="group-title">Invite a friend</p>
   <section class="card"><p class="note">While Friendly is in testing, only share this link with people you know.</p>${inviteBox()}</section>
   ${S.blocks.length?`<p class="group-title">Blocked</p><div class="group">${S.blocks.map(b=>`<div class="frow"><span class="who"><b>${esc(b.blocked_name||"Member")}</b><span>Blocked</span></span><button class="btn line sm" data-a="unblock" data-v="${esc(b.blocked_id)}">Unblock</button></div>`).join("")}</div>`:""}
+  <p class="group-title">Language</p>
+  <div class="group"><button class="lrow" data-a="trlang">${ICON.globe2}<span class="t">Translate messages into<small>${esc(trName(trLang()))}</small></span>${ICON.chev}</button></div>
   <p class="group-title">Privacy</p>
   <div class="group"><button class="lrow" data-a="togglestatus" aria-pressed="${S.showStatus}">${ICON.clock}<span class="t">Show when I'm active<small>Friends can see when you were last active. If you turn this off, you won't see theirs either.</small></span><span class="sw" aria-hidden="true"></span></button></div>
   <p class="group-title">Account</p>
@@ -1307,7 +1373,7 @@ function drawViewer(){
 async function sendMsg(){
  const cid=S.route.split(":")[1];const ta=document.getElementById("m-text");if(!ta)return;
  const body=ta.value.trim();if(!body)return;
- ta.value="";S.drafts[cid]="";autoGrow(ta);ta.focus();
+ ta.value="";S.drafts[cid]="";autoGrow(ta);ta.focus();toggleSendMic();
  const temp={id:"tmp"+Date.now(),connection_id:cid,sender_id:myId(),body,created_at:new Date().toISOString(),read_at:null,pending:true};
  S.msgs.push(temp);updateChat(true);
  const {data,error}=await sb.from("messages").insert({connection_id:cid,sender_id:myId(),body}).select().single();
@@ -1339,7 +1405,7 @@ const A={
  close:()=>closeSheet(),
  about:()=>sheet(`<h2>Friendly test version</h2>
   <p style="margin:0">This is an early version for a small group of testers.</p>
-  <div class="stack" style="gap:6px"><span class="lbl">Works now</span><ul><li>Accounts and logging in</li><li>Profiles with up to 6 photos, captions, prompts and details</li><li>Discover with swiping</li><li>Saying hi, and accepting or declining hellos</li><li>Messaging your friends, including editing or unsending a message for 15 minutes</li><li>Seeing when friends were last active (you can turn this off in Me)</li><li>Special themes for Australian holidays, cultural festivals and your birthday</li><li>Blocking and reporting</li><li>English topics</li></ul></div>
+  <div class="stack" style="gap:6px"><span class="lbl">Works now</span><ul><li>Accounts and logging in</li><li>Profiles with up to 6 photos, captions, prompts and details</li><li>Discover with swiping</li><li>Saying hi, and accepting or declining hellos</li><li>Messaging your friends, including editing or unsending a message for 15 minutes</li><li>Seeing when friends were last active (you can turn this off in Me)</li><li>Special themes for Australian holidays, cultural festivals and your birthday</li><li>Photos, voice messages and video calls with friends</li><li>Translating friends' messages into your language</li><li>Blocking and reporting</li><li>English topics</li></ul></div>
   <div class="stack" style="gap:6px"><span class="lbl">Coming later</span><ul><li>Notifications when you get a message</li><li>Video calls</li></ul></div>
   <p class="note">Only invite people you know while Friendly is in testing. Read our <a href="guidelines.html" target="_blank" rel="noopener">Community guidelines</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a>.</p>
   <button class="btn primary block" data-a="close">Got it</button>`),
@@ -1431,7 +1497,7 @@ const A={
   S.busy=false;
   if(error){if(uploaded.length)sb.storage.from("avatars").remove(uploaded);render();toast("Couldn't save your profile: "+error.message);return}
   const stale=d.removed.filter(p=>!paths.includes(p));if(stale.length)sb.storage.from("avatars").remove(stale);
-  const was=S.editing;S.me=fromRow(data);heartbeat();S.editing=false;S.draft=blankDraft();S.stack=[];S.route=was?"tab:me":"tab:discover";render(true);
+  const was=S.editing;S.me=fromRow(data);heartbeat();startLive();S.editing=false;S.draft=blankDraft();S.stack=[];S.route=was?"tab:me":"tab:discover";render(true);
   toast(was?"Profile updated.":"Profile saved. Welcome to Friendly!");
   if(!was)loadAll();
  },
@@ -1494,10 +1560,10 @@ const A={
   const {error}=await sb.rpc("set_show_status",{show:on});btn.disabled=false;
   if(error){toast("Couldn't change that: "+error.message);return}
   S.showStatus=on;if(!on)S.presence={};render();toast(on?"Friends can now see when you're active.":"Your active status is hidden.");if(on)refresh()},
- msgmenu:v=>{const m=S.msgs.find(x=>x.id===v);if(!m||m.sender_id!==myId()||m.unsent_at||m.pending)return;S.msgEdit=v;const ok=canChange(m);
-  sheet(`<h2>Your message</h2><div class="quote"><span style="min-width:0;white-space:pre-wrap;overflow-wrap:anywhere">${esc(m.body)}</span></div>
-   ${ok?`<button class="btn line block" data-a="msgedit">${ICON.edit}Edit message</button><button class="btn danger block" data-a="msgunsend">${ICON.undo}Unsend message</button>`:`<p class="note">You can only edit or unsend a message for ${EDIT_MINUTES} minutes after sending it.</p>`}
-   <button class="btn line block" data-a="msgcopy">${ICON.copy}Copy text</button>
+ msgmenu:v=>{const m=S.msgs.find(x=>x.id===v);if(!m||m.sender_id!==myId()||m.unsent_at||m.pending||m.kind==="call")return;S.msgEdit=v;const ok=canChange(m),txt=!m.kind||m.kind==="text",what=m.kind==="image"?"photo":m.kind==="voice"?"voice message":"message";
+  sheet(`<h2>Your ${what}</h2>${m.body?`<div class="quote"><span style="min-width:0;white-space:pre-wrap;overflow-wrap:anywhere">${esc(m.body)}</span></div>`:""}
+   ${ok?`${txt?`<button class="btn line block" data-a="msgedit">${ICON.edit}Edit message</button>`:""}<button class="btn danger block" data-a="msgunsend">${ICON.undo}Unsend ${what}</button>`:`<p class="note">You can only ${txt?"edit or ":""}unsend a ${what} for ${EDIT_MINUTES} minutes after sending it.</p>`}
+   ${m.body?`<button class="btn line block" data-a="msgcopy">${ICON.copy}Copy text</button>`:""}
    <button class="btn ghost block" data-a="close">Cancel</button>`)},
  msgcopy:async()=>{const m=S.msgs.find(x=>x.id===S.msgEdit);closeSheet();if(!m)return;
   try{await navigator.clipboard.writeText(m.body);toast("Copied.")}catch(e){toast("Couldn't copy here. Press and hold the text to copy it instead.")}},
@@ -1515,14 +1581,15 @@ const A={
   if(error){btn.disabled=false;btn.textContent="Save";toast(error.message);return}
   Object.assign(m,rowOf(data)||{body:nb,edited_at:new Date().toISOString()});closeSheet();updateChat();toast("Message edited.")},
  msgunsend:()=>{const m=S.msgs.find(x=>x.id===S.msgEdit);const c=m&&connById(m.connection_id);const p=c&&person(otherId(c));
-  sheet(`<h2>Unsend this message?</h2><p style="margin:0">It will be removed for both of you. ${p?esc(p.name):"Your friend"} will see that a message was unsent.</p>
+  sheet(`<h2>Unsend this ${m&&m.kind==="image"?"photo":m&&m.kind==="voice"?"voice message":"message"}?</h2><p style="margin:0">It will be removed for both of you. ${p?esc(p.name):"Your friend"} will see that a message was unsent.</p>
    <button class="btn danger block" data-a="msgunsenddo">Unsend</button><button class="btn ghost block" data-a="close">Cancel</button>`)},
- msgunsenddo:async(v,btn)=>{const m=S.msgs.find(x=>x.id===S.msgEdit);if(!m)return;
+ msgunsenddo:async(v,btn)=>{const m=S.msgs.find(x=>x.id===S.msgEdit);if(!m)return;const old=m.media_path;
   btn.disabled=true;btn.textContent="Unsending…";
   const {data,error}=await sb.rpc("unsend_message",{msg_id:m.id});
   if(error){btn.disabled=false;btn.textContent="Unsend";toast(error.message);return}
+  if(old){sb.storage.from("chat").remove([old]).then(()=>{},()=>{});m.media_path=null}
   Object.assign(m,rowOf(data)||{body:"",unsent_at:new Date().toISOString()});closeSheet();updateChat();toast("Message unsent.")},
- starter:v=>{const ta=document.getElementById("m-text");if(ta){ta.value=v;autoGrow(ta);ta.focus()}},
+ starter:v=>{const ta=document.getElementById("m-text");if(ta){ta.value=v;S.drafts[S.route.split(":")[1]]=v;autoGrow(ta);toggleSendMic();ta.focus()}},
  pmenu:v=>{const p=person(v);if(!p)return;const c=connWith(v);
   sheet(`<h2>${esc(p.name)}</h2>
    ${c&&c.status==="accepted"?`<button class="btn line block" data-a="askunfriend" data-v="${c.id}">Remove friend</button>`:""}
@@ -1592,12 +1659,13 @@ const A={
 
  // me
  copylink:async()=>{const inp=document.getElementById("invite-url");try{await navigator.clipboard.writeText(appUrl());toast("Link copied.")}catch(e){if(inp){inp.focus();inp.select()}toast("Press and hold the link to copy it.")}},
- askdelete:()=>sheet(`<h2>Delete your profile?</h2><p style="margin:0">Your profile, photos and hellos will be removed and no one will see them. You'll be logged out. You can make a new profile later by logging in again.</p><button class="btn danger block" data-a="dodelete">Delete profile</button><button class="btn ghost block" data-a="close">Cancel</button>`),
+ askdelete:()=>sheet(`<h2>Delete your profile?</h2><p style="margin:0">Your profile, photos, hellos and chats (including photos and voice messages you sent) will be removed and no one will see them. You'll be logged out. You can make a new profile later by logging in again.</p><button class="btn danger block" data-a="dodelete">Delete profile</button><button class="btn ghost block" data-a="close">Cancel</button>`),
  dodelete:async()=>{
   closeSheet();
   const uid=myId();
   const {data:files}=await sb.storage.from("avatars").list(uid);
   if(files&&files.length)await sb.storage.from("avatars").remove(files.map(f=>uid+"/"+f.name));
+  try{const {data:mine}=await sb.from("messages").select("media_path").eq("sender_id",uid);const paths=(mine||[]).map(r=>r.media_path).filter(Boolean);if(paths.length)await sb.storage.from("chat").remove(paths)}catch(e){}
   const {error}=await sb.from("profiles").delete().eq("id",uid);
   if(error){toast("Couldn't delete: "+error.message);return}
   S.me=null;await sb.auth.signOut();toast("Your profile was deleted.");
@@ -1614,13 +1682,13 @@ app.addEventListener("input",e=>{
  if(e.target.id==="i-search"){S.iq=e.target.value;applyChipSearch("i-search",".igroup","i-none")}
  if(e.target.id==="fi-search")applyChipSearch("fi-search",".fgroup","fi-none",c=>c.dataset.mine==="1");
  if(e.target.id==="f-intro"){const c=document.getElementById("bio-count");if(c)c.textContent=e.target.value.length+" / "+BIO_MAX}
- if(e.target.id==="m-text"){S.drafts[S.route.split(":")[1]]=e.target.value;autoGrow(e.target)}
+ if(e.target.id==="m-text"){S.drafts[S.route.split(":")[1]]=e.target.value;autoGrow(e.target);toggleSendMic()}
  if(e.target.id==="p-ans"){const c=document.getElementById("p-count");if(c)c.textContent=e.target.value.length+" / "+ANSWER_MAX}
 });
 fileInput.addEventListener("change",()=>{
  const f=fileInput.files&&fileInput.files[0];fileInput.value="";
  if(!f)return;
- if(S.draft.photos.length>=MAX_PHOTOS){toast("You can add up to 4 photos.");return}
+ if(S.draft.photos.length>=MAX_PHOTOS){toast(`You can add up to ${MAX_PHOTOS} photos.`);return}
  if(f.type&&!/^image\//.test(f.type)){toast("Choose a photo file.");return}
  resizeImage(f).then(r=>{S.draft.photos.push({blob:r.blob,preview:r.preview});render()}).catch(err=>toast(err.message));
 });
@@ -1629,6 +1697,277 @@ document.addEventListener("keydown",e=>{
  if(e.key==="Escape")closeSheet();
 });
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"){heartbeat();refresh()}});
+
+/* ---------- Chat photos and voice clips ---------- */
+const VOICE_MAX=60;
+S.media={};S.tr={};S.trOpen={};
+const uuid=()=>(crypto.randomUUID?crypto.randomUUID():"10000000-1000-4000-8000-100000000000".replace(/[018]/g,c=>(c^crypto.getRandomValues(new Uint8Array(1))[0]&15>>c/4).toString(16)));
+function mediaUrl(path){const r=S.media[path];return r&&r.exp>Date.now()?r.url:null}
+let signingMedia=false;
+async function ensureMedia(cid){
+ if(signingMedia)return;
+ const need=[...new Set(chatMsgs(cid).filter(m=>m.media_path&&!m.unsent_at&&!m.pending&&!mediaUrl(m.media_path)).map(m=>m.media_path))];
+ if(!need.length)return;
+ signingMedia=true;
+ try{
+  const {data,error}=await sb.storage.from("chat").createSignedUrls(need,3600);
+  if(!error&&data)data.forEach(d=>{if(d&&d.signedUrl&&d.path)S.media[d.path]={url:d.signedUrl,exp:Date.now()+3500*1000}});
+ }finally{signingMedia=false}
+ updateChat();
+}
+function chatResize(file){return new Promise((res,rej)=>{
+ const url=URL.createObjectURL(file);const img=new Image();
+ img.onload=()=>{
+  const W=img.naturalWidth,H=img.naturalHeight,sc=Math.min(1,1600/Math.max(W,H));
+  const w=Math.max(1,Math.round(W*sc)),h=Math.max(1,Math.round(H*sc));
+  const c=document.createElement("canvas");c.width=w;c.height=h;
+  const g=c.getContext("2d");g.imageSmoothingEnabled=true;g.imageSmoothingQuality="high";g.drawImage(img,0,0,w,h);URL.revokeObjectURL(url);
+  c.toBlob(b=>b?res({blob:b,w,h,preview:URL.createObjectURL(b)}):rej(new Error("Couldn't read that photo. Try a different one.")),"image/jpeg",0.85);
+ };
+ img.onerror=()=>{URL.revokeObjectURL(url);rej(new Error("Couldn't read that photo. Try a different one."))};
+ img.src=url;
+})}
+function fmtDur(s){s=Math.max(0,Math.round(s||0));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+async function sendMedia(cid,{blob,ext,type,kind,meta,caption,preview}){
+ const path=`${cid}/${uuid()}.${ext}`;
+ const temp={id:"tmp"+Date.now(),connection_id:cid,sender_id:myId(),body:caption||"",kind,media_path:path,media_meta:meta,created_at:new Date().toISOString(),read_at:null,pending:true};
+ S.media[path]={url:preview,exp:Date.now()+3500*1000};
+ S.msgs.push(temp);updateChat(true);
+ const up=await sb.storage.from("chat").upload(path,blob,{contentType:type,upsert:false});
+ if(up.error){S.msgs=S.msgs.filter(m=>m!==temp);updateChat(true);toast("Couldn't send: "+up.error.message);return}
+ const {data,error}=await sb.from("messages").insert({connection_id:cid,sender_id:myId(),body:caption||"",kind,media_path:path,media_meta:meta}).select().single();
+ S.msgs=S.msgs.filter(m=>m!==temp);
+ if(error){updateChat(true);sb.storage.from("chat").remove([path]);toast("Couldn't send: "+error.message);return}
+ S.msgs.push(data);updateChat(true);
+}
+// Photo picked: show a preview with an optional caption before sending
+app.addEventListener("change",async e=>{
+ if(e.target.id!=="m-photo")return;
+ const f=e.target.files&&e.target.files[0];e.target.value="";if(!f)return;
+ if(f.type&&!/^image\//.test(f.type)){toast("Choose a photo.");return}
+ try{
+  const r=await chatResize(f);S.pendingPhoto=r;
+  sheet(`<h2>Send photo</h2><img class="send-preview" src="${r.preview}" alt="Photo to send"><input class="inp" id="ph-cap" maxlength="300" placeholder="Add a caption (optional)" aria-label="Caption"><button class="btn brand block" data-a="sendphoto">${ICON.send}Send</button><button class="btn ghost block" data-a="close">Cancel</button>`);
+ }catch(err){toast(err.message)}
+});
+A.sendphoto=()=>{const r=S.pendingPhoto;if(!r)return;const cid=S.route.split(":")[1];const cap=((document.getElementById("ph-cap")||{}).value||"").trim();S.pendingPhoto=null;closeSheet();
+ sendMedia(cid,{blob:r.blob,ext:"jpg",type:"image/jpeg",kind:"image",meta:{w:r.w,h:r.h},caption:cap,preview:r.preview})};
+A.openimg=v=>{const m=S.msgs.find(x=>x.id===v);const url=m&&mediaUrl(m.media_path);if(!url)return;
+ const d=document.createElement("div");d.className="viewer";d.setAttribute("role","dialog");d.setAttribute("aria-modal","true");d.setAttribute("aria-label","Photo");
+ d.innerHTML=`<img src="${esc(url)}" alt="${esc(m.body||"Photo")}">${m.body?`<p class="v-cap">${esc(m.body)}</p>`:""}<button class="vb v-x" data-a="imgclose" aria-label="Close">${ICON.x}</button>`;
+ app.appendChild(d);d.querySelector(".v-x").focus()};
+A.imgclose=()=>{document.querySelectorAll(".viewer").forEach(x=>x.remove())};
+
+// Voice clips: tap the mic to record (up to 60 seconds), then send or cancel
+let REC=null;
+function pickAudioType(){if(!window.MediaRecorder)return null;const opts=["audio/mp4","audio/webm;codecs=opus","audio/webm","audio/ogg;codecs=opus"];for(const t of opts){try{if(MediaRecorder.isTypeSupported(t))return t}catch(e){}}return""}
+A.recstart=async()=>{
+ if(REC)return;
+ const type=pickAudioType();
+ if(type===null||!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){toast("Voice messages aren't supported on this browser.");return}
+ let stream;try{stream=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){toast("Friendly needs microphone access to record. Allow it in your browser settings.");return}
+ const rec=type?new MediaRecorder(stream,{mimeType:type}):new MediaRecorder(stream);
+ const chunks=[];rec.ondataavailable=ev=>{if(ev.data&&ev.data.size)chunks.push(ev.data)};
+ REC={rec,stream,chunks,start:Date.now(),send:false,timer:null};
+ rec.onstop=async()=>{const r=REC;REC=null;r.stream.getTracks().forEach(t=>t.stop());clearInterval(r.timer);drawComposer();
+  if(!r.send)return;
+  const secs=(Date.now()-r.start)/1000;if(secs<1){toast("That was too short. Tap the mic and talk for a bit longer.");return}
+  const mt=(rec.mimeType||type||"audio/mp4").split(";")[0];
+  const ext=mt.includes("webm")?"webm":mt.includes("ogg")?"ogg":"m4a";
+  const blob=new Blob(r.chunks,{type:mt});
+  sendMedia(S.route.split(":")[1],{blob,ext,type:mt==="audio/x-m4a"?"audio/mp4":mt,kind:"voice",meta:{dur:Math.round(secs)},caption:"",preview:URL.createObjectURL(blob)});
+ };
+ rec.start(250);
+ REC.timer=setInterval(()=>{const s=(Date.now()-REC.start)/1000;const el=document.getElementById("rec-time");if(el)el.textContent=fmtDur(s)+" / "+fmtDur(VOICE_MAX);if(s>=VOICE_MAX)A.recsend()},250);
+ drawComposer();
+};
+A.recsend=()=>{if(!REC)return;REC.send=true;try{REC.rec.stop()}catch(e){}};
+A.reccancel=()=>{if(!REC)return;REC.send=false;try{REC.rec.stop()}catch(e){}};
+function composerInner(cid){
+ if(REC)return`<button class="cbtn" type="button" data-a="reccancel" aria-label="Cancel recording">${ICON.trash}</button><span class="rec-live" role="status"><i class="rec-dot" aria-hidden="true"></i><span id="rec-time">0:00 / ${fmtDur(VOICE_MAX)}</span></span><button class="send" type="button" data-a="recsend" aria-label="Send voice message">${ICON.send}</button>`;
+ const p=person(otherId(connById(cid)));const has=!!(S.drafts[cid]||"").trim();
+ return`<label class="cbtn" for="m-photo" aria-label="Send a photo">${ICON.cam}</label><input type="file" id="m-photo" accept="image/*" class="hidden-input">
+  <textarea class="inp" id="m-text" rows="1" maxlength="1000" placeholder="Message ${esc(p?p.name:"")}" aria-label="Message">${esc(S.drafts[cid]||"")}</textarea>
+  <button class="send ${has?"":"hide"}" type="submit" aria-label="Send">${ICON.send}</button><button class="cbtn mic ${has?"hide":""}" type="button" data-a="recstart" aria-label="Record a voice message">${ICON.mic}</button>`;
+}
+function drawComposer(){const f=document.getElementById("composer");if(!f||!S.route.startsWith("chat:"))return;f.innerHTML=composerInner(S.route.split(":")[1]);f.classList.toggle("recording",!!REC);autoGrow(document.getElementById("m-text"))}
+function toggleSendMic(){const ta=document.getElementById("m-text");if(!ta)return;const has=!!ta.value.trim();const s=document.querySelector("#composer .send"),m=document.querySelector("#composer .mic");if(s)s.classList.toggle("hide",!has);if(m)m.classList.toggle("hide",has)}
+
+// Voice playback (one clip at a time)
+const player=new Audio();let playing=null;
+player.addEventListener("timeupdate",()=>{if(!playing)return;const el=document.querySelector(`[data-vid="${playing}"]`);if(!el)return;const d=player.duration&&isFinite(player.duration)?player.duration:(+el.dataset.dur||1);el.querySelector(".vbar i").style.width=Math.min(100,player.currentTime/d*100)+"%";el.querySelector(".vdur").textContent=fmtDur(player.currentTime)});
+player.addEventListener("ended",()=>{const id=playing;playing=null;const el=document.querySelector(`[data-vid="${id}"]`);if(el){el.classList.remove("on");el.querySelector(".vbar i").style.width="0%";el.querySelector(".vdur").textContent=fmtDur(+el.dataset.dur)}});
+player.addEventListener("error",()=>{if(playing){toast("This voice message can't play on this device.");playing=null;document.querySelectorAll(".voice.on").forEach(x=>x.classList.remove("on"))}});
+A.vplay=v=>{const m=S.msgs.find(x=>x.id===v);const url=m&&mediaUrl(m.media_path);if(!url){toast("Still loading. Try again in a second.");return}
+ if(playing===v){player.pause();playing=null;document.querySelectorAll(".voice.on").forEach(x=>x.classList.remove("on"));return}
+ document.querySelectorAll(".voice.on").forEach(x=>x.classList.remove("on"));
+ playing=v;player.src=url;player.play().then(()=>{const el=document.querySelector(`[data-vid="${v}"]`);if(el)el.classList.add("on")}).catch(()=>{playing=null;toast("This voice message can't play on this device.")})};
+
+/* ---------- Translation (MyMemory, free) ---------- */
+const TR_LANGS=[["en","English"],["zh-CN","Chinese (Simplified)"],["zh-TW","Chinese (Traditional)"],["vi","Vietnamese"],["hi","Hindi"],["pa","Punjabi"],["es","Spanish"],["pt","Portuguese"],["ar","Arabic"],["fr","French"],["ja","Japanese"],["ko","Korean"],["id","Indonesian"],["ne","Nepali"],["th","Thai"],["tl","Filipino"],["ms","Malay"],["ur","Urdu"],["bn","Bengali"],["ta","Tamil"],["fa","Persian"],["tr","Turkish"],["it","Italian"],["de","German"],["ru","Russian"],["si","Sinhala"],["my","Burmese"],["km","Khmer"]];
+const TR_EMAIL="hello.friendly.au@gmail.com";
+function trLang(){const s=lsGet("friendly-tr-lang");if(s)return s;const n=(navigator.language||"en").toLowerCase();const hit=TR_LANGS.find(([c])=>c.toLowerCase()===n)||TR_LANGS.find(([c])=>c.split("-")[0]===n.split("-")[0]);return hit?hit[0]:"en"}
+const trName=c=>{const h=TR_LANGS.find(x=>x[0]===c)||TR_LANGS.find(x=>x[0].split("-")[0]===String(c).split("-")[0]);return h?h[1]:c};
+function chunkText(t){const enc=new TextEncoder();const parts=t.match(/[^.!?。！？\n]+[.!?。！？\n]*/g)||[t];const out=[];let cur="";
+ for(const p of parts){if(enc.encode(cur+p).length<=450){cur+=p;continue}if(cur)out.push(cur);let q=p;while(enc.encode(q).length>450){let n=Math.min(q.length,150);while(n>1&&enc.encode(q.slice(0,n)).length>450)n--;out.push(q.slice(0,n));q=q.slice(n)}cur=q}
+ if(cur)out.push(cur);return out}
+async function translateText(text,to){
+ const out=[];let detected="";
+ for(const part of chunkText(text)){
+  const url=`https://api.mymemory.translated.net/get?q=${encodeURIComponent(part)}&langpair=Autodetect|${encodeURIComponent(to)}&de=${encodeURIComponent(TR_EMAIL)}`;
+  const r=await fetch(url);const j=await r.json();
+  if(!j||Number(j.responseStatus)!==200||!j.responseData)throw new Error((j&&j.responseDetails)||"Translation isn't available right now.");
+  detected=detected||j.responseData.detectedLanguage||"";
+  out.push(j.responseData.translatedText);
+ }
+ return{text:out.join(" ").replace(/\s+/g," ").trim(),from:detected}
+}
+A.translate=async(v,btn)=>{
+ if(S.trOpen[v]){delete S.trOpen[v];updateChat();return}
+ const m=S.msgs.find(x=>x.id===v);if(!m||!m.body)return;const to=trLang();
+ if(S.tr[v]&&S.tr[v].to===to){S.trOpen[v]=1;updateChat();return}
+ btn.disabled=true;btn.textContent="Translating…";
+ try{
+  const r=await translateText(m.body,to);
+  if(r.from&&r.from.split("-")[0]===to.split("-")[0]){btn.disabled=false;btn.textContent="Translate";toast(`This message is already in ${trName(to)}.`);return}
+  S.tr[v]={to,text:r.text,from:r.from};S.trOpen[v]=1;updateChat();
+ }catch(e){btn.disabled=false;btn.textContent="Translate";toast("Couldn't translate: "+(e.message||"try again later."))}
+};
+A.trlang=()=>{const cur=trLang();sheet(`<h2>Translate messages into</h2><p class="note">When a friend writes in another language, tap Translate under their message.</p><div class="plist">${TR_LANGS.map(([c,n])=>`<button data-a="settrlang" data-v="${c}" ${c===cur?'aria-pressed="true"':""}>${n}${c===cur?" ✓":""}</button>`).join("")}</div><button class="btn ghost block" data-a="close">Cancel</button>`)};
+A.settrlang=v=>{lsSet("friendly-tr-lang",v);S.tr={};S.trOpen={};closeSheet();render();toast(`Messages will translate into ${trName(v)}.`)};
+
+/* ---------- Video calls (direct, phone to phone) ---------- */
+const ICE_SERVERS=[{urls:["stun:stun.l.google.com:19302","stun:stun1.l.google.com:19302"]}];
+// Optional: add a free Metered TURN server here later so calls work on more mobile networks.
+const TURN_SERVERS=[];
+let CALL=null;
+const callSid=uuid();
+function iceConfig(){return{iceServers:ICE_SERVERS.concat(TURN_SERVERS)}}
+function callOverlay(){
+ if(!CALL)return;let el=document.getElementById("call");
+ const p=person(CALL.peerId)||{name:"Friend",photos:[]};
+ if(!el){el=document.createElement("div");el.id="call";el.className="call";el.setAttribute("role","dialog");el.setAttribute("aria-modal","true");el.setAttribute("aria-label","Video call with "+p.name);app.appendChild(el);
+  el.innerHTML=`<video id="rv" class="rv" autoplay playsinline></video><video id="lv" class="lv" autoplay playsinline muted></video>
+   <div class="call-top"><span class="call-av">${avatar(p,84)}</span><b>${esc(p.name)}</b><span id="call-st" role="status"></span></div>
+   <div class="call-bar" id="call-bar"></div>`}
+ const st=document.getElementById("call-st"),bar=document.getElementById("call-bar");
+ const live=CALL.state==="live";el.classList.toggle("live",live);el.classList.toggle("has-local",!!CALL.stream);
+ if(st)st.textContent=CALL.state==="incoming"?"Incoming video call…":CALL.state==="calling"?"Calling…":CALL.state==="connecting"?"Connecting…":fmtDur((Date.now()-CALL.startedAt)/1000);
+ if(bar)bar.innerHTML=CALL.state==="incoming"
+  ?`<button class="cb end" data-a="calldecline" aria-label="Decline">${ICON.phonex}</button><button class="cb ok" data-a="callaccept" aria-label="Accept">${ICON.video}</button>`
+  :`<button class="cb ${CALL.muted?"off":""}" data-a="callmute" aria-label="${CALL.muted?"Unmute":"Mute"}" aria-pressed="${!!CALL.muted}">${ICON.mic}</button>
+    <button class="cb ${CALL.camOff?"off":""}" data-a="callcam" aria-label="${CALL.camOff?"Turn camera on":"Turn camera off"}" aria-pressed="${!!CALL.camOff}">${ICON.video}</button>
+    <button class="cb" data-a="callflip" aria-label="Switch camera">${ICON.flip}</button>
+    <button class="cb end" data-a="callend" aria-label="End call">${ICON.phonex}</button>`;
+ const lv=document.getElementById("lv");if(lv&&CALL.stream&&lv.srcObject!==CALL.stream)lv.srcObject=CALL.stream;
+ const rv=document.getElementById("rv");if(rv&&CALL.remote&&rv.srcObject!==CALL.remote)rv.srcObject=CALL.remote;
+}
+async function getCam(facing){return navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true},video:{facingMode:facing||"user",width:{ideal:720},height:{ideal:1280}}})}
+async function joinCallChannel(cid){
+ try{await sb.realtime.setAuth()}catch(e){}
+ const ch=sb.channel("call:"+cid,{config:{private:true,broadcast:{self:false}}});
+ ch.on("broadcast",{event:"sig"},({payload})=>onSignal(payload));
+ await new Promise((res,rej)=>{let done=false;ch.subscribe(s=>{if(s==="SUBSCRIBED"&&!done){done=true;res()}else if((s==="CHANNEL_ERROR"||s==="TIMED_OUT")&&!done){done=true;rej(new Error("Couldn't connect the call."))}})});
+ return ch;
+}
+function sig(o){if(CALL&&CALL.ch)CALL.ch.send({type:"broadcast",event:"sig",payload:Object.assign({sid:callSid,mid:CALL.msgId},o)})}
+function makePC(){
+ const pc=new RTCPeerConnection(iceConfig());
+ CALL.stream.getTracks().forEach(t=>pc.addTrack(t,CALL.stream));
+ pc.onicecandidate=e=>{if(e.candidate)sig({t:"ice",c:e.candidate.toJSON?e.candidate.toJSON():e.candidate})};
+ pc.ontrack=e=>{CALL.remote=e.streams[0]||new MediaStream([e.track]);callOverlay()};
+ pc.onconnectionstatechange=()=>{const s=pc.connectionState;
+  if(s==="connected"&&CALL&&CALL.state!=="live"){CALL.state="live";CALL.startedAt=Date.now();CALL.tick=setInterval(callOverlay,1000);callOverlay();if(CALL.role==="callee")sb.rpc("set_call_status",{msg_id:CALL.msgId,new_status:"answered"}).then(()=>{},()=>{})}
+  if(s==="failed"){toast("The call couldn't connect. One of you may be on a network that blocks direct calls. Try Wi-Fi.");endCall(true,"ended")}};
+ CALL.pc=pc;CALL.iceQ=[];return pc;
+}
+async function addIce(c){if(!CALL||!CALL.pc)return;if(!CALL.pc.remoteDescription){CALL.iceQ.push(c);return}try{await CALL.pc.addIceCandidate(c)}catch(e){}}
+async function flushIce(){const q=CALL.iceQ||[];CALL.iceQ=[];for(const c of q){try{await CALL.pc.addIceCandidate(c)}catch(e){}}}
+async function onSignal(p){
+ if(!CALL||!p||p.sid===callSid||p.mid!==CALL.msgId)return;
+ try{
+  if(p.t==="accept"&&CALL.role==="caller"&&!CALL.pc){clearTimeout(CALL.ringT);CALL.state="connecting";callOverlay();const pc=makePC();const o=await pc.createOffer();await pc.setLocalDescription(o);sig({t:"offer",sdp:pc.localDescription})}
+  else if(p.t==="offer"&&CALL.role==="callee"&&CALL.pc){await CALL.pc.setRemoteDescription(p.sdp);await flushIce();const a=await CALL.pc.createAnswer();await CALL.pc.setLocalDescription(a);sig({t:"answer",sdp:CALL.pc.localDescription})}
+  else if(p.t==="answer"&&CALL.role==="caller"&&CALL.pc){await CALL.pc.setRemoteDescription(p.sdp);await flushIce()}
+  else if(p.t==="ice")addIce(p.c);
+  else if(p.t==="decline"){toast((person(CALL.peerId)||{name:"They"}).name+" can't take the call right now.");endCall(false)}
+  else if(p.t==="hangup"){toast("Call ended.");endCall(false)}
+ }catch(e){toast("Call problem: "+e.message);endCall(true,"ended")}
+}
+function stopMedia(){if(!CALL)return;[CALL.stream].forEach(s=>s&&s.getTracks().forEach(t=>t.stop()))}
+async function endCall(notify,status){
+ const c=CALL;if(!c)return;CALL=null;
+ clearTimeout(c.ringT);clearInterval(c.tick);
+ if(notify&&c.ch){try{c.ch.send({type:"broadcast",event:"sig",payload:{sid:callSid,mid:c.msgId,t:"hangup"}})}catch(e){}}
+ if(status&&c.msgId){const secs=c.startedAt?Math.round((Date.now()-c.startedAt)/1000):0;sb.rpc("set_call_status",{msg_id:c.msgId,new_status:status,seconds:secs}).then(()=>refreshCallMsg(c),()=>{})}
+ [c.stream].forEach(s=>s&&s.getTracks().forEach(t=>t.stop()));
+ try{c.pc&&c.pc.close()}catch(e){}
+ setTimeout(()=>{try{c.ch&&sb.removeChannel(c.ch)}catch(e){}},400);
+ const el=document.getElementById("call");if(el)el.remove();
+}
+async function refreshCallMsg(c){const {data}=await sb.from("messages").select("*").eq("id",c.msgId).maybeSingle();if(data){S.msgs=S.msgs.filter(m=>m.id!==data.id);S.msgs.push(data);updateChat();if(S.route==="tab:friends")render()}}
+A.startcall=async v=>{
+ const cid=v||S.route.split(":")[1];const c=connById(cid);if(!c||c.status!=="accepted")return;
+ if(CALL){toast("You're already in a call.");return}
+ if(!window.RTCPeerConnection||!navigator.mediaDevices){toast("Video calls aren't supported on this browser.");return}
+ let stream;try{stream=await getCam("user")}catch(e){toast("Friendly needs camera and microphone access for video calls. Allow them in your browser settings.");return}
+ CALL={role:"caller",cid,peerId:otherId(c),stream,state:"calling",facing:"user"};callOverlay();
+ try{
+  const {data,error}=await sb.from("messages").insert({connection_id:cid,sender_id:myId(),body:"Video call",kind:"call",media_meta:{status:"ringing"}}).select().single();
+  if(error)throw new Error(error.message);
+  if(!CALL)return;CALL.msgId=data.id;S.msgs.push(data);updateChat(true);
+  CALL.ch=await joinCallChannel(cid);
+  CALL.ringT=setTimeout(()=>{if(CALL&&CALL.state==="calling"){toast("No answer.");endCall(true,"missed")}},40000);
+ }catch(e){toast("Couldn't start the call: "+e.message);endCall(false,CALL&&CALL.msgId?"missed":null)}
+};
+function incomingCall(m){
+ if(CALL||!m||m.kind!=="call"||m.sender_id===myId())return;
+ if(!m.media_meta||m.media_meta.status!=="ringing")return;
+ if(Date.now()-new Date(m.created_at).getTime()>40000)return;
+ if(S.handledCalls&&S.handledCalls[m.id])return;(S.handledCalls=S.handledCalls||{})[m.id]=1;
+ const c=connById(m.connection_id);if(!c)return;
+ CALL={role:"callee",cid:m.connection_id,peerId:m.sender_id,msgId:m.id,state:"incoming",facing:"user"};callOverlay();
+ try{navigator.vibrate&&navigator.vibrate([300,200,300])}catch(e){}
+ CALL.ringT=setTimeout(()=>{if(CALL&&CALL.state==="incoming"&&CALL.msgId===m.id){endCall(false)}},Math.max(1000,40000-(Date.now()-new Date(m.created_at).getTime())));
+}
+A.callaccept=async()=>{
+ if(!CALL||CALL.state!=="incoming")return;clearTimeout(CALL.ringT);
+ try{CALL.stream=await getCam("user")}catch(e){toast("Friendly needs camera and microphone access for video calls.");A.calldecline();return}
+ CALL.state="connecting";callOverlay();
+ try{CALL.ch=await joinCallChannel(CALL.cid);makePC();sig({t:"accept"})}catch(e){toast(e.message);endCall(true,"ended")}
+};
+A.calldecline=async()=>{if(!CALL)return;const c=CALL;
+ try{c.ch=c.ch||await joinCallChannel(c.cid);c.ch.send({type:"broadcast",event:"sig",payload:{sid:callSid,mid:c.msgId,t:"decline"}})}catch(e){}
+ endCall(false,"declined")};
+A.callend=()=>{if(!CALL)return;endCall(true,CALL.state==="live"?"ended":(CALL.role==="caller"?"missed":"declined"))};
+A.callmute=()=>{if(!CALL||!CALL.stream)return;CALL.muted=!CALL.muted;CALL.stream.getAudioTracks().forEach(t=>t.enabled=!CALL.muted);callOverlay()};
+A.callcam=()=>{if(!CALL||!CALL.stream)return;CALL.camOff=!CALL.camOff;CALL.stream.getVideoTracks().forEach(t=>t.enabled=!CALL.camOff);callOverlay()};
+A.callflip=async()=>{if(!CALL||!CALL.stream)return;const facing=CALL.facing==="user"?"environment":"user";
+ try{const s=await navigator.mediaDevices.getUserMedia({video:{facingMode:facing}});const nt=s.getVideoTracks()[0];
+  const sender=CALL.pc&&CALL.pc.getSenders().find(x=>x.track&&x.track.kind==="video");if(sender)await sender.replaceTrack(nt);
+  CALL.stream.getVideoTracks().forEach(t=>{CALL.stream.removeTrack(t);t.stop()});CALL.stream.addTrack(nt);nt.enabled=!CALL.camOff;CALL.facing=facing;
+  const lv=document.getElementById("lv");if(lv){lv.srcObject=null;lv.srcObject=CALL.stream}
+ }catch(e){toast("Couldn't switch camera.")}};
+
+// New messages and incoming calls arrive instantly; a light check every 8 seconds is the backup
+let liveCh=null;
+function startLive(){
+ if(liveCh||!S.me)return;
+ try{
+  liveCh=sb.channel("db-messages").on("postgres_changes",{event:"*",schema:"public",table:"messages"},pl=>{
+   const m=pl.new;if(!m||!m.id)return;
+   const i=S.msgs.findIndex(x=>x.id===m.id);if(i>=0)S.msgs[i]=Object.assign(S.msgs[i],m);else if(!S.msgs.some(x=>x.pending&&x.media_path&&x.media_path===m.media_path))S.msgs.push(m);
+   if(pl.eventType==="INSERT")incomingCall(m);
+   if(S.route==="chat:"+m.connection_id){updateChat();if(m.sender_id!==myId())markRead(m.connection_id)}
+   else if(S.route==="tab:friends")render();
+  }).subscribe();
+ }catch(e){liveCh=null}
+}
+setInterval(async()=>{
+ if(!S.me||CALL||document.visibilityState!=="visible")return;
+ const since=new Date(Date.now()-40000).toISOString();
+ try{const {data}=await sb.from("messages").select("*").eq("kind","call").neq("sender_id",myId()).gte("created_at",since);(data||[]).forEach(incomingCall)}catch(e){}
+},8000);
 
 /* ---------- Start ---------- */
 sb.auth.onAuthStateChange((event,session)=>{
