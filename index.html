@@ -362,6 +362,78 @@ select.inp.sm{min-height:44px;width:auto;border-radius:999px;font-size:14px}
 .m.pending{opacity:.55}
 .m.me[data-a]{cursor:pointer;-webkit-touch-callout:none}
 .m.unsent{background:transparent;color:var(--muted);box-shadow:inset 0 0 0 1.5px var(--line);font-style:italic;font-size:14.5px}
+.masc{display:block;width:100%;height:100%;overflow:visible}
+.masc .bd{animation:mbob 2.6s ease-in-out infinite}
+.masc .eye{transform-box:fill-box;transform-origin:center;animation:mblink 4.2s infinite}
+.masc .wave{transform-box:fill-box;transform-origin:50% 95%;animation:mwave 1.1s ease-in-out infinite}
+.masc.dance .bd,.masc.party .bd,.masc.lol .bd{animation:mjump .8s ease-in-out infinite}
+.masc .float{animation:mfloat 2.2s ease-in-out infinite}
+@keyframes mbob{50%{transform:translateY(-5px)}}
+@keyframes mblink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.1)}}
+@keyframes mwave{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(24deg)}}
+@keyframes mjump{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+@keyframes mfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.toon{display:block;width:100%;height:100%}
+.toon.live .eye{transform-box:fill-box;transform-origin:center;animation:mblink 4.6s infinite}
+.toon.live .head{animation:tbob 3.4s ease-in-out infinite;transform-origin:100px 150px}
+@keyframes tbob{0%,100%{transform:rotate(0)}50%{transform:rotate(-2.5deg) translateY(-1px)}}
+.av-toon{background:none}
+.w-masc{display:block;width:118px;height:118px;margin:-6px 0 -4px -8px}
+.load-masc{display:block;width:120px;height:120px}
+.emasc{display:block;width:110px;height:110px;margin:-6px 0 -4px}
+.match-masc{display:block;width:96px;height:96px;margin:-8px 0 -10px}
+.toon-stage{display:flex;flex-direction:column;align-items:center;gap:12px;padding:6px 0 4px}
+.toon-big{display:block;width:180px;height:180px;border-radius:50%;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.swatches{display:flex;flex-wrap:wrap;gap:10px}
+.sw-c{width:38px;height:38px;border-radius:50%;border:0;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);padding:0}
+.sw-c.on{box-shadow:0 0 0 3px #FFFFFF,0 0 0 5px var(--ink)}
+.toon-me{flex-direction:row;align-items:center;gap:14px;padding:16px}
+.toon-me .t{flex:1;min-width:0}.toon-me b{font:700 16px/1.2 var(--display)}
+.toon-me .note{margin-top:2px}
+.toon-mini{display:block;width:64px;height:64px;flex:none;border-radius:50%;overflow:hidden}
+.toon-card{display:flex;align-items:center;gap:16px}
+.toon-prof{display:block;width:96px;height:96px;flex:none}
+.plus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.plus-it{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border-radius:18px;border:0;background:var(--surface-2);font:600 14px var(--body);color:var(--ink);cursor:pointer;text-align:center}
+.plus-it>svg{width:30px;height:30px}
+.plus-masc{display:block;width:44px;height:44px;margin:-6px 0 -8px}
+.plus-emo{font-size:30px;line-height:1}
+.stk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stk{display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:var(--surface-2);border-radius:16px;padding:8px 4px;font:600 11.5px var(--body);color:var(--muted)}
+.stk svg{width:64px;height:64px}
+.m-sticker{width:132px;height:132px;cursor:pointer;-webkit-touch-callout:none}
+.m-sticker.me{align-self:flex-end}.m-sticker.them{align-self:flex-start}
+.m-sticker.pending{opacity:.55}
+.m-reacts{margin:-10px 10px 4px;padding:3px 7px;border-radius:999px;border:0;background:var(--surface);box-shadow:0 1px 4px rgba(0,0,0,.15),0 0 0 2px #FFFFFF;font-size:15px;line-height:1.2;position:relative;z-index:1;letter-spacing:1px}
+.m-reacts.me{align-self:flex-end}.m-reacts.them{align-self:flex-start}
+.react-row{display:flex;justify-content:space-between;gap:6px}
+.react-b{flex:1;aspect-ratio:1;max-width:56px;border-radius:50%;border:0;background:var(--surface-2);font-size:28px;line-height:1;display:grid;place-items:center;padding:0}
+.react-b.on{background:var(--ink);box-shadow:0 0 0 3px var(--surface-2)}
+.plist button b{display:block;font-weight:700}
+.plist button .d{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.m-game{position:relative;width:min(300px,82%);margin:4px 0}
+.m-game.me{align-self:flex-end}.m-game.them{align-self:flex-start}
+.m-game.pending{opacity:.6}
+.g-card{background:var(--surface);border-radius:22px;padding:16px;box-shadow:inset 0 0 0 1.5px var(--line),0 4px 16px rgba(16,16,24,.06);display:flex;flex-direction:column;gap:8px}
+.g-t{margin:0;font:800 16px/1.25 var(--display);padding-right:34px}
+.g-t span{display:block;font:500 12.5px var(--body);color:var(--muted);margin-top:2px}
+.g-q{margin:2px 0 4px;font:500 19px/1.3 var(--serif)}
+.g-opt{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;text-align:left;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);font:600 15px/1.35 var(--body);color:var(--ink)}
+.g-opt:not(:disabled){cursor:pointer;border-color:#D6D6DE}
+.g-opt:disabled{opacity:1}
+.g-opt small{font-size:12px;color:var(--muted);font-weight:600}
+.g-opt.on{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.g-opt.truth{background:#EAF8EF;border-color:#9BD8B2}
+.g-opt.lie{background:#FDEEEE;border-color:#F0AFAF}
+.g-or{margin:-2px 0;text-align:center;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.g-note{margin:2px 0 0;font-size:13.5px;color:var(--ink-2);font-weight:500}
+.g-again{align-self:flex-start;border:0;background:var(--ink);color:#FFFFFF;border-radius:999px;padding:8px 14px;font:700 13px var(--body)}
+.m-game .m-more{top:12px;right:12px;background:var(--surface-2);color:var(--ink)}
+.ttl-in{display:flex;gap:8px;align-items:center}
+.ttl-in .inp{flex:1;min-width:0}
+.ttl-lie{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:600;flex:none}
+.ttl-lie input{width:20px;height:20px;accent-color:#0A0A0B}
+
 .composer .cbtn{width:46px;height:46px;border-radius:50%;border:0;background:var(--surface-2);color:var(--ink);display:grid;place-items:center;flex:none;cursor:pointer}
 .composer .cbtn svg{width:21px;height:21px}
 .composer .hide{display:none!important}
@@ -669,11 +741,11 @@ function fromRow(r){
   const str=v=>typeof v==="string"?v:"";
   return{id:r.id,name:r.first_name,age:r.age,city:r.city||"",langs:r.languages||[],level:r.english_level,intro:r.intro||"",connect:r.connect_prefs||[],interests:r.interests||[],photos,prompts,
     captions:Array.isArray(r.photo_captions)?r.photo_captions:[],
-    d:{from:str(dt.from),since:str(dt.since),work:str(dt.work),study:str(dt.study),learning:arr(dt.learning),looking:arr(dt.looking),traits:arr(dt.traits),sign:str(dt.sign),bday:/^\d\d-\d\d$/.test(str(dt.bday))?dt.bday:""}};
+    d:{from:str(dt.from),since:str(dt.since),work:str(dt.work),study:str(dt.study),learning:arr(dt.learning),looking:arr(dt.looking),traits:arr(dt.traits),sign:str(dt.sign),bday:/^\d\d-\d\d$/.test(str(dt.bday))?dt.bday:"",toon:dt.toon?cleanToon(dt.toon):null}};
 }
-function toRow(d,uid,photos,captions){return{id:uid,photo_captions:captions||[],details:{from:d.from.trim(),since:d.since,work:d.work.trim(),study:d.study.trim(),learning:d.learning,looking:d.looking,traits:d.traits,sign:d.sign,bday:d.bdayD&&d.bdayM?String(d.bdayM).padStart(2,"0")+"-"+String(d.bdayD).padStart(2,"0"):""},first_name:d.name.trim(),age:parseInt(d.age,10),city:d.city.trim()||null,languages:d.langs,english_level:d.level,intro:d.intro.trim()||null,connect_prefs:d.connect,interests:d.interests,photos,photo_url:photos[0]||null,prompts:d.prompts.map(p=>({q:p.q,a:p.a.trim()}))}}
+function toRow(d,uid,photos,captions){return{id:uid,photo_captions:captions||[],details:{from:d.from.trim(),since:d.since,work:d.work.trim(),study:d.study.trim(),learning:d.learning,looking:d.looking,traits:d.traits,sign:d.sign,bday:d.bdayD&&d.bdayM?String(d.bdayM).padStart(2,"0")+"-"+String(d.bdayD).padStart(2,"0"):"",...(d.toon?{toon:d.toon}:{})},first_name:d.name.trim(),age:parseInt(d.age,10),city:d.city.trim()||null,languages:d.langs,english_level:d.level,intro:d.intro.trim()||null,connect_prefs:d.connect,interests:d.interests,photos,photo_url:photos[0]||null,prompts:d.prompts.map(p=>({q:p.q,a:p.a.trim()}))}}
 const photoSrc=path=>path?S.photoUrls[path]||null:null;
-function avatar(p,size){const s=size||48;const src=photoSrc(p.photos&&p.photos[0]);if(src)return`<span class="av" style="--s:${s}px"><img src="${esc(src)}" alt="" loading="lazy"></span>`;const i=(p.name||"?").trim().charAt(0).toUpperCase()||"?";return`<span class="av" style="--s:${s}px" aria-hidden="true">${esc(i)}</span>`}
+function avatar(p,size){const s=size||48;const tn=p&&p.d&&p.d.toon;if(tn&&tn.show!==false)return`<span class="av av-toon" style="--s:${s}px">${toon(tn,{still:s<70})}</span>`;const src=photoSrc(p.photos&&p.photos[0]);if(src)return`<span class="av" style="--s:${s}px"><img src="${esc(src)}" alt="" loading="lazy"></span>`;const i=(p.name||"?").trim().charAt(0).toUpperCase()||"?";return`<span class="av" style="--s:${s}px" aria-hidden="true">${esc(i)}</span>`}
 function meter(lv){if(lv==null)return"";return`<span class="lvl"><span class="meter" aria-hidden="true">${[0,1,2,3,4].map(i=>`<i class="${i<=lv?"on":""}"></i>`).join("")}</span>${LEVELS[lv]}</span>`}
 function shared(p){return S.me?p.interests.filter(i=>S.me.interests.includes(i)):[]}
 const person=id=>id===(S.me&&S.me.id)?S.me:S.people.find(p=>p.id===id);
@@ -705,7 +777,8 @@ function sheet(html){closeSheet();const s=document.createElement("div");s.classN
 function closeSheet(){document.querySelectorAll(".scrim").forEach(s=>s.remove())}
 
 function header(title,opts){opts=opts||{};return`<header class="top">${opts.back?`<button class="icon-btn" data-a="back" aria-label="Back">${ICON.back}</button>`:""}<h1>${title}</h1>${opts.right||""}${!opts.back&&currentTheme()?`<button class="occ" data-a="occasion" aria-label="${esc(currentTheme().greet)}">${currentTheme().emoji}</button>`:""}${opts.back?"":`<button class="pill" data-a="about" aria-label="About this test version">Beta</button>`}</header>`}
-const eicon=k=>`<span class="eicon" aria-hidden="true">${ICON[k]}</span>`;
+const EPOSE={friends:"wave",sliders:"think",discover:"sleepy",inbox:"sleepy",hi:"wave"};
+const eicon=k=>EPOSE[k]?`<span class="emasc">${mascot(EPOSE[k])}</span>`:`<span class="eicon" aria-hidden="true">${ICON[k]}</span>`;
 function nav(active){const n=incoming().length+unreadChats();const items=[["discover","Discover"],["topics","Topics"],["friends","Chats"],["me","Me"]];return`<nav class="nav" aria-label="Main">${items.map(([k,l])=>`<button data-a="tab" data-v="${k}" ${active===k?'aria-current="page"':""}>${ICON[k]}<span>${l}</span>${k==="friends"&&n?`<span class="badge">${n}</span>`:""}</button>`).join("")}</nav>`}
 
 /* ---------- Data ---------- */
@@ -788,8 +861,9 @@ function render(top){
   if(S.user&&!S.me&&!["setup1","setupB","setup2","setup3","loading","error","newpass"].includes(kind)){S.route="setup1";kind="setup1"}
   applyTheme();
   let html="";
-  if(kind==="loading")html=`<div class="center"><div class="spinner" role="status" aria-label="Loading"></div></div>`;
-  else if(kind==="error")html=`<div class="center"><h2>Something went wrong</h2><p class="muted" style="margin:0">${esc(S.errText)}</p><button class="btn primary" data-a="reload">Try again</button></div>`;
+  if(kind==="loading")html=`<div class="center"><span class="load-masc">${mascot("wave")}</span><p class="muted" role="status" style="margin:0">Loading…</p></div>`;
+  else if(kind==="toon")html=vToon();
+  else if(kind==="error")html=`<div class="center"><span class="emasc">${mascot("sad")}</span><h2>Something went wrong</h2><p class="muted" style="margin:0">${esc(S.errText)}</p><button class="btn primary" data-a="reload">Try again</button></div>`;
   else if(kind==="welcome")html=vWelcome();
   else if(kind==="auth")html=vAuth();
   else if(kind==="checkemail")html=vCheckEmail();
@@ -888,6 +962,7 @@ function interestsBlock(p){
 }
 function profileBody(p,opts){
   const d=p.d||{},out=[photoBlock(p,0,opts),factsBlock(p)];
+  if(d.toon)out.push(`<section class="pcard plain toon-card"><span class="toon-prof">${toon(d.toon,{label:p.name+"'s cartoon"})}</span><p class="sec" style="margin:0">${esc(p.name)}'s cartoon</p></section>`);
   if(p.prompts[0])out.push(promptBlock(p,0,opts,true));
   if(p.photos[1])out.push(photoBlock(p,1,opts));
   if(p.intro)out.push(`<section class="pcard plain"><p class="sec">About me</p><p class="bio">${esc(p.intro)}</p></section>`);
@@ -909,6 +984,7 @@ function vWelcome(){
  return`<div class="welcome">
   <div class="wtop"><div class="mark">${MARK}<p class="word">Friendly</p></div><div class="row" style="gap:8px">${currentTheme()&&currentTheme().id!=="birthday"?`<button class="occ" data-a="occasion" aria-label="${esc(currentTheme().greet)}">${currentTheme().emoji}</button>`:""}<button class="pill" data-a="about" aria-label="About this test version">Beta</button></div></div>
   <div class="hero">
+   <span class="w-masc">${mascot("wave",{label:"Hiya, the Friendly mascot, waving hello"})}</span>
    <p class="tagline">Meet people. Make friends. <em>Learn together.</em></p>
    <p class="muted" style="margin:0;font-size:16.5px;line-height:1.5;max-width:34ch">Find friends who share your interests, and practise English with people who understand what it's like to be new.</p>
   </div>
@@ -1151,7 +1227,7 @@ function vFriends(){
  let body="";
  if(t==="chats"){
   body=rows.length?`<div class="group">`+rows.map(({c,last})=>{const p=person(otherId(c)),u=unreadIn(c.id);
-   const pv=last?(last.unsent_at?(last.sender_id===myId()?"You unsent a message":p.name+" unsent a message"):(last.kind==="call"?"📹 "+last.body:(last.sender_id===myId()?"You: ":"")+(last.kind==="image"?"📷 Photo"+(last.body?": "+last.body:""):last.kind==="voice"?"🎤 Voice message":last.body))):"You're friends. Say hi!";
+   const pv=last?(last.unsent_at?(last.sender_id===myId()?"You unsent a message":p.name+" unsent a message"):(last.kind==="call"?"📹 "+last.body:(last.sender_id===myId()?"You: ":"")+(last.kind==="image"?"📷 Photo"+(last.body?": "+last.body:""):last.kind==="voice"?"🎤 Voice message":last.kind==="sticker"?"Sticker":last.kind==="game"?"🎲 "+last.body:last.body))):"You're friends. Say hi!";
    return`<button class="crow ${u?"unread":""}" data-a="openchat" data-v="${c.id}">${avOn(p,52)}<span class="t"><b>${esc(p.name)}${isBday(p)?` <span aria-label="Birthday today">🎂</span>`:""}</b><span class="pv">${esc(pv)}</span></span><span class="tm">${last?esc(fmtShort(last.created_at)):""}${u?`<span class="udot" aria-label="Unread"></span>`:""}</span></button>`}).join("")+`</div>`
    :`<div class="empty">${eicon("friends")}<h2>No chats yet</h2><p class="muted" style="margin:0">Say hi to people on Discover. When someone accepts, or you accept their hello, you can chat here.</p><button class="btn ghost sm" data-a="tab" data-v="discover">Go to Discover</button></div>`;
  }else if(t==="requests"){
@@ -1189,14 +1265,17 @@ function msgsHtml(cid){
  let out="",lastT=0;
  ms.forEach(m=>{const t=new Date(m.created_at).getTime();if(t-lastT>30*60*1000)out+=`<span class="m-time">${esc(fmtStamp(m.created_at))}</span>`;lastT=t;
   const mine=m.sender_id===myId();
-  if(m.unsent_at){const w=m.kind==="image"?"a photo":m.kind==="voice"?"a voice message":"a message";out+=`<div class="m ${mine?"me":"them"} unsent">${mine?"You unsent "+w:esc(p.name)+" unsent "+w}</div>`;return}
+  if(m.unsent_at){const w=m.kind==="image"?"a photo":m.kind==="voice"?"a voice message":m.kind==="sticker"?"a sticker":m.kind==="game"?"a game":"a message";out+=`<div class="m ${mine?"me":"them"} unsent">${mine?"You unsent "+w:esc(p.name)+" unsent "+w}</div>`;return}
   const side=mine?"me":"them",pend=m.pending?" pending":"",more=mine&&!m.pending?`<button class="m-more" data-a="msgmenu" data-v="${esc(m.id)}" aria-label="Message options">${ICON.more}</button>`:"";
   if(m.kind==="call"){const st=(m.media_meta||{}).status;out+=`<div class="m-call">${ICON.video}<span>${esc(m.body)}${st==="ringing"&&Date.now()-new Date(m.created_at).getTime()<40000?" · ringing":""}</span>${st==="missed"||st==="declined"?`<button data-a="startcall" data-v="${esc(cid)}">Call back</button>`:""}</div>`;return}
+  const rx=reactsHtml(m,side),tap=!mine&&!m.pending?` data-a="reactmenu" data-v="${esc(m.id)}"`:"";
+  if(m.kind==="sticker"){out+=`<div class="m-sticker ${side}${pend}" role="button" tabindex="0" ${mine&&!m.pending?`data-a="msgmenu" data-v="${esc(m.id)}"`:tap.trim()}>${mascot(m.body,{label:stickerName(m.body)+" sticker"})}</div>${rx}`;return}
+  if(m.kind==="game"){out+=`<div class="m-game ${side}${pend}">${gameHtml(m,p)}${more}</div>${rx}`;return}
   if(m.kind==="image"){const u=mediaUrl(m.media_path),mm=m.media_meta||{},ar=mm.w&&mm.h?`${mm.w}/${mm.h}`:"4/5";
-   out+=`<div class="m ${side} media img${pend}"><button class="mimg" data-a="openimg" data-v="${esc(m.id)}" aria-label="Open photo" style="aspect-ratio:${ar}">${u?`<img src="${esc(u)}" alt="${esc(m.body||"Photo")}">`:""}</button>${m.body?`<span class="mcap">${esc(m.body)}</span>`:""}${more}</div>`;return}
+   out+=`<div class="m ${side} media img${pend}"${tap}><button class="mimg" data-a="openimg" data-v="${esc(m.id)}" aria-label="Open photo" style="aspect-ratio:${ar}">${u?`<img src="${esc(u)}" alt="${esc(m.body||"Photo")}">`:""}</button>${m.body?`<span class="mcap">${esc(m.body)}</span>`:""}${more}</div>${rx}`;return}
   if(m.kind==="voice"){const d=(m.media_meta||{}).dur||0;
-   out+=`<div class="m ${side} voice${pend}${playing===m.id?" on":""}" data-vid="${esc(m.id)}" data-dur="${d}"><button class="vplay" data-a="vplay" data-v="${esc(m.id)}" aria-label="Play voice message, ${fmtDur(d)}">${ICON.play}</button><span class="vbar"><i></i></span><span class="vdur">${fmtDur(d)}</span>${more}</div>`;return}
-  out+=`<div class="m ${side}${pend}"${mine&&!m.pending?` role="button" tabindex="0" aria-haspopup="dialog" data-a="msgmenu" data-v="${esc(m.id)}"`:""}>${esc(m.body)}</div>`;
+   out+=`<div class="m ${side} voice${pend}${playing===m.id?" on":""}" data-vid="${esc(m.id)}" data-dur="${d}"${tap}><button class="vplay" data-a="vplay" data-v="${esc(m.id)}" aria-label="Play voice message, ${fmtDur(d)}">${ICON.play}</button><span class="vbar"><i></i></span><span class="vdur">${fmtDur(d)}</span>${more}</div>${rx}`;return}
+  out+=`<div class="m ${side}${pend}"${mine&&!m.pending?` role="button" tabindex="0" aria-haspopup="dialog" data-a="msgmenu" data-v="${esc(m.id)}"`:!m.pending?` role="button" tabindex="0" aria-haspopup="dialog" data-a="reactmenu" data-v="${esc(m.id)}"`:""}>${esc(m.body)}</div>${rx}`;
   if(m.edited_at)out+=`<span class="m-edited ${side}">Edited</span>`;
   if(!mine&&m.body&&m.body.trim().length>1){const tr=S.tr[m.id];
    out+=S.trOpen[m.id]&&tr?`<div class="m-tr" lang="${esc(tr.to)}">${esc(tr.text)}<small>Translated${tr.from?" from "+esc(trName(tr.from)):""} · <button class="linkish" style="padding:0;font-size:11.5px" data-a="translate" data-v="${esc(m.id)}">Show original only</button></small></div>`:`<button class="m-tr-btn" data-a="translate" data-v="${esc(m.id)}">Translate</button>`}
@@ -1225,6 +1304,8 @@ function vMe(){
   <section class="card me-hero"><span class="ring">${avatar(me,112)}</span><p class="name">${esc(me.name)}</p><span class="muted">${[me.age,me.city].filter(Boolean).map(esc).join(" · ")}</span>
    <div class="acts"><button class="btn primary" data-a="edit">Edit profile</button><button class="btn ghost" data-a="open" data-v="${esc(me.id)}">Preview</button></div></section>
   ${!me.photos.length?`<div class="msg ok">Profiles with photos get more hellos. Add one in Edit profile.</div>`:""}
+  <p class="group-title">Your cartoon</p>
+  <section class="card toon-me">${toonOf(me)?`<span class="toon-mini">${toon(toonOf(me),{label:"Your cartoon"})}</span><div class="t"><b>Looking good!</b><p class="note">${toonOf(me).show!==false?"Friends see your cartoon in chats.":"Your cartoon shows on your profile."}</p></div>`:`<span class="toon-mini">${mascot("wave")}</span><div class="t"><b>Make your cartoon</b><p class="note">Create a fun animated cartoon of yourself to use in chats.</p></div>`}<button class="btn ${toonOf(me)?"ghost":"brand"} sm" data-a="toonopen">${toonOf(me)?"Edit":"Create"}</button></section>
   <p class="group-title">Invite a friend</p>
   <section class="card"><p class="note">While Friendly is in testing, only share this link with people you know.</p>${inviteBox()}</section>
   ${S.blocks.length?`<p class="group-title">Blocked</p><div class="group">${S.blocks.map(b=>`<div class="frow"><span class="who"><b>${esc(b.blocked_name||"Member")}</b><span>Blocked</span></span><button class="btn line sm" data-a="unblock" data-v="${esc(b.blocked_id)}">Unblock</button></div>`).join("")}</div>`:""}
@@ -1316,7 +1397,7 @@ async function acceptConn(c){
 }
 function showMatch(p,cid){
  if(!p)return;
- sheet(`<div class="match"><div class="match-avs"><span class="ring">${avatar(S.me,96)}</span><span class="ring">${avatar(p,96)}</span></div><h2>You and ${esc(p.name)} are <span class="grad">now friends</span></h2><p class="muted" style="margin:0">You both said hi. Start the conversation while it's fresh.</p>
+ sheet(`<div class="match"><span class="match-masc">${mascot("party")}</span><div class="match-avs"><span class="ring">${avatar(S.me,96)}</span><span class="ring">${avatar(p,96)}</span></div><h2>You and ${esc(p.name)} are <span class="grad">now friends</span></h2><p class="muted" style="margin:0">You both said hi. Start the conversation while it's fresh.</p>
   <button class="btn brand block" data-a="matchchat" data-v="${esc(cid)}">${ICON.chat}Send a message</button>
   <button class="btn ghost block" data-a="close">Keep swiping</button></div>`);
 }
@@ -1405,7 +1486,7 @@ const A={
  close:()=>closeSheet(),
  about:()=>sheet(`<h2>Friendly test version</h2>
   <p style="margin:0">This is an early version for a small group of testers.</p>
-  <div class="stack" style="gap:6px"><span class="lbl">Works now</span><ul><li>Accounts and logging in</li><li>Profiles with up to 6 photos, captions, prompts and details</li><li>Discover with swiping</li><li>Saying hi, and accepting or declining hellos</li><li>Messaging your friends, including editing or unsending a message for 15 minutes</li><li>Seeing when friends were last active (you can turn this off in Me)</li><li>Special themes for Australian holidays, cultural festivals and your birthday</li><li>Photos, voice messages and video calls with friends</li><li>Translating friends' messages into your language</li><li>Blocking and reporting</li><li>English topics</li></ul></div>
+  <div class="stack" style="gap:6px"><span class="lbl">Works now</span><ul><li>Accounts and logging in</li><li>Profiles with up to 6 photos, captions, prompts and details</li><li>Discover with swiping</li><li>Saying hi, and accepting or declining hellos</li><li>Messaging your friends, including editing or unsending a message for 15 minutes</li><li>Seeing when friends were last active (you can turn this off in Me)</li><li>Special themes for Australian holidays, cultural festivals and your birthday</li><li>Photos, voice messages and video calls with friends</li><li>Translating friends' messages into your language</li><li>Reactions, stickers, chat games and your own cartoon avatar</li><li>Blocking and reporting</li><li>English topics</li></ul></div>
   <div class="stack" style="gap:6px"><span class="lbl">Coming later</span><ul><li>Notifications when you get a message</li><li>Video calls</li></ul></div>
   <p class="note">Only invite people you know while Friendly is in testing. Read our <a href="guidelines.html" target="_blank" rel="noopener">Community guidelines</a> and <a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a>.</p>
   <button class="btn primary block" data-a="close">Got it</button>`),
@@ -1501,7 +1582,7 @@ const A={
   toast(was?"Profile updated.":"Profile saved. Welcome to Friendly!");
   if(!was)loadAll();
  },
- edit:()=>{const m=S.me;S.draft={name:m.name,age:String(m.age),city:m.city,langs:[...m.langs],level:m.level,intro:m.intro,connect:[...m.connect],interests:[...m.interests],photos:m.photos.map((p,i)=>({path:p,caption:(m.captions||[])[i]||""})),prompts:m.prompts.map(p=>({...p})),removed:[],from:m.d.from,since:m.d.since,work:m.d.work,study:m.d.study,learning:[...m.d.learning],looking:[...m.d.looking],traits:[...m.d.traits],sign:m.d.sign,bdayD:m.d.bday?String(+m.d.bday.slice(3)):"",bdayM:m.d.bday?String(+m.d.bday.slice(0,2)):""};S.editing=true;errs={};go("setup1")},
+ edit:()=>{const m=S.me;S.draft={name:m.name,age:String(m.age),city:m.city,langs:[...m.langs],level:m.level,intro:m.intro,connect:[...m.connect],interests:[...m.interests],photos:m.photos.map((p,i)=>({path:p,caption:(m.captions||[])[i]||""})),prompts:m.prompts.map(p=>({...p})),removed:[],from:m.d.from,since:m.d.since,work:m.d.work,study:m.d.study,learning:[...m.d.learning],looking:[...m.d.looking],traits:[...m.d.traits],sign:m.d.sign,bdayD:m.d.bday?String(+m.d.bday.slice(3)):"",bdayM:m.d.bday?String(+m.d.bday.slice(0,2)):"",toon:m.d.toon||null};S.editing=true;errs={};go("setup1")},
 
  // discover
  filters:()=>{
@@ -1560,10 +1641,10 @@ const A={
   const {error}=await sb.rpc("set_show_status",{show:on});btn.disabled=false;
   if(error){toast("Couldn't change that: "+error.message);return}
   S.showStatus=on;if(!on)S.presence={};render();toast(on?"Friends can now see when you're active.":"Your active status is hidden.");if(on)refresh()},
- msgmenu:v=>{const m=S.msgs.find(x=>x.id===v);if(!m||m.sender_id!==myId()||m.unsent_at||m.pending||m.kind==="call")return;S.msgEdit=v;const ok=canChange(m),txt=!m.kind||m.kind==="text",what=m.kind==="image"?"photo":m.kind==="voice"?"voice message":"message";
-  sheet(`<h2>Your ${what}</h2>${m.body?`<div class="quote"><span style="min-width:0;white-space:pre-wrap;overflow-wrap:anywhere">${esc(m.body)}</span></div>`:""}
+ msgmenu:v=>{const m=S.msgs.find(x=>x.id===v);if(!m||m.sender_id!==myId()||m.unsent_at||m.pending||m.kind==="call")return;S.msgEdit=v;const ok=canChange(m),txt=!m.kind||m.kind==="text",what=m.kind==="image"?"photo":m.kind==="voice"?"voice message":m.kind==="sticker"?"sticker":m.kind==="game"?"game":"message",showBody=(txt||m.kind==="image")&&m.body;
+  sheet(`<h2>Your ${what}</h2>${showBody?`<div class="quote"><span style="min-width:0;white-space:pre-wrap;overflow-wrap:anywhere">${esc(m.body)}</span></div>`:""}
    ${ok?`${txt?`<button class="btn line block" data-a="msgedit">${ICON.edit}Edit message</button>`:""}<button class="btn danger block" data-a="msgunsend">${ICON.undo}Unsend ${what}</button>`:`<p class="note">You can only ${txt?"edit or ":""}unsend a ${what} for ${EDIT_MINUTES} minutes after sending it.</p>`}
-   ${m.body?`<button class="btn line block" data-a="msgcopy">${ICON.copy}Copy text</button>`:""}
+   ${showBody?`<button class="btn line block" data-a="msgcopy">${ICON.copy}Copy text</button>`:""}
    <button class="btn ghost block" data-a="close">Cancel</button>`)},
  msgcopy:async()=>{const m=S.msgs.find(x=>x.id===S.msgEdit);closeSheet();if(!m)return;
   try{await navigator.clipboard.writeText(m.body);toast("Copied.")}catch(e){toast("Couldn't copy here. Press and hold the text to copy it instead.")}},
@@ -1673,6 +1754,7 @@ const A={
 };
 
 app.addEventListener("click",e=>{if(Date.now()<S.swallowUntil){e.preventDefault();e.stopPropagation();return}const t=e.target.closest("[data-a]");if(!t||t.disabled)return;const fn=A[t.dataset.a];if(fn){e.preventDefault();fn(t.dataset.v,t,e)}});
+app.addEventListener("click",e=>{const l=e.target.closest("[data-closesheet]");if(l)setTimeout(closeSheet,60)},true);
 app.addEventListener("submit",e=>{e.preventDefault();if(e.target.id==="authform")submitAuth();if(e.target.id==="passform")submitNewPass();if(e.target.id==="composer")sendMsg()});
 app.addEventListener("keydown",e=>{if(e.target.id==="m-text"&&e.key==="Enter"&&!e.shiftKey&&!e.isComposing){e.preventDefault();sendMsg()}});
 app.addEventListener("change",e=>{if(e.target.id==="f-lang"){S.f.lang=e.target.value}});
@@ -1786,7 +1868,7 @@ A.reccancel=()=>{if(!REC)return;REC.send=false;try{REC.rec.stop()}catch(e){}};
 function composerInner(cid){
  if(REC)return`<button class="cbtn" type="button" data-a="reccancel" aria-label="Cancel recording">${ICON.trash}</button><span class="rec-live" role="status"><i class="rec-dot" aria-hidden="true"></i><span id="rec-time">0:00 / ${fmtDur(VOICE_MAX)}</span></span><button class="send" type="button" data-a="recsend" aria-label="Send voice message">${ICON.send}</button>`;
  const p=person(otherId(connById(cid)));const has=!!(S.drafts[cid]||"").trim();
- return`<label class="cbtn" for="m-photo" aria-label="Send a photo">${ICON.cam}</label><input type="file" id="m-photo" accept="image/*" class="hidden-input">
+ return`<button class="cbtn" type="button" data-a="plus" aria-label="Send a photo, sticker or game">${ICON.plus}</button><input type="file" id="m-photo" accept="image/*" class="hidden-input">
   <textarea class="inp" id="m-text" rows="1" maxlength="1000" placeholder="Message ${esc(p?p.name:"")}" aria-label="Message">${esc(S.drafts[cid]||"")}</textarea>
   <button class="send ${has?"":"hide"}" type="submit" aria-label="Send">${ICON.send}</button><button class="cbtn mic ${has?"hide":""}" type="button" data-a="recstart" aria-label="Record a voice message">${ICON.mic}</button>`;
 }
@@ -1968,6 +2050,264 @@ setInterval(async()=>{
  const since=new Date(Date.now()-40000).toISOString();
  try{const {data}=await sb.from("messages").select("*").eq("kind","call").neq("sender_id",myId()).gte("created_at",since);(data||[]).forEach(incomingCall)}catch(e){}
 },8000);
+
+/* ---------- Mascot ("Hiya") and cartoon avatars ---------- */
+let svgUid=0;
+const DEFAULT_GRAD=["#FF5E62","#C23BFF","#5B5CFF"];
+function themeGrad(){try{const th=currentTheme();return th&&!th.quiet&&th.grad?th.grad:DEFAULT_GRAD}catch(e){return DEFAULT_GRAD}}
+function themeHat(){try{const th=currentTheme();if(!th)return"";return{christmas:"santa",birthday:"party",newyear:"party",halloween:"witch",friendship:"party"}[th.id]||""}catch(e){return""}}
+/* pose: wave | dance | love | lol | wow | thanks | party | ok | sleepy | think | sad */
+function mascot(pose,opts){
+ opts=opts||{};pose=pose||"wave";const id="mg"+(++svgUid);const g=opts.grad||themeGrad();const hat=opts.hat!==undefined?opts.hat:themeHat();
+ const ink="#1A1030";
+ const eyesOpen=`<g class="eye"><ellipse cx="82" cy="92" rx="12" ry="14" fill="#fff"/><circle cx="84" cy="95" r="7" fill="${ink}"/><circle cx="86.5" cy="91.5" r="2.4" fill="#fff"/></g><g class="eye"><ellipse cx="118" cy="92" rx="12" ry="14" fill="#fff"/><circle cx="120" cy="95" r="7" fill="${ink}"/><circle cx="122.5" cy="91.5" r="2.4" fill="#fff"/></g>`;
+ const eyesHappy=`<path d="M72 95 Q82 83 92 95M108 95 Q118 83 128 95" fill="none" stroke="${ink}" stroke-width="5" stroke-linecap="round"/>`;
+ const eyesClosed=`<path d="M72 94 Q82 100 92 94M108 94 Q118 100 128 94" fill="none" stroke="${ink}" stroke-width="5" stroke-linecap="round"/>`;
+ const eyesBig=`<g class="eye"><circle cx="82" cy="91" r="15" fill="#fff"/><circle cx="82" cy="92" r="8" fill="${ink}"/><circle cx="85" cy="88" r="3" fill="#fff"/></g><g class="eye"><circle cx="118" cy="91" r="15" fill="#fff"/><circle cx="118" cy="92" r="8" fill="${ink}"/><circle cx="121" cy="88" r="3" fill="#fff"/></g>`;
+ const heart=(x,y,s,c)=>`<path transform="translate(${x} ${y}) scale(${s})" d="M0 4 C0 -2 8 -4 10 2 C12 -4 20 -2 20 4 C20 11 10 16 10 18 C10 16 0 11 0 4Z" fill="${c||"#FF3D6E"}"/>`;
+ const eyesHeart=heart(70,82,1.25)+heart(106,82,1.25);
+ const mouthSmile=`<path d="M88 114 Q100 127 112 114" fill="none" stroke="${ink}" stroke-width="5" stroke-linecap="round"/>`;
+ const mouthOpen=`<path d="M85 112 Q100 136 115 112 Z" fill="${ink}"/><path d="M92 122 Q100 130 108 122 Q100 126 92 122Z" fill="#FF7A9C"/>`;
+ const mouthO=`<ellipse cx="100" cy="119" rx="7" ry="9" fill="${ink}"/>`;
+ const mouthFlat=`<path d="M91 118 L109 118" stroke="${ink}" stroke-width="5" stroke-linecap="round"/>`;
+ const mouthSad=`<path d="M89 122 Q100 111 111 122" fill="none" stroke="${ink}" stroke-width="5" stroke-linecap="round"/>`;
+ const cheeks=`<ellipse cx="68" cy="111" rx="9" ry="6" fill="#FF8FB1" opacity=".55"/><ellipse cx="132" cy="111" rx="9" ry="6" fill="#FF8FB1" opacity=".55"/>`;
+ const arm=(cls,x,y,rot)=>`<g class="${cls}" transform="rotate(${rot} ${x} ${y})"><rect x="${x-8}" y="${y-34}" width="16" height="40" rx="8" fill="url(#${id})"/></g>`;
+ let eyes=eyesOpen,mouth=mouthSmile,armL=arm("arml",44,104,-150),armR=arm("armr",156,104,150),extra="",cls=pose;
+ if(pose==="wave"){armR=`<g class="armr wave"><rect x="150" y="56" width="16" height="44" rx="8" fill="url(#${id})"/></g>`}
+ if(pose==="dance"||pose==="party"){eyes=eyesHappy;mouth=mouthOpen;armL=`<g class="arml up"><rect x="34" y="50" width="16" height="44" rx="8" fill="url(#${id})" transform="rotate(-25 42 92)"/></g>`;armR=`<g class="armr up"><rect x="150" y="50" width="16" height="44" rx="8" fill="url(#${id})" transform="rotate(25 158 92)"/></g>`}
+ if(pose==="party")extra+=["#FFC531","#3DDC97","#4E7CF5","#FF5E62","#C23BFF"].map((c,i)=>`<rect class="float" style="animation-delay:${i*.25}s" x="${[26,168,40,150,96][i]}" y="${[40,36,18,14,8][i]}" width="7" height="12" rx="2" fill="${c}" transform="rotate(${[20,-30,50,10,-15][i]} ${[29,171,43,153,99][i]} ${[46,42,24,20,14][i]})"/>`).join("");
+ if(pose==="love"){eyes=eyesHeart;extra+=`<g class="float">${heart(150,26,1.1)}</g><g class="float" style="animation-delay:.6s">${heart(30,40,.8,"#FF7AA2")}</g>`}
+ if(pose==="lol"){eyes=eyesHappy;mouth=mouthOpen;extra+=`<path d="M64 98 q-4 8 0 12 q4-4 0-12Z" fill="#6EC8FF"/><path d="M136 98 q-4 8 0 12 q4-4 0-12Z" fill="#6EC8FF"/>`;cls+=" dance"}
+ if(pose==="wow"){eyes=eyesBig;mouth=mouthO;extra+=`<text x="150" y="44" font-size="30" font-weight="900" fill="#FFC531" font-family="system-ui">!</text>`}
+ if(pose==="thanks"){eyes=eyesHappy;armL=`<g><rect x="74" y="118" width="16" height="34" rx="8" fill="url(#${id})" transform="rotate(30 82 135)"/></g>`;armR=`<g><rect x="110" y="118" width="16" height="34" rx="8" fill="url(#${id})" transform="rotate(-30 118 135)"/></g>`;extra+=`<path class="float" d="M156 40 l4 10 l10 4 l-10 4 l-4 10 l-4-10 l-10-4 l10-4z" fill="#FFC531"/>`}
+ if(pose==="ok"){eyes=eyesHappy;armR=`<g class="armr"><rect x="150" y="62" width="16" height="40" rx="8" fill="url(#${id})"/><circle cx="158" cy="56" r="12" fill="url(#${id})"/><rect x="153" y="34" width="10" height="20" rx="5" fill="url(#${id})"/></g>`}
+ if(pose==="sleepy"){eyes=eyesClosed;mouth=mouthFlat;extra+=`<text class="float" x="146" y="48" font-size="22" font-weight="900" fill="#8A7CFF" font-family="system-ui">z</text><text class="float" style="animation-delay:.5s" x="160" y="30" font-size="16" font-weight="900" fill="#8A7CFF" font-family="system-ui">z</text>`}
+ if(pose==="think"){mouth=mouthFlat;armR=`<g><rect x="118" y="118" width="16" height="30" rx="8" fill="url(#${id})" transform="rotate(-40 126 133)"/></g>`;extra+=`<text class="float" x="150" y="50" font-size="34" font-weight="900" fill="#C23BFF" font-family="system-ui">?</text>`}
+ if(pose==="sad"){mouth=mouthSad;extra+=`<path d="M70 106 q-4 8 0 12 q4-4 0-12Z" fill="#6EC8FF"/>`}
+ let hatSvg="";
+ if(hat==="party")hatSvg=`<g transform="rotate(-14 100 48)"><path d="M84 52 L100 8 L116 52Z" fill="#FFC531"/><path d="M88 42 L112 42 M92 30 L108 30" stroke="#FF5E62" stroke-width="5"/><circle cx="100" cy="8" r="6" fill="#FF5E62"/></g>`;
+ if(hat==="santa")hatSvg=`<g transform="rotate(-10 100 48)"><path d="M62 54 Q70 10 112 14 Q136 20 140 44 L132 50 Q128 34 116 30 Q120 46 138 54Z" fill="#E63946"/><rect x="58" y="46" width="86" height="14" rx="7" fill="#fff"/><circle cx="140" cy="50" r="8" fill="#fff"/></g>`;
+ if(hat==="witch")hatSvg=`<g transform="rotate(-8 100 48)"><ellipse cx="100" cy="52" rx="52" ry="9" fill="#2B1B3D"/><path d="M74 52 L104 2 L128 52Z" fill="#2B1B3D"/><rect x="76" y="40" width="50" height="8" fill="#FF8A00"/></g>`;
+ return`<svg class="masc ${cls}" viewBox="0 0 200 200" ${opts.label?`role="img" aria-label="${esc(opts.label)}"`:'aria-hidden="true"'}><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${g[0]}"/><stop offset=".55" stop-color="${g[1]}"/><stop offset="1" stop-color="${g[2]}"/></linearGradient></defs>
+ <ellipse cx="100" cy="186" rx="48" ry="7" fill="#000" opacity=".08" class="shadow"/>
+ ${extra}<g class="bd">${armL}<path d="M70 138 L58 172 L102 144 Z" fill="url(#${id})"/><rect x="38" y="44" width="124" height="104" rx="50" fill="url(#${id})"/><ellipse cx="78" cy="62" rx="24" ry="9" fill="#fff" opacity=".18"/>${cheeks}${eyes}${mouth}${armR}${hatSvg}</g></svg>`;
+}
+
+/* Cartoon avatars */
+const TOON={
+ bg:["#FFD6E0","#FFE8B5","#C9F2E1","#CFE3FF","#E4D6FF","#FFD9C2","#E9E9EE","#1F1F2B"],
+ skin:["#FDE0C8","#F6C9A3","#E8B48A","#D39A6A","#B97C4E","#8D5A36","#6B4226","#4A2C19"],
+ hair:["none","buzz","short","side","spiky","curly","afro","bob","long","bun","ponytail"],
+ hairNames:{none:"Bald",buzz:"Buzz cut",short:"Short",side:"Side part",spiky:"Spiky",curly:"Curly",afro:"Afro",bob:"Bob",long:"Long",bun:"Bun",ponytail:"Ponytail"},
+ hc:["#1E1B18","#3B2416","#6A4026","#8E3B1E","#D8B26E","#A8A8AE","#F06AA8","#4E7CF5"],
+ eyes:["dots","happy","big","wink","sleepy"],
+ eyeNames:{dots:"Classic",happy:"Happy",big:"Big",wink:"Wink",sleepy:"Relaxed"},
+ mouth:["smile","grin","small","tongue","neutral"],
+ mouthNames:{smile:"Smile",grin:"Big grin",small:"Small",tongue:"Cheeky",neutral:"Calm"},
+ glasses:["none","round","square","sun"],
+ glassesNames:{none:"None",round:"Round",square:"Square",sun:"Sunnies"},
+ beard:["none","stubble","moustache","beard"],
+ beardNames:{none:"None",stubble:"Stubble",moustache:"Moustache",beard:"Beard"},
+ hat:["none","cap","beanie","hijab","turban","headphones","flower"],
+ hatNames:{none:"None",cap:"Cap",beanie:"Beanie",hijab:"Hijab",turban:"Turban",headphones:"Headphones",flower:"Flower"},
+ top:["#FF5E62","#4E7CF5","#22A06B","#FFC531","#C23BFF","#1F1F2B","#FFFFFF","#FF8A00"],
+ hatc:["#1F1F2B","#E63946","#4E7CF5","#22A06B","#FFC531","#C23BFF","#F4E6D0","#FF8FB1"]
+};
+const pickR=a=>a[Math.floor(Math.random()*a.length)];
+function randomToon(){return{bg:pickR(TOON.bg),skin:pickR(TOON.skin),hair:pickR(TOON.hair.slice(1)),hc:pickR(TOON.hc.slice(0,6)),eyes:pickR(TOON.eyes),mouth:pickR(["smile","grin","small","tongue"]),glasses:Math.random()<.3?pickR(TOON.glasses.slice(1)):"none",beard:Math.random()<.25?pickR(TOON.beard.slice(1)):"none",hat:Math.random()<.25?pickR(["cap","beanie","headphones","flower"]):"none",hatc:pickR(TOON.hatc),top:pickR(TOON.top)}}
+function cleanToon(t){if(!t||typeof t!=="object")return null;const o={};
+ const one=(k,list,def)=>{o[k]=list.includes(t[k])?t[k]:def};
+ one("bg",TOON.bg,TOON.bg[0]);one("skin",TOON.skin,TOON.skin[1]);one("hair",TOON.hair,"short");one("hc",TOON.hc,TOON.hc[0]);one("eyes",TOON.eyes,"dots");one("mouth",TOON.mouth,"smile");
+ one("glasses",TOON.glasses,"none");one("beard",TOON.beard,"none");one("hat",TOON.hat,"none");one("hatc",TOON.hatc,TOON.hatc[0]);one("top",TOON.top,TOON.top[0]);o.show=t.show!==false;return o}
+function shade(hex,amt){const n=parseInt(hex.slice(1),16);let r=n>>16,g=n>>8&255,b=n&255;r=Math.max(0,Math.min(255,r+amt));g=Math.max(0,Math.min(255,g+amt));b=Math.max(0,Math.min(255,b+amt));return"#"+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1)}
+function toon(t,opts){
+ t=cleanToon(t)||randomToon();opts=opts||{};const id="tc"+(++svgUid);const sk=t.skin,skD=shade(sk,-28),hc=t.hc,ink="#1E1B18";
+ const hijab=t.hat==="hijab",turban=t.hat==="turban";
+ let back="",front="",hatB="",hatF="";
+ // hair behind the head
+ if(!hijab){
+  if(t.hair==="afro")back=`<circle cx="100" cy="80" r="64" fill="${hc}"/>`;
+  if(t.hair==="bob")back=`<path d="M52 92 C48 46 74 32 100 32 C128 32 154 46 148 92 L150 134 C140 140 124 138 118 130 L82 130 C76 138 60 140 50 134Z" fill="${hc}"/>`;
+  if(t.hair==="long")back=`<path d="M50 92 C46 44 74 30 100 30 C128 30 156 44 150 92 L156 176 C140 186 120 182 112 170 L88 170 C80 182 60 186 44 176Z" fill="${hc}"/>`;
+  if(t.hair==="ponytail")back=`<path d="M136 66 C168 70 172 110 160 150 C154 132 150 112 140 96Z" fill="${hc}"/>`;
+  if(t.hair==="bun")back=`<circle cx="100" cy="34" r="17" fill="${hc}"/>`;
+ }
+ if(hijab)hatB=`<path d="M42 104 C38 46 70 28 100 28 C130 28 162 46 158 104 C160 140 150 170 138 186 L62 186 C50 170 40 140 42 104Z" fill="${t.hatc}"/>`;
+ // front hair
+ const H={
+  buzz:`<path d="M58 96 C56 60 76 46 100 46 C124 46 144 60 142 96 C136 74 120 64 100 64 C80 64 64 74 58 96Z" fill="${hc}" opacity=".9"/>`,
+  short:`<path d="M56 98 C50 56 74 38 100 38 C128 38 152 56 144 98 C141 80 134 70 122 64 C108 74 86 76 70 68 C62 76 58 86 56 98Z" fill="${hc}"/>`,
+  side:`<path d="M56 100 C48 54 78 36 104 38 C132 40 152 60 144 100 C142 80 136 70 128 64 C112 72 86 68 70 58 C62 70 58 84 56 100Z" fill="${hc}"/><path d="M68 60 C92 54 120 60 134 76 C124 58 98 48 68 60Z" fill="${shade(hc,18)}"/>`,
+  spiky:`<path d="M56 98 C52 70 58 56 66 48 L64 30 L80 42 L86 22 L98 38 L110 20 L116 40 L132 28 L132 48 C144 58 148 74 144 98 C140 80 130 68 100 66 C76 66 62 78 56 98Z" fill="${hc}"/>`,
+  curly:[[62,72,13],[72,56,14],[88,46,15],[106,44,15],[122,50,14],[136,62,13],[142,78,11],[58,88,10]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${hc}"/>`).join(""),
+  afro:[[64,64,16],[80,48,17],[100,42,18],[120,48,17],[136,64,16],[60,84,12],[140,84,12]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${shade(hc,10)}"/>`).join(""),
+  bob:`<path d="M56 96 C52 58 76 42 100 42 C126 42 150 58 144 96 C140 82 132 74 126 70 L74 70 C66 76 60 84 56 96Z" fill="${hc}"/>`,
+  long:`<path d="M56 100 C50 58 76 40 100 40 C126 40 152 58 144 100 C136 74 118 62 100 58 C84 62 64 74 56 100Z" fill="${hc}"/>`,
+  bun:`<path d="M58 96 C54 60 76 44 100 44 C124 44 148 60 142 96 C136 76 120 66 100 64 C80 66 64 76 58 96Z" fill="${hc}"/>`,
+  ponytail:`<path d="M56 98 C52 58 76 40 100 40 C126 40 150 56 144 98 C138 76 122 62 100 60 C80 62 62 76 56 98Z" fill="${hc}"/>`,
+  none:""};
+ if(!hijab&&!turban)front=H[t.hair]||"";
+ else if(turban)front="";
+ // headwear in front
+ if(t.hat==="cap")hatF=`<path d="M54 82 C54 46 76 34 100 34 C124 34 146 46 146 82Z" fill="${t.hatc}"/><path d="M96 78 C120 74 156 76 170 86 C152 90 120 88 96 86Z" fill="${shade(t.hatc,-25)}"/><circle cx="100" cy="36" r="4" fill="${shade(t.hatc,-25)}"/>`;
+ if(t.hat==="beanie")hatF=`<path d="M54 84 C52 42 76 28 100 28 C124 28 148 42 146 84Z" fill="${t.hatc}"/><rect x="50" y="74" width="100" height="18" rx="9" fill="${shade(t.hatc,-22)}"/><circle cx="100" cy="24" r="9" fill="${shade(t.hatc,20)}"/>`;
+ if(t.hat==="turban")hatF=`<path d="M52 84 C46 40 74 24 100 24 C126 24 154 40 148 84 C136 70 118 64 100 64 C82 64 64 70 52 84Z" fill="${t.hatc}"/><path d="M60 72 C80 44 120 40 142 62 M58 58 C84 36 118 34 138 46" fill="none" stroke="${shade(t.hatc,-25)}" stroke-width="4" stroke-linecap="round"/>`;
+ if(hijab)hatF=`<path d="M56 106 C52 60 74 46 100 46 C126 46 148 60 144 106 C146 72 128 56 100 56 C72 56 54 72 56 106Z" fill="${shade(t.hatc,-14)}"/>`;
+ if(t.hat==="headphones")hatF=`<path d="M52 98 C48 40 152 40 148 98" fill="none" stroke="${t.hatc}" stroke-width="8"/><rect x="42" y="88" width="18" height="30" rx="8" fill="${t.hatc}"/><rect x="140" y="88" width="18" height="30" rx="8" fill="${t.hatc}"/>`;
+ if(t.hat==="flower")hatF=`<g transform="translate(132 58)">${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-9" rx="6" ry="9" fill="${t.hatc==="#1F1F2B"?"#FF8FB1":t.hatc}" transform="rotate(${a})"/>`).join("")}<circle r="5" fill="#FFC531"/></g>`;
+ // eyes
+ const E={
+  dots:`<g class="eye"><circle cx="84" cy="100" r="5" fill="${ink}"/></g><g class="eye"><circle cx="116" cy="100" r="5" fill="${ink}"/></g>`,
+  happy:`<path d="M77 102 Q84 94 91 102M109 102 Q116 94 123 102" fill="none" stroke="${ink}" stroke-width="4" stroke-linecap="round"/>`,
+  big:`<g class="eye"><ellipse cx="84" cy="100" rx="8" ry="9" fill="#fff"/><circle cx="85" cy="101" r="5" fill="${ink}"/><circle cx="87" cy="98.5" r="1.8" fill="#fff"/></g><g class="eye"><ellipse cx="116" cy="100" rx="8" ry="9" fill="#fff"/><circle cx="117" cy="101" r="5" fill="${ink}"/><circle cx="119" cy="98.5" r="1.8" fill="#fff"/></g>`,
+  wink:`<g class="eye"><circle cx="84" cy="100" r="5" fill="${ink}"/></g><path d="M109 101 Q116 96 123 101" fill="none" stroke="${ink}" stroke-width="4" stroke-linecap="round"/>`,
+  sleepy:`<path d="M77 100 Q84 104 91 100M109 100 Q116 104 123 100" fill="none" stroke="${ink}" stroke-width="4" stroke-linecap="round"/>`};
+ const brows=turban||t.hat==="cap"||t.hat==="beanie"?"":`<path d="M76 88 Q84 84 92 87M108 87 Q116 84 124 88" fill="none" stroke="${t.hair==="none"||hijab?skD:hc}" stroke-width="3.5" stroke-linecap="round"/>`;
+ const M={
+  smile:`<path d="M88 120 Q100 130 112 120" fill="none" stroke="${ink}" stroke-width="4" stroke-linecap="round"/>`,
+  grin:`<path d="M86 117 Q100 136 114 117Z" fill="${ink}"/><path d="M89 118 L111 118 L109 122 L91 122Z" fill="#fff"/>`,
+  small:`<path d="M94 121 Q100 125 106 121" fill="none" stroke="${ink}" stroke-width="4" stroke-linecap="round"/>`,
+  tongue:`<path d="M88 118 Q100 130 112 118" fill="none" stroke="${ink}" stroke-width="4" stroke-linecap="round"/><path d="M100 124 q8 0 7 8 q-7 4 -9 -6Z" fill="#FF7A9C"/>`,
+  neutral:`<path d="M92 122 L108 122" stroke="${ink}" stroke-width="4" stroke-linecap="round"/>`};
+ const G={none:"",
+  round:`<g fill="none" stroke="${ink}" stroke-width="3"><circle cx="84" cy="100" r="11"/><circle cx="116" cy="100" r="11"/><path d="M95 100 L105 100M73 98 L60 94M127 98 L140 94"/></g>`,
+  square:`<g fill="none" stroke="${ink}" stroke-width="3"><rect x="72" y="91" width="24" height="18" rx="4"/><rect x="104" y="91" width="24" height="18" rx="4"/><path d="M96 99 L104 99M72 97 L60 94M128 97 L140 94"/></g>`,
+  sun:`<g><path d="M70 92 L98 92 L95 108 Q84 113 74 108Z M102 92 L130 92 L126 108 Q116 113 105 108Z" fill="#1E1B18"/><path d="M98 95 L102 95M70 93 L60 90M130 93 L140 90" stroke="#1E1B18" stroke-width="3"/><path d="M76 96 L84 96" stroke="#fff" stroke-width="2" opacity=".5"/></g>`};
+ const B={none:"",
+  stubble:`<path d="M66 112 C70 140 88 148 100 148 C112 148 130 140 134 112 C128 132 114 140 100 140 C86 140 72 132 66 112Z" fill="${hc}" opacity=".35"/>`,
+  moustache:`<path d="M86 116 Q93 110 100 114 Q107 110 114 116 Q107 118 100 116 Q93 118 86 116Z" fill="${hc}"/>`,
+  beard:`<path d="M62 106 C62 140 84 152 100 152 C116 152 138 140 138 106 C132 128 120 132 112 126 C106 122 94 122 88 126 C80 132 68 128 62 106Z" fill="${hc}"/><path d="M86 116 Q93 110 100 114 Q107 110 114 116 Q107 118 100 116 Q93 118 86 116Z" fill="${hc}"/>`};
+ const ears=hijab?"":`<circle cx="57" cy="102" r="9" fill="${sk}"/><circle cx="143" cy="102" r="9" fill="${sk}"/>`;
+ const anim=opts.still?"":" live";
+ return`<svg class="toon${anim}" viewBox="0 0 200 200" ${opts.label?`role="img" aria-label="${esc(opts.label)}"`:'aria-hidden="true"'}><defs><clipPath id="${id}"><circle cx="100" cy="100" r="100"/></clipPath></defs><g clip-path="url(#${id})">
+  <rect width="200" height="200" fill="${t.bg}"/>${hatB}${back}
+  <path d="M34 200 C36 164 66 150 100 150 C134 150 164 164 166 200Z" fill="${t.top}"/><path d="M86 150 Q100 166 114 150" fill="none" stroke="${shade(t.top,-30)}" stroke-width="4"/>
+  <rect x="88" y="128" width="24" height="26" rx="8" fill="${skD}"/>
+  <g class="head">${ears}<ellipse cx="100" cy="98" rx="43" ry="49" fill="${sk}"/>${hijab?`<path d="M58 100 C58 130 76 150 100 150 C124 150 142 130 142 100 C142 140 122 162 100 162 C78 162 58 140 58 100Z" fill="${t.hatc}"/>`:""}
+  <ellipse cx="72" cy="114" rx="7" ry="4.5" fill="#FF8FB1" opacity=".45"/><ellipse cx="128" cy="114" rx="7" ry="4.5" fill="#FF8FB1" opacity=".45"/>
+  ${front}${brows}${E[t.eyes]||E.dots}<path d="M100 104 Q96 112 101 113" fill="none" stroke="${skD}" stroke-width="3" stroke-linecap="round"/>${B[t.beard]||""}${M[t.mouth]||M.smile}${G[t.glasses]||""}${hatF}</g></g></svg>`;
+}
+
+/* ---------- Cartoon avatar maker ---------- */
+function toonOf(p){return p&&p.d&&p.d.toon?p.d.toon:null}
+function vToon(){
+ const t=S.toonDraft||(S.toonDraft=cleanToon(toonOf(S.me))||Object.assign(randomToon(),{show:true}));
+ const sw=(key,list)=>`<div class="swatches" role="group">${list.map(c=>`<button class="sw-c ${t[key]===c?"on":""}" data-a="toonset" data-v="${key}|${c}" style="--c:${c}" aria-label="${c}" aria-pressed="${t[key]===c}"></button>`).join("")}</div>`;
+ const ch=(key,list,names)=>`<div class="wrap">${list.map(v=>`<button class="chip" data-a="toonset" data-v="${key}|${v}" ${pressed(t[key]===v)}>${esc(names[v]||v)}</button>`).join("")}</div>`;
+ return`${header("Your cartoon",{back:true})}
+ <div class="scroll">
+  <div class="toon-stage"><span class="toon-big">${toon(t,{label:"Your cartoon"})}</span><button class="btn ghost sm" data-a="toonrandom">🎲 Surprise me</button></div>
+  <section class="card"><p class="sec">Skin</p>${sw("skin",TOON.skin)}</section>
+  <section class="card"><p class="sec">Hair</p>${ch("hair",TOON.hair,TOON.hairNames)}<p class="sec" style="margin-top:6px">Hair colour</p>${sw("hc",TOON.hc)}</section>
+  <section class="card"><p class="sec">Eyes</p>${ch("eyes",TOON.eyes,TOON.eyeNames)}<p class="sec" style="margin-top:6px">Mouth</p>${ch("mouth",TOON.mouth,TOON.mouthNames)}</section>
+  <section class="card"><p class="sec">Glasses</p>${ch("glasses",TOON.glasses,TOON.glassesNames)}<p class="sec" style="margin-top:6px">Facial hair</p>${ch("beard",TOON.beard,TOON.beardNames)}</section>
+  <section class="card"><p class="sec">Headwear</p>${ch("hat",TOON.hat,TOON.hatNames)}${t.hat!=="none"?`<p class="sec" style="margin-top:6px">Headwear colour</p>${sw("hatc",TOON.hatc)}`:""}</section>
+  <section class="card"><p class="sec">Top</p>${sw("top",TOON.top)}<p class="sec" style="margin-top:6px">Background</p>${sw("bg",TOON.bg)}</section>
+  <div class="group"><button class="lrow" data-a="toonshow" aria-pressed="${t.show!==false}">${ICON.friends}<span class="t">Use as my picture in chats<small>Friends see your cartoon in Chats and Hellos. Your real photos still show on your profile.</small></span><span class="sw" aria-hidden="true"></span></button></div>
+ </div>
+ <div class="footer-bar"><button class="btn primary" data-a="toonsave" ${S.busy?"disabled":""}>${S.busy?"Saving…":"Save my cartoon"}</button></div>`}
+A.toonopen=()=>{S.toonDraft=null;go("toon")};
+A.toonset=v=>{const [k,val]=String(v).split("|");if(!S.toonDraft)return;S.toonDraft[k]=val;render()};
+A.toonrandom=()=>{const show=S.toonDraft?S.toonDraft.show:true;S.toonDraft=Object.assign(randomToon(),{show});render()};
+A.toonshow=()=>{if(!S.toonDraft)return;S.toonDraft.show=S.toonDraft.show===false;render()};
+A.toonsave=async()=>{
+ const t=cleanToon(S.toonDraft);if(!t||!S.me)return;S.busy=true;render();
+ const details=Object.assign({},S.me.d,{toon:t});
+ const {error}=await sb.from("profiles").update({details}).eq("id",myId());
+ S.busy=false;
+ if(error){render();toast("Couldn't save: "+error.message);return}
+ S.me.d.toon=t;S.toonDraft=null;A.back();toast("Cartoon saved! 🎉");
+};
+A.toonremove=async()=>{if(!S.me)return;const details=Object.assign({},S.me.d);delete details.toon;
+ const {error}=await sb.from("profiles").update({details}).eq("id",myId());if(error){toast("Couldn't remove: "+error.message);return}
+ delete S.me.d.toon;closeSheet();render();toast("Cartoon removed.")};
+
+/* ---------- Stickers ---------- */
+const STICKERS=[["wave","Hi!"],["love","Love it"],["lol","Haha"],["wow","Wow"],["thanks","Thank you"],["party","Party"],["ok","Sounds good"],["sleepy","Sleepy"]];
+const stickerName=id=>(STICKERS.find(s=>s[0]===id)||[id,"Sticker"])[1];
+A.plus=()=>sheet(`<h2>Send something</h2><div class="plus-grid">
+  <label class="plus-it" for="m-photo" data-closesheet="1">${ICON.cam}<span>Photo</span></label>
+  <button class="plus-it" data-a="stickers"><span class="plus-masc">${mascot("wave",{grad:themeGrad()})}</span><span>Stickers</span></button>
+  <button class="plus-it" data-a="games"><span class="plus-emo" aria-hidden="true">🎲</span><span>Games</span></button></div>
+  <button class="btn ghost block" data-a="close">Cancel</button>`);
+A.stickers=()=>sheet(`<h2>Stickers</h2><div class="stk-grid">${STICKERS.map(([id,n])=>`<button class="stk" data-a="sendsticker" data-v="${id}" aria-label="Send ${esc(n)} sticker">${mascot(id)}<span>${esc(n)}</span></button>`).join("")}</div><button class="btn ghost block" data-a="close">Cancel</button>`);
+A.sendsticker=async v=>{if(!STICKERS.some(s=>s[0]===v))return;closeSheet();await sendRich(S.route.split(":")[1],{kind:"sticker",body:v,media_meta:null})};
+async function sendRich(cid,row){
+ const temp=Object.assign({id:"tmp"+Date.now(),connection_id:cid,sender_id:myId(),created_at:new Date().toISOString(),read_at:null,pending:true,reactions:{}},row);
+ S.msgs.push(temp);updateChat(true);
+ const {data,error}=await sb.from("messages").insert(Object.assign({connection_id:cid,sender_id:myId()},row)).select().single();
+ S.msgs=S.msgs.filter(m=>m!==temp);
+ if(error){updateChat(true);toast("Couldn't send: "+error.message);return null}
+ S.msgs.push(data);updateChat(true);return data;
+}
+
+/* ---------- Reactions ---------- */
+const REACTS=["❤️","😂","😮","😢","👍","🙏"];
+function reactsHtml(m,side){const r=m.reactions&&typeof m.reactions==="object"?m.reactions:{};const vals=Object.entries(r).filter(([,e])=>REACTS.includes(e));if(!vals.length)return"";
+ return`<button class="m-reacts ${side}" data-a="reactmenu" data-v="${esc(m.id)}" aria-label="Reactions: ${vals.map(([u,e])=>(u===myId()?"you ":"")+e).join(", ")}">${vals.map(([,e])=>e).join("")}</button>`}
+A.reactmenu=v=>{const m=S.msgs.find(x=>x.id===v);if(!m||m.unsent_at||m.pending)return;S.msgEdit=v;const mine=(m.reactions||{})[myId()];
+ const txt=(!m.kind||m.kind==="text")&&m.body;
+ sheet(`<h2>React</h2><div class="react-row">${REACTS.map(e=>`<button class="react-b ${mine===e?"on":""}" data-a="react" data-v="${e}" aria-label="React ${e}" aria-pressed="${mine===e}">${e}</button>`).join("")}</div>
+  ${mine?`<button class="btn line block" data-a="react" data-v="">Remove my reaction</button>`:""}
+  ${txt&&m.sender_id!==myId()?`<button class="btn line block" data-a="msgcopy">${ICON.copy}Copy text</button>`:""}
+  <button class="btn ghost block" data-a="close">Cancel</button>`)};
+A.react=async v=>{const m=S.msgs.find(x=>x.id===S.msgEdit);if(!m)return;closeSheet();
+ const before=Object.assign({},m.reactions||{});const nr=Object.assign({},before);if(v)nr[myId()]=v;else delete nr[myId()];m.reactions=nr;updateChat();
+ const {data,error}=await sb.rpc("react_message",{msg_id:m.id,emoji:v||null});
+ if(error){m.reactions=before;updateChat();toast("Couldn't react: "+error.message);return}
+ const row=rowOf(data);if(row)Object.assign(m,row);updateChat()};
+
+/* ---------- Chat games ---------- */
+const WYR=[["live by the beach","live in the city"],["only eat noodles","only eat rice"],["speak every language","play every instrument"],["have a picnic","go to a café"],["visit Japan","visit Italy"],["be able to fly","be invisible"],["watch a sunrise","watch a sunset"],["go camping","stay in a fancy hotel"],["have a cat","have a dog"],["cook dinner","order takeaway"],["learn to surf","learn to ski"],["read the book","watch the movie"],["always be early","always be a bit late"],["sing karaoke","dance in public"],["spend a day at the zoo","spend a day at a museum"],["have summer all year","have winter all year"],["explore space","explore the ocean"],["text","call"],["try a spicy food challenge","try a sour food challenge"],["go to a concert","go to a footy game"],["have breakfast for dinner","have dinner for breakfast"],["live without music","live without movies"],["meet a famous person","win a holiday"],["know every word in English","speak with a perfect accent"],["go on a road trip","go on a cruise"],["be a great cook","be a great singer"],["have a robot helper","have a personal chef"],["see a kangaroo","see a koala"],["do a bungee jump","swim with sharks"],["only use stairs","only use lifts"]];
+const QUIZ=[["I ___ to the shops yesterday.",["go","went","going"],1],["She is good ___ cooking.",["at","in","on"],0],["Can you ___ me the salt, please?",["pass","past","passed"],0],["We have lived here ___ 2022.",["for","since","from"],1],["\"Arvo\" in Australian English means…",["afternoon","avocado","holiday"],0],["\"No worries\" means…",["it's fine","be careful","I'm sad"],0],["He ___ like coffee.",["don't","doesn't","isn't"],1],["I'm looking forward ___ you.",["to meet","to meeting","meeting"],1],["There ___ many people at the party.",["was","were","is"],1],["\"Brekkie\" is…",["breakfast","a bird","a beach"],0],["If it rains, we ___ stay home.",["will","would","are"],0],["Which is correct?",["I'm agree","I agree","I am agreeing"],1],["\"Heaps\" means…",["a lot","a little","never"],0],["She ___ English for three years.",["has studied","studies","is study"],0],["Can I have ___ water, please?",["a","some","many"],1],["\"How ya going?\" means…",["How are you?","Where are you going?","How old are you?"],0],["My brother is ___ than me.",["more tall","taller","tallest"],1],["I've never ___ sushi.",["eat","ate","eaten"],2],["\"Servo\" is a…",["petrol station","waiter","server"],0],["We ___ dinner when you called.",["were having","have","had have"],0],["\"Thongs\" in Australia are…",["flip-flops","underwear","necklaces"],0],["Which word means \"very happy\"?",["thrilled","tired","bored"],0],["I'd like ___ apple, please.",["a","an","the"],1],["\"Reckon\" means…",["think","forget","wait"],0],["She speaks English very ___.",["good","well","best"],1],["Let's meet ___ Monday.",["in","at","on"],2],["\"Esky\" is a…",["cooler box","ice cream","sky light"],0],["He's interested ___ photography.",["on","in","at"],1],["I ___ my keys! I can't find them.",["lost","have lost","lose"],1],["\"Fair dinkum\" means…",["genuine, true","fair price","dinner time"],0]];
+A.games=()=>sheet(`<h2>Play a game</h2><p class="note">Games are a fun way to break the ice and practise English together.</p>
+ <div class="plist">
+  <button data-a="gamewyr"><b>🤔 Would you rather</b><span class="d">Pick between two fun choices</span></button>
+  <button data-a="gamettl"><b>🕵️ Two truths and a lie</b><span class="d">Your friend guesses which one is fake</span></button>
+  <button data-a="gamequiz"><b>📝 English quiz</b><span class="d">A quick question about English or Aussie slang</span></button>
+ </div><button class="btn ghost block" data-a="close">Cancel</button>`);
+A.gamewyr=async()=>{closeSheet();const [a,b]=pickR(WYR);await sendRich(S.route.split(":")[1],{kind:"game",body:"Would you rather",media_meta:{g:"wyr",a,b}})};
+A.gamequiz=async()=>{closeSheet();const [q,o,ans]=pickR(QUIZ);await sendRich(S.route.split(":")[1],{kind:"game",body:"English quiz",media_meta:{g:"quiz",q,o,a:ans}})};
+A.gamettl=()=>sheet(`<h2>Two truths and a lie</h2><p class="note">Write two true things about you and one lie. Then tap the lie.</p>
+ ${[0,1,2].map(i=>`<div class="ttl-in"><input class="inp" id="ttl-${i}" maxlength="100" placeholder="${["e.g. I've been to 5 countries","e.g. I can cook dumplings","e.g. I've met a celebrity"][i]}" aria-label="Statement ${i+1}"><label class="ttl-lie"><input type="radio" name="ttl-lie" value="${i}" ${i===2?"checked":""}> Lie</label></div>`).join("")}
+ <button class="btn brand block" data-a="sendttl">Send game</button><button class="btn ghost block" data-a="close">Cancel</button>`);
+A.sendttl=async()=>{const s=[0,1,2].map(i=>((document.getElementById("ttl-"+i)||{}).value||"").trim());
+ if(s.some(x=>!x)){toast("Fill in all three.");return}
+ const lie=+((document.querySelector('input[name="ttl-lie"]:checked')||{}).value||2);closeSheet();
+ await sendRich(S.route.split(":")[1],{kind:"game",body:"Two truths and a lie",media_meta:{g:"ttl",s,lie}})};
+A.gameans=async(v,btn)=>{const [id,choice]=String(v).split("|");const m=S.msgs.find(x=>x.id===id);if(!m||m.pending)return;
+ const meta=m.media_meta||{};const ans=Object.assign({},meta.ans||{});if(ans[myId()]!=null)return;
+ ans[myId()]=choice;m.media_meta=Object.assign({},meta,{ans});updateChat();
+ const {data,error}=await sb.rpc("answer_game",{msg_id:id,choice});
+ if(error){delete ans[myId()];updateChat();toast("Couldn't answer: "+error.message);return}
+ const row=rowOf(data);if(row)Object.assign(m,row);updateChat();
+ const mm=m.media_meta||{};if(mm.g==="ttl"&&+choice===mm.lie||mm.g==="quiz"&&+choice===mm.a)setTimeout(()=>{if(typeof celebrateBurst==="function")celebrateBurst()},150)};
+function celebrateBurst(){try{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return}catch(e){}
+ const box=document.createElement("div");box.className="fx";box.setAttribute("aria-hidden","true");
+ for(let i=0;i<16;i++){const s=document.createElement("span");s.textContent=["🎉","✨","⭐","🎊"][i%4];s.style.left=(Math.random()*96)+"%";s.style.fontSize=(18+Math.random()*14)+"px";s.style.animationDelay=(Math.random()*.6)+"s";s.style.animationDuration=(2+Math.random())+"s";box.appendChild(s)}
+ app.appendChild(box);setTimeout(()=>box.remove(),3600)}
+function gameHtml(m,p){
+ const g=m.media_meta||{},ans=g.ans||{},me=myId(),mine=m.sender_id===me,other=p.id,myA=ans[me],theirA=ans[other];
+ const who=uid=>uid===me?"You":esc(p.name);
+ if(g.g==="wyr"){
+  const opt=(k,label)=>{const pickers=Object.keys(ans).filter(u=>ans[u]===k);
+   return`<button class="g-opt ${myA===k?"on":""}" ${myA!=null?"disabled":`data-a="gameans" data-v="${esc(m.id)}|${k}"`}><span>${esc(label)}</span>${pickers.length&&myA!=null?`<small>${pickers.map(who).join(" + ")}</small>`:""}</button>`};
+  const both=myA!=null&&theirA!=null;
+  return`<div class="g-card"><p class="g-t">🤔 Would you rather…</p>${opt("a",g.a)}<p class="g-or">or</p>${opt("b",g.b)}
+   <p class="g-note">${myA==null?"Tap your choice":theirA==null?`Waiting for ${esc(p.name)}…`:myA===theirA?"You both picked the same! 🎉":"You picked differently. Ask why! 😄"}</p>${both?`<button class="g-again" data-a="games">Play another</button>`:""}</div>`}
+ if(g.g==="ttl"){
+  const s=Array.isArray(g.s)?g.s:[];const guess=ans[other]!=null&&mine?ans[other]:(!mine?myA:null);const done=guess!=null;
+  return`<div class="g-card"><p class="g-t">🕵️ Two truths and a lie <span>by ${mine?"you":esc(p.name)}</span></p>
+   ${s.map((x,i)=>`<button class="g-opt ${done&&i===g.lie?"lie":""} ${done&&i!==g.lie?"truth":""} ${done&&String(i)===String(guess)?"on":""}" ${mine||done?"disabled":`data-a="gameans" data-v="${esc(m.id)}|${i}"`}><span>${esc(x)}</span>${done?`<small>${i===g.lie?"❌ Lie":"✅ True"}</small>`:""}</button>`).join("")}
+   <p class="g-note">${!done?(mine?`Waiting for ${esc(p.name)} to guess the lie…`:"Which one is the lie? Tap it."):(+guess===g.lie?(mine?`${esc(p.name)} spotted your lie! 🔍`:"You found the lie! 🎉"):(mine?`You fooled ${esc(p.name)}! 😎`:`${esc(p.name)} fooled you! 😄`))}</p>${done?`<button class="g-again" data-a="games">Play another</button>`:""}</div>`}
+ if(g.g==="quiz"){
+  const o=Array.isArray(g.o)?g.o:[];const guess=mine?theirA:myA;const done=guess!=null;
+  return`<div class="g-card"><p class="g-t">📝 English quiz <span>for ${mine?esc(p.name):"you"}</span></p><p class="g-q">${esc(g.q||"")}</p>
+   ${o.map((x,i)=>`<button class="g-opt ${done&&i===g.a?"truth":""} ${done&&String(i)===String(guess)&&i!==g.a?"lie":""}" ${mine||done?"disabled":`data-a="gameans" data-v="${esc(m.id)}|${i}"`}><span>${esc(x)}</span>${done&&i===g.a?"<small>✅ Correct</small>":""}</button>`).join("")}
+   <p class="g-note">${!done?(mine?`Waiting for ${esc(p.name)} to answer…`:"Tap your answer"):(+guess===g.a?(mine?`${esc(p.name)} got it right! 🎉`:"Correct! Nice one 🎉"):(mine?`${esc(p.name)} wasn't quite right. Help them out!`:"Not quite. Now you know! 💡"))}</p>${done?`<button class="g-again" data-a="games">Play another</button>`:""}</div>`}
+ return`<div class="g-card"><p class="g-t">🎲 ${esc(m.body)}</p></div>`;
+}
 
 /* ---------- Start ---------- */
 sb.auth.onAuthStateChange((event,session)=>{
